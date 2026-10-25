@@ -56,6 +56,21 @@ const checkPhotography = (selector) => {
 checkPhotography('.hero-slide');
 assert.equal(doc.querySelectorAll('.hero-slide img').length, 3);
 assert.equal(doc.querySelectorAll('.photo-slot').length, 0);
+assert.equal(doc.querySelectorAll('.gallery-panel').length, 3);
+const beforeGallery = doc.querySelector('.gallery-panel[data-position=current] img').src;
+doc.querySelector('button[aria-label="Next gallery look"]').click();
+await until(
+  () => doc.querySelector('.gallery-panel[data-position=current] img').src !== beforeGallery,
+  'Gallery should advance',
+);
+doc.querySelector('.gallery-actions > button').click();
+await until(
+  () => !!doc.querySelector('.look-dialog[open]'),
+  'Gallery should open its selected look',
+);
+doc.querySelector('.dialog-close').click();
+await until(() => !doc.querySelector('.look-dialog[open]'), 'Gallery detail should close');
+
 doc.querySelector('.hero-bottom a').click();
 assert.equal(doc.activeElement.id, 'collections');
 assert.match(doc.querySelector('h1').textContent, /Considered style/);
@@ -105,6 +120,6 @@ await until(() => doc.activeElement?.id === 'atelier', 'Atelier should receive f
 assert.equal(doc.activeElement.id, 'atelier');
 assert.deepEqual(errors, []);
 console.log(
-  'PASS: offline production bundle: 3 HashRouter routes, section/skip/Atelier navigation, filtering, modal close/focus restoration, embedded logo and installed WebP photography. No simulated runtime errors.',
+  'PASS: offline production bundle: 3 HashRouter routes, section/skip/Atelier navigation, filtering, gallery selection/details, modal close/focus restoration, embedded logo and installed WebP photography. No simulated runtime errors.',
 );
 dom.window.close();

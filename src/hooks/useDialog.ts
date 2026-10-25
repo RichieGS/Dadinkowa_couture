@@ -7,6 +7,7 @@ import {
   type MouseEvent,
 } from 'react';
 import { useReducedMotion } from './useMotion';
+import { motion } from '../motion';
 
 // Keep the native modal open during its exit animation so focus containment
 // and scroll locking last until the content has actually left the screen.
@@ -49,7 +50,7 @@ export function useDialog(
         finishRef.current();
         setPhase('closed');
       },
-      reduced ? 0 : 260,
+      reduced ? 0 : motion.detailExit,
     );
     return () => window.clearTimeout(timer);
   }, [open, ref, reduced]);

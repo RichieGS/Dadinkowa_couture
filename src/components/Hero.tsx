@@ -1,6 +1,7 @@
 import { useEffect, useState, type SyntheticEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { media } from '../data';
+import { heroCycle } from '../motion';
 import { useReducedMotion } from '../hooks/useMotion';
 import { Arrow, MediaLabel, Photography, SectionLink } from './Shared';
 
@@ -25,12 +26,27 @@ export function Hero() {
   }, [reduced]);
   useEffect(() => {
     if (!playing || reduced || document.hidden) return;
-    const timer = window.setInterval(
+    const timer = window.setTimeout(
       () => setActive((index) => (index + 1) % media.hero.length),
-      6500,
+      heroCycle,
     );
-    return () => window.clearInterval(timer);
-  }, [playing, reduced]);
+    return () => window.clearTimeout(timer);
+  }, [active, playing, reduced]);
+
+  useEffect(() => {
+    const stop = (event: Event) => {
+      if (!(event.target instanceof Element) || !event.target.closest('.hero-pause'))
+        setPlaying(false);
+    };
+    document.addEventListener('pointerdown', stop, { passive: true });
+    document.addEventListener('keydown', stop);
+    document.addEventListener('wheel', stop, { passive: true });
+    return () => {
+      document.removeEventListener('pointerdown', stop);
+      document.removeEventListener('keydown', stop);
+      document.removeEventListener('wheel', stop);
+    };
+  }, []);
 
   const stopOnInteraction = (event: SyntheticEvent) => {
     if (!(event.target as HTMLElement).closest('.hero-pause')) setPlaying(false);

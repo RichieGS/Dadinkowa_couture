@@ -18,7 +18,9 @@ const names = [
 
 describe('uploaded photograph integrity', () => {
   it('matches all nine unique source IDs to the named slots', () => {
-    expect(Object.keys(inventory.photos).sort()).toEqual([...names].sort());
+    expect(Object.keys(inventory.photos).sort()).toEqual(
+      [...names, ...provenance.editorialCrops.map((crop) => crop.slot)].sort(),
+    );
     expect(provenance.classification).toBe('stock-reference');
     expect(new Set(provenance.matches.map((record) => record.sourceId)).size).toBe(9);
     expect(provenance.matches.map((record) => record.slot).sort()).toEqual([...names].sort());
@@ -26,7 +28,7 @@ describe('uploaded photograph integrity', () => {
       expect(record.uploadedFilename).toContain(record.sourceId);
   });
   it('ships valid responsive WebP files with recorded dimensions and integrity hashes', () => {
-    for (const name of names) {
+    for (const name of [...names, ...provenance.editorialCrops.map((crop) => crop.slot)]) {
       for (const width of [700, 1400]) {
         const file = `public/media/${name}-${width}.webp`;
         const bytes = readFileSync(file);

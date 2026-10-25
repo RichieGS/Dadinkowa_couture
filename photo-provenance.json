@@ -183,6 +183,90 @@
       "height": 394,
       "bytes": 16078,
       "sha256": "e7fb3e4db393f9dd1ae1ba45a7647b20e1d239728036411f9baa3b2edffa1ed8"
+    },
+    {
+      "path": "public/media/portrait-garment-700.webp",
+      "width": 700,
+      "height": 854,
+      "bytes": 150422,
+      "sha256": "e37b8501b01dbae97f7f8f50b3699c52251d2a26d32f0a894af83ce98e5f3091"
+    },
+    {
+      "path": "public/media/portrait-garment-1400.webp",
+      "width": 1400,
+      "height": 1708,
+      "bytes": 437704,
+      "sha256": "3c9d259a8466dcf6409c6e13f8a2341013d069dccba781dc11c2c52de6323538"
+    },
+    {
+      "path": "public/media/blue-garment-700.webp",
+      "width": 700,
+      "height": 635,
+      "bytes": 39148,
+      "sha256": "1880a6963613bdd55197a0bfc7ae03915e30e2302677d23fb93c8bee518c7de0"
+    },
+    {
+      "path": "public/media/blue-garment-1400.webp",
+      "width": 1400,
+      "height": 1271,
+      "bytes": 180058,
+      "sha256": "880867fddd48176fe386fbcd29ca30b2cdd560900d8c8764768dea632d0e731f"
+    },
+    {
+      "path": "public/media/burgundy-garment-700.webp",
+      "width": 700,
+      "height": 579,
+      "bytes": 25914,
+      "sha256": "0833f17613724ed8f928486340d20090142717cc1cbf8fc2740e983e5a868421"
+    },
+    {
+      "path": "public/media/burgundy-garment-1400.webp",
+      "width": 1400,
+      "height": 1158,
+      "bytes": 94578,
+      "sha256": "aea010dcb207f7f74f14342672600ca570d45fffa0ebc23126964bff4f77360c"
+    },
+    {
+      "path": "public/media/sand-garment-700.webp",
+      "width": 700,
+      "height": 676,
+      "bytes": 10656,
+      "sha256": "c8d81e387ce3d0757e506ac3710e2b922736334173e86aebea5cd75479721bc1"
+    },
+    {
+      "path": "public/media/sand-garment-1400.webp",
+      "width": 1400,
+      "height": 1351,
+      "bytes": 27340,
+      "sha256": "e3e70c4f887a9cc30b96b3ec838fe34cd44e075a1ef29560fbb85977f06a20cc"
+    },
+    {
+      "path": "public/media/earth-garment-700.webp",
+      "width": 700,
+      "height": 945,
+      "bytes": 46020,
+      "sha256": "3109e8729bca5516bbb4cf2fb82a00b3cd7cebad7562d9a0bf2d844f672f179b"
+    },
+    {
+      "path": "public/media/earth-garment-1400.webp",
+      "width": 1400,
+      "height": 1890,
+      "bytes": 150448,
+      "sha256": "f24f93df833b52e7e01b080fb96c524b627a89ba22ebcadd4e541d523d33a537"
+    },
+    {
+      "path": "public/media/cap-detail-700.webp",
+      "width": 700,
+      "height": 248,
+      "bytes": 23360,
+      "sha256": "0c2e9c0aa4ab572f6a9309bc7887ec43273df16640c595a2dc5e7ab404d3d373"
+    },
+    {
+      "path": "public/media/cap-detail-1400.webp",
+      "width": 1400,
+      "height": 495,
+      "bytes": 68290,
+      "sha256": "25ba0c08c3c355ffdca890acbb66eb8b413e4244eb77104dc30967c5007e42f4"
     }
   ],
   "matching": "Exact source IDs; no ambiguous filename matches.",
@@ -191,5 +275,73 @@
     "34362606 has a visible clothing tag; retained unaltered as reference photography.",
     "xZpVJsIcaiM is a rear three-quarter cap portrait; alt text corrected.",
     "All nine inspected locally; no visible watermarks observed."
+  ],
+  "editorialCrops": [
+    {
+      "slot": "portrait-garment",
+      "originalSlot": "portrait",
+      "relativeBox": [
+        0.1,
+        0.325,
+        0.93,
+        1.0
+      ],
+      "classification": "stock-reference"
+    },
+    {
+      "slot": "blue-garment",
+      "originalSlot": "agbada-blue",
+      "relativeBox": [
+        0.0,
+        0.395,
+        1.0,
+        1.0
+      ],
+      "classification": "stock-reference"
+    },
+    {
+      "slot": "burgundy-garment",
+      "originalSlot": "agbada-burgundy",
+      "relativeBox": [
+        0.02,
+        0.365,
+        0.98,
+        1.0
+      ],
+      "classification": "stock-reference"
+    },
+    {
+      "slot": "sand-garment",
+      "originalSlot": "kaftan-sand",
+      "relativeBox": [
+        0.06,
+        0.305,
+        0.96,
+        1.0
+      ],
+      "classification": "stock-reference"
+    },
+    {
+      "slot": "earth-garment",
+      "originalSlot": "kaftan-earth",
+      "relativeBox": [
+        0.15,
+        0.433,
+        0.78,
+        1.0
+      ],
+      "classification": "stock-reference"
+    },
+    {
+      "slot": "cap-detail",
+      "originalSlot": "cap-portrait",
+      "relativeBox": [
+        0.3,
+        0.065,
+        0.83,
+        0.19
+      ],
+      "classification": "stock-reference"
+    }
   ]
 }

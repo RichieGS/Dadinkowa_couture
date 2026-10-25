@@ -32,3 +32,13 @@
 - [ ] Approve canonical/social URLs and enable indexing only after the content is ready. Preview remains noindex.
 
 Payments, inventory, checkout, accounts/CMS/admin, scheduling and analytics remain outside scope.
+
+## Exhibition refinement
+
+- [x] Increase descriptive text to 17–18px, secondary text to 14px minimum, strengthen muted contrast and add solid reading surfaces.
+- [x] Centralise motion timings; slow hero/storytelling while leaving controls immediately responsive.
+- [x] Inspect and generate five face-free garment crops plus a cap-pattern detail, retaining stock-reference provenance.
+- [x] Add manual 2.5D photographic Garment Gallery with explicit buttons, neighbour selection, swipes, keyboard access and reduced-motion handling.
+- [ ] Review the actual gallery depth, crop edges, type wrapping and overflow at 390/768/1440px in a real browser. State tests are not visual acceptance.
+- [ ] Capture screenshots and a short recording of the slow hero and manual gallery. Browser tooling remains unavailable in this session.
+- [ ] Obtain approved native garment-on-mannequin/hanger images or isolated garment layers and independent accessory shots if those become part of the production art direction. Do not substitute unrelated Western suiting or fabricate back views.

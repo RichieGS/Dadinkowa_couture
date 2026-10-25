@@ -35,6 +35,30 @@
     "fabric-bronze": {
       "width": 1400,
       "height": 2100
+    },
+    "portrait-garment": {
+      "width": 1400,
+      "height": 1708
+    },
+    "blue-garment": {
+      "width": 1400,
+      "height": 1271
+    },
+    "burgundy-garment": {
+      "width": 1400,
+      "height": 1158
+    },
+    "sand-garment": {
+      "width": 1400,
+      "height": 1351
+    },
+    "earth-garment": {
+      "width": 1400,
+      "height": 1890
+    },
+    "cap-detail": {
+      "width": 1400,
+      "height": 495
     }
   }
 }

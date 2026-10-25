@@ -6,6 +6,7 @@ import { MemoryRouter } from 'react-router-dom';
 import './setup';
 import { Hero } from '../src/components/Hero';
 import { media } from '../src/data';
+import { heroCycle, motion } from '../src/motion';
 const mount = () =>
   render(
     <MemoryRouter>
@@ -18,14 +19,16 @@ const selected = (number: number) =>
     .getAttribute('aria-pressed');
 
 describe('hero motion scheduling in DOM simulation', () => {
-  it('advances at 6.5 seconds and pauses after manual slide selection', () => {
+  it('holds for 9 seconds after the 1.6-second transition and stops after manual selection', () => {
     vi.useFakeTimers();
     mount();
     expect(selected(1)).toBe('true');
     expect(document.querySelector('.hero-slide.is-active img')?.getAttribute('src')).toBe(
       media.hero[0].src,
     );
-    act(() => vi.advanceTimersByTime(6500));
+    act(() => vi.advanceTimersByTime(motion.heroTransition + motion.heroHold - 1));
+    expect(selected(1)).toBe('true');
+    act(() => vi.advanceTimersByTime(1));
     expect(selected(2)).toBe('true');
     expect(document.querySelector('.hero-slide.is-active img')?.getAttribute('src')).toBe(
       media.hero[1].src,
@@ -41,13 +44,20 @@ describe('hero motion scheduling in DOM simulation', () => {
     const pause = screen.getByRole('button', { name: 'Pause slideshow' });
     fireEvent.pointerDown(pause);
     fireEvent.click(pause);
-    act(() => vi.advanceTimersByTime(6500));
+    act(() => vi.advanceTimersByTime(heroCycle));
     expect(selected(1)).toBe('true');
     const play = screen.getByRole('button', { name: 'Play slideshow' });
     fireEvent.pointerDown(play);
     fireEvent.click(play);
-    act(() => vi.advanceTimersByTime(6500));
+    act(() => vi.advanceTimersByTime(heroCycle));
     expect(selected(2)).toBe('true');
+  });
+  it('stops after a wheel interaction elsewhere on the page', () => {
+    vi.useFakeTimers();
+    mount();
+    fireEvent.wheel(document.body);
+    act(() => vi.advanceTimersByTime(heroCycle * 3));
+    expect(selected(1)).toBe('true');
   });
   it('stops when the visitor focuses a CTA', () => {
     vi.useFakeTimers();

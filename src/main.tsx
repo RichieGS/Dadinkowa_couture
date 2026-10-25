@@ -1,8 +1,10 @@
+import { installMotionTokens } from './motion';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { App } from './App';
 import { business, site } from './data';
+installMotionTokens();
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'ClothingStore',

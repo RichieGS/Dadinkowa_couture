@@ -138,6 +138,56 @@ Object.assign(photos.everyday, {
 Object.assign(photos.sewing, { fit: 'cover', position: '57% 58%', mobilePosition: '57% 58%' });
 Object.assign(photos.fabrics, { fit: 'cover', position: '35% 50%', mobilePosition: '35% 50%' });
 Object.assign(photos.texture, { fit: 'cover', position: '50% 50%', mobilePosition: '50% 50%' });
+export const exhibitionPhotos = {
+  patterned: {
+    ...photo(
+      'portrait-garment',
+      'Face-free crop of a patterned native tunic showing its neckline, sleeves and trousers',
+    ),
+    fit: 'contain' as const,
+    background: '#d9d1c5',
+  },
+  blue: {
+    ...photo(
+      'blue-garment',
+      'Face-free crop of blue Agbada showing embroidered neckline and sleeves',
+    ),
+    fit: 'contain' as const,
+    background: '#e2e5df',
+  },
+  burgundy: {
+    ...photo(
+      'burgundy-garment',
+      'Face-free crop of a burgundy tunic showing its neckline, sleeves and folded hands',
+    ),
+    fit: 'contain' as const,
+    background: '#aaa0d2',
+  },
+  sand: {
+    ...photo(
+      'sand-garment',
+      'Face-free crop of a sand kaftan with neckline, sleeves and its original clothing tag',
+    ),
+    fit: 'contain' as const,
+    background: '#c19970',
+  },
+  earth: {
+    ...photo(
+      'earth-garment',
+      'Face-free crop of an earth-toned kaftan showing its neckline, long sleeves and silhouette',
+    ),
+    fit: 'contain' as const,
+    background: '#b1a58f',
+  },
+  cap: {
+    ...photo('cap-detail', 'Face-free pattern detail from a striped cap photographed while worn'),
+    fit: 'cover' as const,
+    position: '25% 50%',
+    mobilePosition: '25% 50%',
+    background: '#d3c3b3',
+  },
+};
+
 export const looks: Look[] = [
   {
     id: '01',
@@ -146,7 +196,7 @@ export const looks: Look[] = [
     category: 'Tailoring',
     description:
       'A bold silhouette, a quiet confidence. Bring your preferred native style to the conversation and discuss fabric, fit and timing with the team.',
-    images: [photos.burgundy],
+    images: [exhibitionPhotos.burgundy],
     mediaStatus: 'stock-reference',
     source: 'mk_photoz / Pexels 37766536',
   },
@@ -168,7 +218,7 @@ export const looks: Look[] = [
     category: 'Tailoring',
     description:
       'A fresh perspective on Agbada. Explore your preferred silhouette and ask which fabrics are available to bring your idea to life.',
-    images: [photos.blue],
+    images: [exhibitionPhotos.blue],
     mediaStatus: 'stock-reference',
     source: 'Taiye Salawu / Pexels 37320670',
   },
@@ -179,7 +229,7 @@ export const looks: Look[] = [
     category: 'Ready-to-Wear',
     description:
       'Ease with intention. Ask for the current ready-to-wear selection, sizes and prices directly from the team.',
-    images: [photos.everyday],
+    images: [exhibitionPhotos.earth],
     mediaStatus: 'stock-reference',
     source: 'Taiye Salawu / Pexels 38188493',
   },
@@ -190,7 +240,7 @@ export const looks: Look[] = [
     category: 'Caps & Accessories',
     description:
       'A cap can change the whole conversation. Explore current caps, watches and accessories with Dadinkowa Couture.',
-    images: [photos.cap],
+    images: [exhibitionPhotos.cap],
     mediaStatus: 'stock-reference',
     source: 'Chidera Faustina Okeke / Unsplash xZpVJsIcaiM',
   },
@@ -201,7 +251,7 @@ export const looks: Look[] = [
     category: 'Ready-to-Wear',
     description:
       'A pared-back direction for everyday dressing. Use this as a style reference and enquire about the current range.',
-    images: [photos.kaftan],
+    images: [exhibitionPhotos.sand],
     mediaStatus: 'stock-reference',
     source: 'Skylight Views / Pexels 34362606',
   },
@@ -212,7 +262,7 @@ export const media = {
     source: 'User-supplied recreated-logo-draft.png',
     approvalStatus: 'Provisional reconstruction; owner review required',
   },
-  hero: [photos.portrait, photos.blue, photos.kaftan],
+  hero: [exhibitionPhotos.patterned, exhibitionPhotos.blue, exhibitionPhotos.earth],
   approvalStatus: 'Temporary licensed reference photography; not brand products',
 };
 export const socialPosts = [

@@ -2,7 +2,7 @@
 
 ## Current status
 
-All nine requested originals were supplied in `DDK_img.zip` and integrated after local visual inspection. Exact source-ID matches resolve every file; there are no ambiguous matches. The original names, IDs and SHA-256 hashes are in `photo-provenance.json`, together with dimensions, byte sizes and SHA-256 for all eighteen local WebP outputs. No new remote downloads were attempted.
+All nine requested originals were supplied in `DDK_img.zip` and integrated after local visual inspection. Exact source-ID matches resolve every file; there are no ambiguous matches. The original names, IDs and SHA-256 hashes are in `photo-provenance.json`, together with dimensions, byte sizes and SHA-256 for all full-frame and derivative WebP outputs. No new remote downloads were attempted.
 
 The originals total 19,866,025 bytes. Two responsive variants per image total 2,147,150 bytes. Variants preserve the full photograph, with no image retouching, upscaling or fabricated views; EXIF was removed. Actual browser screenshots/crop checks remain unrun.
 
@@ -47,3 +47,28 @@ System serif and sans-serif stacks only; no third-party font downloads. TikTok i
 ## Media state contract
 
 `illustration`, `stock-reference` and `approved-brand` have distinct card/dialog notices and WhatsApp qualifications in `src/media.ts`. Approved-brand images receive no illustrative/stock disclosure. The record's factual image alt/caption/source must also be updated with the actual approved asset; changing a status is not a substitute for approval. `photo-inventory.json` tracks whether an optimised local file exists, independently of ownership status; all nine are installed.
+
+## Exhibition derivatives — face-free, still stock-reference
+
+These are deliberate crops of the same licensed originals, not new views of a garment. No background removal, synthetic fill or geometry generation was performed. Both 700px/1400px variants are installed. Exact relative crop boxes and file integrity records are in `photo-provenance.json`; processing is reproducible with `scripts/prepare-exhibition-crops.py`.
+
+| Crop stem | Original slot / unchanged source and licence | Visible use |
+| --- | --- | --- |
+| `portrait-garment` | `portrait` / Chidera Faustina Okeke, Unsplash DdNa5AdiRdo | Hero: patterned tunic neckline/sleeves and photographed trousers |
+| `blue-garment` | `agbada-blue` / Taiye Salawu, Pexels 37320670 | Hero, collection, lookbook and Gallery: embroidered blue native garment |
+| `burgundy-garment` | `agbada-burgundy` / mk_photoz, Pexels 37766536 | Lookbook: burgundy tunic and hands, no baseball-cap portrait |
+| `sand-garment` | `kaftan-sand` / Skylight Views, Pexels 34362606 | Lookbook and Gallery: sand kaftan with original clothing tag |
+| `earth-garment` | `kaftan-earth` / Taiye Salawu, Pexels 38188493 | Hero, collection, lookbook and Gallery: long earth-toned kaftan |
+| `cap-detail` | `cap-portrait` / Chidera Faustina Okeke, Unsplash xZpVJsIcaiM | Accessories collection/lookbook: face-free cap-pattern detail, not a separately photographed cap |
+
+The derivative files were inspected locally. Faces are outside the crop boxes; no original facial image is distorted or presented as a mannequin. Shoulder/neckline framing follows what the original photograph allows; these are garment references, not claimed complete catalogue views. The original six full-frame human photographs remain retained source references but are no longer used as the visible garment presentations. The fabric images and hands-only sewing image remain unchanged.
+
+Six derivatives add 12 WebP files totalling 1,253,938 bytes. All 30 full-frame/derivative variants total 3,401,088 bytes. The first hero derivative is 437,704 bytes at 1400px. The standalone embeds both original and derivative assets for offline use; none loads from an external CDN.
+
+### Additional references reviewed, not selected
+
+- [Tima Miroshnichenko / Pexels 6764954](https://www.pexels.com/photo/a-bespoke-suit-jacket-on-a-tailor-dummy-6764954/): the page identifies a Western suit on a tailor dummy. Used only as presentation context; no photograph downloaded or substituted for Nigerian menswear.
+- [Bruno Thethe / Unsplash lAKMGwfMC2g](https://unsplash.com/photos/abstract-pattern-of-folded-fabric-in-black-and-white-lAKMGwfMC2g): source page reviewed; no image downloaded/selected, since supplied fabric references already serve the tactile section.
+- [Cemrecan Yurtman / Pexels 17710255](https://www.pexels.com/photo/sewing-close-up-17710255/): existing supplied hands-only image retained, locally inspected and covered by its Pexels licence record above.
+
+No repeated blocked downloads were attempted. Cleanly isolated Nigerian garments on headless mannequins/hangers and independently photographed caps are still missing. The current fallback is explicitly photographic panels, with no claim of true 3D or unseen back views. All inherited stock-reference disclosures and source records remain in force.

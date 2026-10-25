@@ -9,6 +9,7 @@ import { Lookbook } from './pages/Lookbook';
 import { Contact } from './pages/Contact';
 import { useEditorialMotion } from './hooks/useMotion';
 import './styles.css';
+import './exhibition.css';
 
 export function App() {
   const location = useLocation();

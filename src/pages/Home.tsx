@@ -1,15 +1,15 @@
 import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
-import { business, looks, photos, socialPosts, type Look } from '../data';
+import { business, exhibitionPhotos, photos, socialPosts, type Look } from '../data';
 import { Hero } from '../components/Hero';
 import { Arrow, External, MediaLabel, Photography } from '../components/Shared';
-import { LookCard } from '../components/LookCard';
+import { GarmentGallery } from '../components/GarmentGallery';
 
 const collections = [
   {
     category: 'Tailoring',
     title: 'Made for\nyour own expression.',
-    photo: photos.blue,
+    photo: exhibitionPhotos.blue,
     note: 'TAILORING & NATIVE STYLES',
   },
   {
@@ -21,13 +21,13 @@ const collections = [
   {
     category: 'Ready-to-Wear',
     title: 'Everyday. Elevated.',
-    photo: photos.everyday,
+    photo: exhibitionPhotos.earth,
     note: 'READY-TO-WEAR',
   },
   {
     category: 'Caps & Accessories',
     title: 'A final point of view.',
-    photo: photos.cap,
+    photo: exhibitionPhotos.cap,
     note: 'CAPS & ACCESSORIES',
   },
 ];
@@ -56,10 +56,13 @@ export function Home({ onOpen }: { onOpen: (look: Look) => void }) {
               className={`collection-panel panel-${index}`}
               key={item.category}
               to={`/lookbook?category=${encodeURIComponent(item.category)}`}
-              data-reveal="image"
               style={{ '--stagger': `${index * 90}ms` } as CSSProperties}
             >
-              <div className="collection-photo" data-parallax={index === 0 ? '' : undefined}>
+              <div
+                className="collection-photo"
+                data-reveal="image"
+                data-parallax={index === 0 ? '' : undefined}
+              >
                 <Photography {...item.photo} />
                 <span className="panel-number">0{index + 1}</span>
                 <span className="panel-action">
@@ -73,36 +76,12 @@ export function Home({ onOpen }: { onOpen: (look: Look) => void }) {
           ))}
         </div>
       </section>
-      <section className="section featured">
-        <div className="row-heading" data-reveal="text">
-          <div>
-            <p className="eyebrow">02 / THE EDIT</p>
-            <h2>
-              Presence,
-              <br />
-              <i>without a word.</i>
-            </h2>
-          </div>
-          <div>
-            <p>
-              Consider the silhouette.
-              <br />
-              Make the conversation your own.
-            </p>
-            <Link to="/lookbook" className="text-link">
-              Explore the edit <Arrow />
-            </Link>
-          </div>
-        </div>
-        <div className="featured-sequence">
-          {[looks[0], looks[5]].map((look, index) => (
-            <LookCard key={look.id} look={look} onOpen={onOpen} index={index} />
-          ))}
-        </div>
-      </section>
-      <section className="craft-interlude" data-reveal="image">
+      <GarmentGallery onOpen={onOpen} />
+      <section className="craft-interlude">
         <div className="craft-photo" data-parallax>
-          <Photography {...photos.texture} />
+          <div className="craft-reveal" data-reveal="image">
+            <Photography {...photos.texture} />
+          </div>
         </div>
         <div className="craft-words">
           <p className="eyebrow">A CLOSER LOOK</p>
@@ -115,8 +94,10 @@ export function Home({ onOpen }: { onOpen: (look: Look) => void }) {
         <MediaLabel status="stock-reference" />
       </section>
       <section id="atelier" tabIndex={-1} className="atelier section">
-        <div className="atelier-image" data-reveal="image">
-          <Photography {...photos.sewing} />
+        <div className="atelier-image">
+          <div className="atelier-photo" data-reveal="image">
+            <Photography {...photos.sewing} />
+          </div>
           <MediaLabel status="stock-reference" />
           <p className="small-note">Tailoring reference photography · not Dadinkowa’s workshop.</p>
         </div>

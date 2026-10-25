@@ -1,45 +1,60 @@
-# Verification results — uploaded photograph integration, 25 October 2026
+# Verification results — fashion exhibition refinement, 25 October 2026
 
-## Photography inspection and mapping
+## Implemented and inspected
 
-All nine images in the user-supplied `DDK_img.zip` matched the requested unique photo IDs. **No ambiguous filename matches were found.** The originals were visually inspected locally using a labelled contact sheet. The initial metadata description for 37766536 was corrected: it shows a burgundy tunic, sunglasses and baseball cap, not Agbada and a traditional cap. The sand-kaftan photograph's clothing tag is visible and retained; the cap image is a rear three-quarter view. No visible image watermarks were observed. These observations concern the actual image files, not a rendered browser page.
+Supporting copy is 17–18px with 1.7 line height and comfortable paragraph widths. Secondary text is at least 14px. Muted colours were strengthened; variable image backgrounds now have solid reading surfaces. Image masks/reveals are applied to image surfaces, with captions outside them; gallery captions stay stationary outside pointer/selection transforms.
 
-Every image remains `stock-reference`. Source URLs, photographer credits, licence URLs, intended use and inspection notes are in `ASSET_MANIFEST.md` / `PHOTOGRAPHY_REQUEST.md`. `photo-provenance.json` records uploaded filenames, source IDs, original hashes, and all output dimensions/bytes/hashes. No original upload, archive or review contact sheet is committed.
+Five face-free garment derivatives and one cap-pattern detail were generated from the nine previously supplied/licensed originals and inspected locally. Crop boxes, original source links, ownership status and output hashes are recorded in the asset/provenance files. All remain stock-reference. No isolated garment, mannequin, new back view, background removal, synthetic geometry or virtual try-on is claimed. The existing hands-only sewing image remains a workshop reference, not Dadinkowa's workshop. No new blocked download was attempted; the Western suit-dummy reference was not substituted for Nigerian menswear.
 
-Eighteen responsive WebP files (700/1400px, quality 82) preserve the full source compositions, with no upscaling, retouching or fabricated alternate views. EXIF is removed. Original image bytes total 19,866,025; both responsive sets total 2,147,150. The first hero's 1400px photograph is 357,476 bytes. These are actual file sizes, not performance measurements.
+The manual Garment Gallery presents three photographic panels with a central look, recessed neighbours, grounding shadows, 5-degree neighbour angles and bounded central pointer tilt (4 degrees per axis). Previous/next, neighbour selection, swipes, Arrow keys/Home/End and Explore operate immediately. The gallery has no automatic rotation. Captions and controls are outside all tilting layers. Reduced motion removes spatial presentation/tilt and neighbour focus while preserving explicit selection.
 
-## Checks performed and passed
+## Shared motion tokens
 
-| Check | Actual result |
+`src/motion.ts` drives CSS variables and JavaScript scheduling/cleanup. Hero transition: 1600ms; hold after transition: 9000ms; cycle: 10600ms. Image reveal: 1100ms; supporting text: 700ms opacity entrance; detail/menu entrance/exit: 550/320ms; gallery selection: 1100ms; feedback: 180ms; filter/route: 260/220ms. Controls do not wait for these animations. Hero stops on manual selection, CTA focus, document keyboard/pointer interaction, wheel movement, hidden tabs and reduced motion.
+
+## Actual checks performed
+
+- `npm run format:check`: passed.
+- `npm run typecheck`: passed.
+- `npm run lint`: passed.
+- `npm test`: **41/41 passed**, six files.
+- `npm run build`: passed, 58 modules. Approximately 300KB JS (95KB gzip) and 35KB CSS (8KB gzip). These are build sizes, not performance scores.
+- Production HTTP smoke check: all three routes return HTTP 200. All 30 original/derived WebP variants decode, contain no EXIF and serve byte-identically with correct `image/webp` MIME.
+- Standalone HTML regenerated (approximately 5.61MB, with local original/derivative assets embedded). The actual production bundle passes its jsdom smoke check for all offline routes, anchors, filters, gallery selection/details, modal close/focus restoration and embedded photography. No simulated runtime errors.
+- File integrity tests cover all 30 output hashes/byte lengths/dimensions, nine source-ID mappings and six derivative slots.
+- `git diff --check`: passed.
+
+### Focused interaction coverage
+
+- 10 existing browsing/enquiry tests: filters, counts, image zoom, modal exit/focus, matching-image fixture, WhatsApp qualification, whitespace validation, menu cleanup, missing-image fallback and heading/directions checks.
+- 10 media-state tests: illustration/stock-reference/approved-brand notices and encoded WhatsApp wording; no invented inventory, prices or second views.
+- 6 navigation tests: Skip/Scroll/Atelier in both BrowserRouter and HashRouter.
+- 6 hero tests: full transition-plus-hold boundary, selected image source, pause/play, user/wheel interaction, hidden tabs and reduced motion.
+- 7 gallery tests: central/neighbour framing state, captions outside depth layers, next/previous/wrap/Explore, neighbour selection, keyboard/focus, horizontal versus vertical touch handling (including suppressing a swipe's incidental click), no automatic rotation, and reduced-motion focus/selection behaviour.
+- 2 asset integrity tests described above.
+
+Timers, native-dialog APIs and event behaviour are simulated in jsdom. These tests do not show that animation looks smooth or that CSS framing works in a real browser.
+
+## Declared text-colour calculations
+
+WCAG relative-luminance contrast was calculated for seven declared solid foreground/background pairs. This is not a browser/cascade/overlay accessibility audit.
+
+| Pair | Ratio |
 | --- | --- |
-| `npm run format:check` | Formatted source/tests/configuration pass |
-| `npm run typecheck` | TypeScript passes |
-| `npm run lint` | ESLint passes |
-| `npm test` | 33/33 Vitest checks across five files pass |
-| `npm run build` | Production build passes, 55 modules |
-| Production HTTP routes | Home, Lookbook and Contact return HTTP 200 with noindex metadata |
-| Production HTTP photographs | All 18 WebP files return correct `image/webp` MIME and byte-identical content |
-| Image decoding/metadata | All 18 WebP files decode in Pillow, have expected dimensions and no EXIF |
-| Standalone packaging | Regenerated HTML is 3,926,083 bytes and embeds all 18 exact WebP files; no remote photograph loading |
-| Offline production-bundle smoke check | All 3 HashRouter routes, Skip/Scroll/Atelier links, filtering, modal close/focus restoration and installed embedded WebP images pass in jsdom; no simulated runtime errors |
-| `git diff --check` | No whitespace errors |
+| Body `#171713` / `#f5f1e9` | 15.95:1 |
+| Secondary `#49443c` / `#f5f1e9` | 8.57:1 |
+| Gallery secondary `#49443c` / `#e9e2d6` | 7.50:1 |
+| Dark captions `#f5f1e9` / `#171713` | 15.95:1 |
+| Contact invitation `#f5f1e9` / `#6d543e` | 6.24:1 |
+| Form placeholder `#595247` / `#e7e1d6` | 5.93:1 |
+| Atelier secondary `#ddd9cc` / `#171a16` | 12.44:1 |
 
-JavaScript is approximately 295KB (93KB gzip), CSS approximately 27KB (6KB gzip). No Lighthouse, Core Web Vitals or accessibility scores are claimed.
+No fixed `font-size` declaration below 14px remains in the base stylesheet; the exhibition layer explicitly sets descriptive versus secondary sizes. Real wrapping/legibility still needs browser review.
 
-## Functional/motion coverage with the installed images
+## Verification limits and remaining assets
 
-- 10 browsing/enquiry tests: filters/counts, installed-photo zoom, disabled unrelated-view controls, modal cancel/exit/focus restoration, matching-view keyboard controls using a test fixture, stock-qualified WhatsApp drafts, whitespace validation, menu navigation/scroll-lock cleanup, pending and failed-image fallbacks, H1 and verified directions.
-- 10 media-status tests: distinct illustration/stock-reference/approved-brand card/dialog notices and WhatsApp wording, with no fake stock/prices or fabricated second views.
-- 6 navigation tests: Skip, Scroll to discover and cross-route Atelier in both BrowserRouter and HashRouter.
-- 5 hero scheduling tests: auto-advance at 6500ms, the actual installed image source changes with the active slide, pause/play including pointer interaction, CTA/manual interaction stops, hidden-tab stops and reduced-motion behaviour.
-- 2 photo-integrity tests: all nine unique ID/slot matches, installed responsive WebP signatures/dimensions/byte lengths/SHA-256 records.
+No callable browser-control tool was exposed. Home/Lookbook/Contact at 390/768/1440px, 360px overflow, actual crop edges/contrast, native focus containment, gallery perspective/clipping/pointer smoothness, rendered CSS transitions, OS reduced motion, screenshots and recording remain unrun. Local image review/contact sheets are not webpage screenshots. `MANUAL_QA.md` gives exact real-browser and standalone checks.
 
-Existing CSS mask/crossfade, scaling, reveals, filter, dialog/menu and route animations remain implemented. Tests verify scheduling, event/state changes, image selection and control behaviour. **They do not verify actual rendered CSS animation or its smoothness.** No change to timing required for the local images was observed in these programmatic checks, but a browser remains necessary for visual acceptance.
+True isolated native garments, headless-mannequin/hanger photographs and independently photographed caps remain missing. Current framed photo crops are an explicit fallback, never evidence of a 360-degree garment model or brand inventory. The licence/source register is preserved.
 
-## Framing implementation and remaining limits
-
-Human-subject images use contained frames, edge padding and per-photo neutral backgrounds. Desktop hero images sit below the header and above controls. On mobile, imagery is above the headline/CTAs instead of obscured by them; the hero may grow taller to preserve the photograph. Fabric images use focal crops; the Atelier uses the sewing photograph's native landscape ratio to preserve hands and needle. The responsive source compositions are preserved, and these CSS rules are configured, but actual desktop/mobile rendering has not been measured.
-
-No callable browser-control tool was exposed after discovery. Real-browser checks at 390/768/1440px, 360px overflow, rendered crop/contrast checks, native focus traps, actual motion/reduced-motion visuals, screenshots and recording remain unrun. `MANUAL_QA.md` provides exact steps. Local image inspection and jsdom checks are not browser screenshots or visual QA.
-
-No real WhatsApp messages were sent; outbound handoffs are mocked in tests. No merge, deployment, asset/domain purchase or social-profile change was performed. Dependencies, generated builds/previews, raw originals, research attachments and temporary review files are excluded from Git.
+No real WhatsApp message, merge, deployment, asset/domain purchase or social-profile change occurred. Originals, temporary review images, builds, previews, dependencies, secrets and uploaded reference documents are excluded from the commit.

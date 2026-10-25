@@ -2,7 +2,7 @@
 
 Nine user-supplied stock-reference photographs are now integrated in the hero, collections, lookbook and Atelier. All files matched the requested source IDs without ambiguity. The images were inspected locally and optimised to 700px/1400px WebP variants; no originals are committed. The burgundy tunic/baseball-cap photo's inaccurate Agbada description was corrected, and the visible tag in the sand-kaftan reference is documented.
 
-Portrait placements preserve full photo frames. The mobile hero separates image and text to keep faces and garments visible; the Atelier uses the sewing image's landscape ratio. These are implemented framing choices, **not a claim of real-browser visual QA**. Browser tooling remains unavailable.
+Visible garment placements now use inspected face-free derivatives. The mobile hero separates image and text to keep garment details readable; the Atelier uses the sewing image's landscape ratio. These are implemented framing choices, **not a claim of real-browser visual QA**. Browser tooling remains unavailable.
 
 ## Run and inspect
 
@@ -26,13 +26,30 @@ npm exec vite preview -- --host 127.0.0.1
 
 Read [MANUAL_QA.md](MANUAL_QA.md) for exact real-browser checks at 390/768/1440px, reduced motion, route/section navigation, modal/menu interaction and WhatsApp drafts. Browser-control tooling was unavailable in this session. No visual QA, screenshot, recording or animation smoothness claim is based on jsdom.
 
-## What changed
+## Exhibition presentation
 
-The home composition is rebuilt: full-viewport layered hero, expressive staggered headlines, offset collection spreads, two large featured looks, a full-width texture interlude, a close-up Atelier spread and a warm, large-scale contact invitation. Contact and Lookbook retain their working enquiry and browsing flow. The DK/T-shirt raster logo, black/ivory foundation and verified business details are preserved. Research/implementation commentary lives in documentation; required image disclosures remain on the site.
+The homepage now frames clothing as an exhibition. A garment-led hero, asymmetric collections, manual Garment Gallery, tactile fabric interlude, quiet hands-only Atelier and calm contact section give each part a distinct role. Descriptive text is 17–18px with 1.7 line height; secondary labels, hints and disclosures are at least 14px. Readable solid panels replace text over variable fabric tones. Text stays stationary after its brief opacity entrance; gallery captions never tilt or slide with the images.
 
-One motion approach: CSS transitions/animations plus IntersectionObserver and a bounded requestAnimationFrame scroll handler. Hero transitions use a 1000ms opacity/mask reveal and 1100ms image scale; a 6500ms scheduler auto-advances until paused, interacted with, hidden or reduced motion is requested. Controls are always usable; reduced-motion users retain manual slide navigation. Scroll reveals apply image masks, short text fades and collection staggering. Two large image areas receive restrained desktop parallax. Cards zoom or swap only if a genuine second image exists. Filters fade/move into their new arrangement without a blank interval. Native dialogs/menu have entrance/exit animations; normal exits retain the modal until animation completion, while route navigation releases it immediately for correct focus. Routes use a short opacity entrance without waiting to navigate.
+The **Garment Gallery** presents blue Agbada, an earth-toned kaftan and a sand kaftan as framed photographic panels. The central view is larger, with recessed neighbours and soft grounding shadows. Previous/next, neighbour selection, Arrow keys/Home/End and horizontal touch swipes select a look immediately; Explore opens the correct accessible detail dialog. Vertical scrolling remains native, and a swipe does not accidentally open a detail. There is no gallery autoplay. Pointer tilt is bounded to 4 degrees on each axis on the central panel; neighbours rotate only 5 degrees. Captions and controls sit outside the tilting layer. Reduced motion removes spatial effects and neighbour focus, retaining explicit controls. This is photographic depth, not 360-degree rendering or a generated garment back.
 
-All motion is disabled/minimised through `prefers-reduced-motion`; parallax and slideshow scheduling stop in JavaScript as well. Content is visible by default if observation or animation fails. No scroll hijacking, custom cursor, autoplay audio or additional motion library.
+Six deterministic face-free derivatives were inspected and generated from the supplied stock originals: five garment crops and one cap-pattern detail. Necklines, sleeves and the photographed silhouettes are retained where the source composition allows; the sand garment's original tag remains visible. No background isolation, retouching, unseen geometry or fabricated views are used. Original full-frame references remain in the asset history; visible garment browsing uses the face-free derivatives. No Western suit is substituted for Nigerian menswear. The supplied suit-dummy page was read for presentation context only; no new asset download was attempted. Approved Nigerian garment-on-mannequin/hanger images and independent accessory photographs remain useful future additions, not blockers to the current photographic panels.
+
+### Motion timing
+
+`src/motion.ts` is the shared timing source. `installMotionTokens()` exposes its values to CSS; JavaScript uses the same values for scheduling and native-dialog cleanup.
+
+| Treatment | Timing |
+| --- | --- |
+| Hero transition | 1600ms |
+| Hero hold after transition | 9000ms (10600ms between advances) |
+| Editorial image reveal | 1100ms |
+| Supporting-text entrance | 700ms, opacity only |
+| Detail/menu entrance / exit | 550ms / 320ms |
+| Gallery selection | 1100ms |
+| Button/pointer feedback | 180ms |
+| Filter / route response | 260ms / 220ms |
+
+Hero CTAs, filters and navigation do not wait for animations. Pause/play and manual slides remain visible; document interaction, wheel scrolling, hidden tabs and reduced motion stop automatic advance. The gallery is entirely manual. One CSS/IntersectionObserver/requestAnimationFrame approach is retained, with no 3D engine or extra animation dependency. Reduced motion disables spatial motion, parallax and automatic scheduling. Content is visible if observation/animation fails. No scroll hijacking, particles or custom cursor.
 
 ## Maintainable source
 
@@ -41,8 +58,8 @@ All motion is disabled/minimised through `prefers-reduced-motion`; parallax and 
 - `src/components/`: reusable hero, layout, image/section-link helpers, cards, modal viewer, enquiry composer.
 - `src/pages/`: Home, Lookbook and Contact compositions.
 - `src/hooks/`: reduced-motion/reveal/parallax behaviour and native dialog lifecycle.
-- `src/styles.css`: formatted tokens, layouts, motion rules and responsive breakpoints.
-- `src/photo-inventory.json`: installed image dimensions, populated with all nine installed photos. It is independent of ownership/approval status.
+- `src/styles.css`: base layouts and responsive rules; `src/exhibition.css`: reading surfaces, type audit and gallery depth; `src/motion.ts`: shared timing tokens.
+- `src/photo-inventory.json`: installed image dimensions, populated with the nine supplied photographs and six editorial derivatives. It is independent of ownership/approval status.
 
 Source and tests are formatted with Prettier; `npm run format` updates formatting. The uploaded handoff documents remain local and excluded from Git. Verified facts were taken from that dated source; owner approval of design proposals is not implied. Phone, address, Maps and social URLs remain unchanged.
 
@@ -53,7 +70,7 @@ Source and tests are formatted with Prettier; `npm run format` updates formattin
 3. Run `python3 scripts/prepare-photos.py /absolute/path/to/originals`.
 4. The command preserves the full composition, emits 700/1400px WebP variants to `public/media/`, removes metadata on re-encoding and updates the inventory. It does not download, crop, upscale, manufacture detail views or claim brand approval.
 5. Review focal positions/alt text and update the asset register. Real-device review is required before calling integration complete.
-6. Rebuild and regenerate the standalone preview.
+6. Run `python3 scripts/prepare-exhibition-crops.py /absolute/path/to/originals` to reproduce the six inspected derivatives, then rebuild and regenerate the standalone preview. Crop boxes are recorded in the script and provenance register.
 
 Photo sources, photographers, licence URLs, intended slots and replacement requirements are in [ASSET_MANIFEST.md](ASSET_MANIFEST.md). All supplied photos remain stock-reference and are not Dadinkowa inventory or workmanship evidence. Owner-approved brand media needs truthful per-image alt/caption/source as well as its `approved-brand` status. The logo is still a provisional supplied reconstruction.
 
@@ -65,7 +82,7 @@ python3 scripts/pack-preview.py work/Dadinkowa-Preview.html
 node scripts/check-preview.mjs work/Dadinkowa-Preview.html
 ```
 
-Download/open the generated HTML in a modern browser. The file uses HashRouter and embeds all installed local images, CSS and JavaScript; all nine supplied photographs and both responsive sizes are embedded. It supports the same animations and disables automatic/spatial motion for reduced motion. Section and skip links scroll directly without replacing HashRouter's route fragment. An initial browser may restrict local-file module scripts; use the dev server if so. Contact actions require external network access, but nothing loads from social sites merely by visiting the page.
+Download/open the generated HTML in a modern browser. The file uses HashRouter and embeds all installed local images, CSS and JavaScript; all supplied photographs and six face-free derivatives, in both responsive sizes, are embedded. It supports the same animations and disables automatic/spatial motion for reduced motion. Section and skip links scroll directly without replacing HashRouter's route fragment. An initial browser may restrict local-file module scripts; use the dev server if so. Contact actions require external network access, but nothing loads from social sites merely by visiting the page.
 
 The preview was regenerated and its production bundle checked in jsdom. Generated output is kept out of Git; reproduce it with these commands. No attachment delivery or external port-forwarding tool is exposed in this session.
 
