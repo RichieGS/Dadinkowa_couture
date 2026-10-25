@@ -54,7 +54,7 @@ const checkPhotography = (selector) => {
   assert.equal(doc.querySelector(`${selector} .photo-slot`), null);
 };
 checkPhotography('.hero-slide');
-assert.equal(doc.querySelectorAll('.hero-slide img').length, 3);
+assert.equal(doc.querySelectorAll('.hero-slide img').length, 1);
 assert.equal(doc.querySelectorAll('.photo-slot').length, 0);
 assert.equal(doc.querySelectorAll('.gallery-panel').length, 3);
 const beforeGallery = doc.querySelector('.gallery-panel[data-position=current] img').src;

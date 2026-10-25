@@ -72,3 +72,13 @@ Six derivatives add 12 WebP files totalling 1,253,938 bytes. All 30 full-frame/d
 - [Cemrecan Yurtman / Pexels 17710255](https://www.pexels.com/photo/sewing-close-up-17710255/): existing supplied hands-only image retained, locally inspected and covered by its Pexels licence record above.
 
 No repeated blocked downloads were attempted. Cleanly isolated Nigerian garments on headless mannequins/hangers and independently photographed caps are still missing. The current fallback is explicitly photographic panels, with no claim of true 3D or unseen back views. All inherited stock-reference disclosures and source records remain in force.
+
+## Screen-recording feedback pass
+
+The supplied 1916×874, approximately 31-second screen recording was inspected at representative transition and gallery timestamps. It is private visual feedback, not a brand media asset; neither the video/audio nor extracted frames are committed or embedded. Its ghosted hero and out-of-view gallery/caption composition informed the new single-photo curtain and compact depth-stage layout.
+
+No photograph was newly downloaded, altered, isolated or purchased in this pass. Existing inspected face-free stock-reference crops are retained. Their backgrounds include models/hands, scenery and fabric tones that do not support a clean garment-only cutout; a forced cutout would be misleading and visually poor. The fallback remains clearly photographic, with mat borders removed and environmental depth provided by CSS—not a claim of unseen garment geometry.
+
+Additional source research did not identify an inspected, suitable replacement within the available free assets. Western suits, unrelated women's/Arab garments and paid/licensable imagery were not substituted. Restricted image-host access remains unchanged and no repeated blocked download was attempted.
+
+Exact remaining production assets: a rights-cleared Nigerian Senator/kaftan front on a headless mannequin or hanger with the full neckline, sleeves and hem in frame; an equivalent Agbada front; and, ideally, a genuine isolated transparent garment layer from a clean photograph. Use at least 1400px width, even light and clear silhouette edges. Any back/detail view must actually belong to the same garment. Independent caps/accessory shots remain useful. No current image is represented as Dadinkowa work.

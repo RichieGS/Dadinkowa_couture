@@ -29,3 +29,7 @@ Human-subject placements use contained framing, per-photo neutral backgrounds an
 ## Exhibition update
 
 No additional download is needed for the current implementation. Six locally inspected face-free derivatives now drive garment presentations; see the derivative register in ASSET_MANIFEST.md and exact crop boxes in photo-provenance.json. The cap image is a pattern crop of a worn cap, not an independent product shot. The Gallery uses framed photographs because no cleanly isolated garment layer is available. Future approved native-menswear mannequin/hanger images and standalone cap/accessory photos remain asset gaps. The Western suit-dummy reference is not used as a product/category photograph.
+
+## Remaining needs after recording feedback
+
+The current gallery remains working with the supplied face-free references, without forced background removal. For a true isolated-photo treatment, supply a rights-cleared native Senator/kaftan and Agbada front on a headless mannequin, hanger or genuinely clean isolated layer. Minimum 1400px width; include the complete neckline, sleeves and hem with even lighting and clear edges. Any matching detail/back image must be of that same garment. Independent cap/accessory shots remain a gap. No unrelated Western suit or paid asset has been selected; no new blocked image download was retried.

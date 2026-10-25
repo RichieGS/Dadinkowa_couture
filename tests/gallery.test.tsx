@@ -25,7 +25,7 @@ describe('manual Garment Gallery', () => {
     expect(current()).toBe(galleryLooks[1].images[0].src);
     expect(container.querySelector('.gallery-photo .gallery-caption')).toBeNull();
     expect(container.querySelector('.gallery-caption .gallery-controls')).toBeTruthy();
-    expect(screen.getByText(/Each shows one reference view/)).toBeTruthy();
+    expect(screen.getByText(/One reference view per look/)).toBeTruthy();
   });
   it('moves immediately with previous/next controls, wraps and opens the correct look', () => {
     const { open } = mount();

@@ -94,98 +94,103 @@ export function GarmentGallery({ onOpen }: { onOpen: (look: Look) => void }) {
       aria-roledescription="carousel"
       onKeyDown={keys}
       data-reduced={reduced}
+      data-sequence
     >
       <div className="gallery-heading">
         <div>
           <p className="eyebrow">02 / AN EXHIBITION IN CLOTH</p>
-          <h2 id="gallery-heading">
-            The Garment
-            <br />
-            <i>Gallery.</i>
+          <h2 id="gallery-heading" data-sequence-part="heading">
+            The Garment <i>Gallery.</i>
           </h2>
         </div>
-        <p>
-          Three directions in native menswear. Bring a look forward, take in the details, then make
-          the conversation your own.
-        </p>
+        <p>Three garment references. Bring one forward and explore its details.</p>
       </div>
-      <p className="gallery-cue" id="gallery-instructions">
-        <span aria-hidden="true">← &nbsp; →</span> Select a neighbouring look, use the arrows or
-        swipe to explore.
-      </p>
-      <div
-        className="gallery-stage"
-        ref={stage}
-        onTouchStart={(event) => {
-          swiped.current = false;
-          const point = event.touches[0];
-          if (point) touch.current = { x: point.clientX, y: point.clientY };
-        }}
-        onTouchEnd={swipe}
-        onTouchCancel={() => {
-          touch.current = null;
-        }}
-      >
-        {galleryLooks.map((item, index) => {
-          const offset = (index - active + galleryLooks.length) % galleryLooks.length;
-          const position = offset === 0 ? 'current' : offset === 1 ? 'next' : 'previous';
-          return (
-            <button
-              key={item.id}
-              className="gallery-panel"
-              data-position={position}
-              aria-label={offset === 0 ? `Inspect ${item.title}` : `Bring ${item.title} forward`}
-              aria-describedby="gallery-instructions"
-              aria-hidden={reduced && offset !== 0 ? true : undefined}
-              tabIndex={reduced && offset !== 0 ? -1 : 0}
-              onPointerDown={(event) => {
-                if (event.pointerType === 'mouse') swiped.current = false;
-              }}
-              onClick={(event) => {
-                if (swiped.current && event.detail > 0) {
-                  swiped.current = false;
-                  return;
-                }
-                if (offset === 0) onOpen(item);
-                else select(index);
-              }}
-              onPointerMove={(event) => tilt(event, offset === 0)}
-              onPointerLeave={resetDepth}
-            >
-              <span className="gallery-photo">
-                <Photography {...item.images[0]} />
-              </span>
-              <span className="gallery-plinth" aria-hidden="true" />
-            </button>
-          );
-        })}
-      </div>
-      <div className="gallery-caption">
-        <div className="gallery-description" aria-live="polite" aria-atomic="true">
-          <p className="eyebrow">
-            {look.category} / {String(active + 1).padStart(2, '0')} OF 03
-          </p>
-          <h3>{look.title}</h3>
-          <MediaLabel status={look.mediaStatus} />
+      <div className="gallery-presentation">
+        <div
+          className="gallery-stage"
+          data-sequence-part="image"
+          ref={stage}
+          onTouchStart={(event) => {
+            swiped.current = false;
+            const point = event.touches[0];
+            if (point) touch.current = { x: point.clientX, y: point.clientY };
+          }}
+          onTouchEnd={swipe}
+          onTouchCancel={() => {
+            touch.current = null;
+          }}
+        >
+          <div className="gallery-backdrop" aria-hidden="true" />
+          <div className="gallery-floor" aria-hidden="true" />
+          {galleryLooks.map((item, index) => {
+            const offset = (index - active + galleryLooks.length) % galleryLooks.length;
+            const position = offset === 0 ? 'current' : offset === 1 ? 'next' : 'previous';
+            return (
+              <button
+                key={item.id}
+                className="gallery-panel"
+                data-position={position}
+                aria-label={offset === 0 ? `Inspect ${item.title}` : `Bring ${item.title} forward`}
+                aria-describedby="gallery-instructions"
+                aria-hidden={reduced && offset !== 0 ? true : undefined}
+                tabIndex={reduced && offset !== 0 ? -1 : 0}
+                onPointerDown={(event) => {
+                  if (event.pointerType === 'mouse') swiped.current = false;
+                }}
+                onClick={(event) => {
+                  if (swiped.current && event.detail > 0) {
+                    swiped.current = false;
+                    return;
+                  }
+                  if (offset === 0) onOpen(item);
+                  else select(index);
+                }}
+                onPointerMove={(event) => tilt(event, offset === 0)}
+                onPointerLeave={resetDepth}
+              >
+                <span className="gallery-photo">
+                  <Photography {...item.images[0]} />
+                </span>
+                <span className="gallery-plinth" aria-hidden="true" />
+              </button>
+            );
+          })}
         </div>
-        <div className="gallery-actions">
-          <div className="gallery-controls" aria-label="Garment Gallery controls">
-            <button onClick={() => move(-1)} aria-label="Previous gallery look">
-              ←
-            </button>
-            <span aria-hidden="true">{String(active + 1).padStart(2, '0')} / 03</span>
-            <button onClick={() => move(1)} aria-label="Next gallery look">
-              →
+        <div className="gallery-caption">
+          <div
+            className="gallery-description"
+            data-sequence-part="copy"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <p className="eyebrow">
+              {look.category} / {String(active + 1).padStart(2, '0')} OF 03
+            </p>
+            <h3>{look.title}</h3>
+            <MediaLabel status={look.mediaStatus} />
+          </div>
+          <div className="gallery-actions">
+            <div className="gallery-controls" aria-label="Garment Gallery controls">
+              <button onClick={() => move(-1)} aria-label="Previous gallery look">
+                ←
+              </button>
+              <span aria-hidden="true">{String(active + 1).padStart(2, '0')} / 03</span>
+              <button onClick={() => move(1)} aria-label="Next gallery look">
+                →
+              </button>
+            </div>
+            <button className="button dark" onClick={() => onOpen(look)}>
+              Explore this look <Arrow />
             </button>
           </div>
-          <button className="button dark" onClick={() => onOpen(look)}>
-            Explore this look <Arrow />
-          </button>
+          <p className="gallery-cue" id="gallery-instructions">
+            <span aria-hidden="true">← &nbsp; →</span> Swipe or use the arrows to explore.
+          </p>
+          <p className="gallery-note">
+            One reference view per look. Ask the team about your preferred style.
+          </p>
         </div>
       </div>
-      <p className="gallery-note">
-        Photographic panels with a sense of depth. Each shows one reference view.
-      </p>
     </section>
   );
 }

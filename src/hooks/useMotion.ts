@@ -22,19 +22,29 @@ export function useReducedMotion() {
 export function useEditorialMotion(route: string) {
   const reduced = useReducedMotion();
   useEffect(() => {
-    if (reduced || !('IntersectionObserver' in window)) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 },
-    );
-    document.querySelectorAll('[data-reveal]').forEach((element) => observer.observe(element));
+    if (reduced || typeof window.IntersectionObserver !== 'function') return;
+    let observer: IntersectionObserver;
+    try {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add(
+                entry.target.hasAttribute('data-sequence') ? 'is-entered' : 'is-revealed',
+              );
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.22, rootMargin: '0px 0px -8% 0px' },
+      );
+    } catch {
+      return;
+    }
+    document.querySelectorAll('[data-sequence], [data-reveal]').forEach((element) => {
+      if (element.hasAttribute('data-sequence') || !element.closest('[data-sequence]'))
+        observer.observe(element);
+    });
     return () => observer.disconnect();
   }, [route, reduced]);
 

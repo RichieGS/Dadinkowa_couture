@@ -54,13 +54,14 @@ export function Home({ onOpen }: { onOpen: (look: Look) => void }) {
           {collections.map((item, index) => (
             <Link
               className={`collection-panel panel-${index}`}
+              data-sequence
               key={item.category}
               to={`/lookbook?category=${encodeURIComponent(item.category)}`}
               style={{ '--stagger': `${index * 90}ms` } as CSSProperties}
             >
               <div
                 className="collection-photo"
-                data-reveal="image"
+                data-sequence-part="image"
                 data-parallax={index === 0 ? '' : undefined}
               >
                 <Photography {...item.photo} />
@@ -70,32 +71,37 @@ export function Home({ onOpen }: { onOpen: (look: Look) => void }) {
                 </span>
               </div>
               <p className="eyebrow">{item.note}</p>
-              <h3>{item.title}</h3>
-              <MediaLabel status="stock-reference" />
+              <h3 data-sequence-part="heading">{item.title}</h3>
+              <div data-sequence-part="copy">
+                <MediaLabel status="stock-reference" />
+              </div>
             </Link>
           ))}
         </div>
       </section>
       <GarmentGallery onOpen={onOpen} />
-      <section className="craft-interlude">
+      <section className="craft-interlude" data-sequence>
         <div className="craft-photo" data-parallax>
-          <div className="craft-reveal" data-reveal="image">
+          <div className="craft-reveal" data-sequence-part="image">
             <Photography {...photos.texture} />
           </div>
         </div>
         <div className="craft-words">
           <p className="eyebrow">A CLOSER LOOK</p>
-          <h2>
+          <h2 data-sequence-part="heading">
             It’s all in
             <br />
             <i>the feeling.</i>
           </h2>
+          <p className="craft-description" data-sequence-part="copy">
+            Texture gives a look its rhythm. Explore fabric possibilities with the team.
+          </p>
         </div>
         <MediaLabel status="stock-reference" />
       </section>
-      <section id="atelier" tabIndex={-1} className="atelier section">
+      <section id="atelier" tabIndex={-1} className="atelier section" data-sequence>
         <div className="atelier-image">
-          <div className="atelier-photo" data-reveal="image">
+          <div className="atelier-photo" data-sequence-part="image">
             <Photography {...photos.sewing} />
           </div>
           <MediaLabel status="stock-reference" />
@@ -103,12 +109,12 @@ export function Home({ onOpen }: { onOpen: (look: Look) => void }) {
         </div>
         <div className="atelier-copy" data-reveal="text">
           <p className="eyebrow">03 / THE ATELIER</p>
-          <h2>
+          <h2 data-sequence-part="heading">
             A conversation
             <br />
             before <i>the cloth.</i>
           </h2>
-          <p>
+          <p data-sequence-part="copy">
             Start with an idea, a style reference, or a fabric that catches your eye. Explore
             tailoring, fabrics and finishing touches with Dadinkowa Couture in Offa.
           </p>

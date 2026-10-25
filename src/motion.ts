@@ -1,8 +1,13 @@
 // Shared by CSS and JavaScript. Hold is measured after the hero transition.
 export const motion = {
-  heroTransition: 1600,
+  heroTransition: 1400,
+  heroCover: 220,
+  heroUnveil: 1180,
   heroHold: 9000,
-  imageReveal: 1100,
+  imageReveal: 900,
+  sectionImage: 900,
+  sectionText: 650,
+  sectionStep: 140,
   textEntrance: 700,
   detailEntrance: 550,
   detailExit: 320,

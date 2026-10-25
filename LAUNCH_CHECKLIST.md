@@ -42,3 +42,14 @@ Payments, inventory, checkout, accounts/CMS/admin, scheduling and analytics rema
 - [ ] Review the actual gallery depth, crop edges, type wrapping and overflow at 390/768/1440px in a real browser. State tests are not visual acceptance.
 - [ ] Capture screenshots and a short recording of the slow hero and manual gallery. Browser tooling remains unavailable in this session.
 - [ ] Obtain approved native garment-on-mannequin/hanger images or isolated garment layers and independent accessory shots if those become part of the production art direction. Do not substitute unrelated Western suiting or fabricate back views.
+
+## Recording-led refinement
+
+- [x] Inspect representative feedback frames, including hero double-image overlap at 4–7 seconds and gallery navigation/caption separation at 17–19 seconds.
+- [x] Replace multi-photo opacity blending with a single-photo, decode-aware staged cover/unveil and latest-request-wins cancellation.
+- [x] Remove white frame chrome; add background/floor/foreground separation and a compact side/below reading rail with explicit controls.
+- [x] Coordinate image/heading/copy entrances at 0/140/280ms with a roughly 930ms total sequence and visible initialization fallback.
+- [x] Strengthen descriptive copy and reduce excessive heading-to-copy scale; remove heading container width restrictions and older direct-child copy inheritance from the hero reading block.
+- [ ] Inspect new computed styles and actual render at the recording size (1916×874), 1440×900, 768×1024 and 390×844. Also test browser zoom and shorter windows.
+- [ ] Confirm no visible double exposure, awkward wipe, gallery overflow or garment clipping; capture desktop/mobile screenshots and a short recording. Browser tooling remains unavailable.
+- [ ] Obtain the exact clean native garment/mannequin/hanger assets described in ASSET_MANIFEST.md if a genuinely isolated garment presentation is required; do not force a cutout from the current references.
