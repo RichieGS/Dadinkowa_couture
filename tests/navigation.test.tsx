@@ -36,7 +36,7 @@ describe.each(['browser', 'hash'])('%s routing', (mode) => {
   });
   it('scrolls to collections without navigating to a missing route', () => {
     mount();
-    fireEvent.click(screen.getByRole('link', { name: 'Scroll to discover' }));
+    fireEvent.click(screen.getByRole('link', { name: /Explore the collection/ }));
     expect(screen.getByTestId('location').textContent).toBe('/');
     expect(document.activeElement?.id).toBe('collections');
     expect(document.activeElement?.scrollIntoView).toHaveBeenCalled();
@@ -51,6 +51,8 @@ describe.each(['browser', 'hash'])('%s routing', (mode) => {
     );
     await waitFor(() => expect(document.activeElement?.id).toBe('atelier'));
     expect(screen.getByTestId('location').textContent).toBe('/#atelier');
-    expect(screen.getByRole('heading', { level: 1 }).textContent).toContain('Considered style.');
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toContain(
+      'Cloth. Form. Identity.',
+    );
   });
 });

@@ -1,4 +1,3 @@
-import inventory from './photo-inventory.json';
 import { mediaCopy, type MediaStatus } from './media';
 declare global {
   interface Window {
@@ -22,7 +21,7 @@ export const business = {
 
 export const site = {
   previewMode: true,
-  headline: 'Considered style. Personal expression.',
+  headline: 'Cloth. Form. Identity.',
   theme: { ink: '#111111', ivory: '#F5F1E9', stone: '#D8D0C4' },
 };
 export const categories = [
@@ -57,203 +56,64 @@ export type Look = {
   mediaStatus: MediaStatus;
   source: string;
 };
-const installed = inventory as { photos: Record<string, { width: number; height: number }> };
-const photo = (name: string, alt: string, position = '50% 35%'): Photo => ({
-  available: !!installed.photos[name],
-  slot: name,
-  width: installed.photos[name]?.width ?? 1000,
-  height: installed.photos[name]?.height ?? 1400,
-  src: asset(`/media/${name}-1400.webp`),
-  srcSet: `${asset(`/media/${name}-700.webp`)} 700w, ${asset(`/media/${name}-1400.webp`)} 1400w`,
+const concept = (name: string, alt: string, transparent = true): Photo => ({
+  src: asset(`/media/concept-${name}-${transparent ? 1000 : 1400}.webp`),
+  srcSet: transparent
+    ? `${asset(`/media/concept-${name}-500.webp`)} 500w, ${asset(`/media/concept-${name}-1000.webp`)} 1000w`
+    : `${asset(`/media/concept-${name}-700.webp`)} 700w, ${asset(`/media/concept-${name}-1400.webp`)} 1400w`,
+  width: transparent ? 1000 : 1400,
+  height: transparent ? 1500 : name === 'folds' ? 525 : 933,
   alt,
-  position,
-  caption: 'Enquire for current options and pricing.',
+  fit: transparent ? 'contain' : 'cover',
+  position: '50% 50%',
+  caption: 'AI-generated style concept—not an actual Dadinkowa product.',
 });
-export const photos = {
-  portrait: photo(
-    'portrait',
-    'Reference portrait of a Nigerian man wearing patterned traditional attire',
+export const concepts = {
+  burgundy: concept(
+    'burgundy',
+    'AI concept: sculptural burgundy Agbada with tonal geometric embroidery',
   ),
-  cap: photo(
-    'cap-portrait',
-    'Reference rear three-quarter portrait of a man in a striped cap and patterned tunic',
+  ivory: concept('ivory', 'AI concept: ivory Senator-style tunic and trousers'),
+  midnight: concept('midnight', 'AI concept: midnight-blue Agbada with a sweeping silhouette'),
+  folds: concept('folds', 'AI-generated conceptual burgundy fabric folds in warm light', false),
+  embroidery: concept(
+    'embroidery',
+    'AI-generated conceptual geometric burgundy embroidery detail',
+    false,
   ),
-  burgundy: photo(
-    'agbada-burgundy',
-    'Reference portrait of a man in a burgundy tunic, sunglasses and baseball cap',
-  ),
-  blue: photo('agbada-blue', 'Reference portrait of a Nigerian man in blue Agbada'),
-  kaftan: photo(
-    'kaftan-sand',
-    'Reference portrait of a man in a sand-toned kaftan with a visible clothing tag',
-  ),
-  everyday: photo(
-    'kaftan-earth',
-    'Reference portrait of a man wearing earth-toned Nigerian attire',
-  ),
-  fabrics: photo('fabric-stack', 'Reference photograph of folded fabrics on a shelf'),
-  sewing: {
-    ...photo('sewing', 'Reference close-up of a sewing machine stitching cloth'),
-    width: 1400,
-    height: 788,
-  },
-  texture: photo('fabric-bronze', 'Reference close-up of brown cloth folds'),
 };
-Object.assign(photos.portrait, {
-  fit: 'contain',
-  position: '50% 50%',
-  mobilePosition: '50% 50%',
-  background: '#d9d1c5',
-});
-Object.assign(photos.cap, {
-  fit: 'contain',
-  position: '50% 50%',
-  mobilePosition: '50% 50%',
-  background: '#d3c3b3',
-});
-Object.assign(photos.burgundy, {
-  fit: 'contain',
-  position: '50% 50%',
-  mobilePosition: '50% 50%',
-  background: '#aaa0d2',
-});
-Object.assign(photos.blue, {
-  fit: 'contain',
-  position: '50% 50%',
-  mobilePosition: '50% 50%',
-  background: '#e2e5df',
-});
-Object.assign(photos.kaftan, {
-  fit: 'contain',
-  position: '50% 50%',
-  mobilePosition: '50% 50%',
-  background: '#c19970',
-});
-Object.assign(photos.everyday, {
-  fit: 'contain',
-  position: '50% 50%',
-  mobilePosition: '50% 50%',
-  background: '#b1a58f',
-});
-Object.assign(photos.sewing, { fit: 'cover', position: '57% 58%', mobilePosition: '57% 58%' });
-Object.assign(photos.fabrics, { fit: 'cover', position: '35% 50%', mobilePosition: '35% 50%' });
-Object.assign(photos.texture, { fit: 'cover', position: '50% 50%', mobilePosition: '50% 50%' });
-export const exhibitionPhotos = {
-  patterned: {
-    ...photo(
-      'portrait-garment',
-      'Face-free crop of a patterned native tunic showing its neckline, sleeves and trousers',
-    ),
-    fit: 'contain' as const,
-    background: '#d9d1c5',
-  },
-  blue: {
-    ...photo(
-      'blue-garment',
-      'Face-free crop of blue Agbada showing embroidered neckline and sleeves',
-    ),
-    fit: 'contain' as const,
-    background: '#e2e5df',
-  },
-  burgundy: {
-    ...photo(
-      'burgundy-garment',
-      'Face-free crop of a burgundy tunic showing its neckline, sleeves and folded hands',
-    ),
-    fit: 'contain' as const,
-    background: '#aaa0d2',
-  },
-  sand: {
-    ...photo(
-      'sand-garment',
-      'Face-free crop of a sand kaftan with neckline, sleeves and its original clothing tag',
-    ),
-    fit: 'contain' as const,
-    background: '#c19970',
-  },
-  earth: {
-    ...photo(
-      'earth-garment',
-      'Face-free crop of an earth-toned kaftan showing its neckline, long sleeves and silhouette',
-    ),
-    fit: 'contain' as const,
-    background: '#b1a58f',
-  },
-  cap: {
-    ...photo('cap-detail', 'Face-free pattern detail from a striped cap photographed while worn'),
-    fit: 'cover' as const,
-    position: '25% 50%',
-    mobilePosition: '25% 50%',
-    background: '#d3c3b3',
-  },
-};
-
 export const looks: Look[] = [
   {
     id: '01',
-    slug: 'senator-study',
-    title: 'A presence in burgundy',
+    slug: 'burgundy-concept',
+    title: 'Burgundy / Form',
     category: 'Tailoring',
     description:
-      'A bold silhouette, a quiet confidence. Bring your preferred native style to the conversation and discuss fabric, fit and timing with the team.',
-    images: [exhibitionPhotos.burgundy],
-    mediaStatus: 'stock-reference',
-    source: 'mk_photoz / Pexels 37766536',
+      'Broad folds and a tonal geometric centre create a sculptural burgundy silhouette.',
+    images: [concepts.burgundy],
+    mediaStatus: 'ai-concept',
+    source: 'User-supplied AI concept / New_designs.zip',
   },
   {
     id: '02',
-    slug: 'fabric-rhythm',
-    title: 'A rhythm in cloth',
-    category: 'Fabrics',
+    slug: 'ivory-concept',
+    title: 'Ivory / Line',
+    category: 'Tailoring',
     description:
-      'Tone, texture and possibility. Start with your colour palette, then ask the team about current fabric choices and pricing.',
-    images: [photos.fabrics],
-    mediaStatus: 'stock-reference',
-    source: 'Tima Miroshnichenko / Pexels 6766360',
+      'A pale palette, a straight tunic and a quiet vertical line. An ivory Senator-style concept.',
+    images: [concepts.ivory],
+    mediaStatus: 'ai-concept',
+    source: 'User-supplied AI concept / New_designs.zip',
   },
   {
     id: '03',
-    slug: 'agbada-study',
-    title: 'Room for expression',
+    slug: 'midnight-concept',
+    title: 'Midnight / Volume',
     category: 'Tailoring',
-    description:
-      'A fresh perspective on Agbada. Explore your preferred silhouette and ask which fabrics are available to bring your idea to life.',
-    images: [exhibitionPhotos.blue],
-    mediaStatus: 'stock-reference',
-    source: 'Taiye Salawu / Pexels 37320670',
-  },
-  {
-    id: '04',
-    slug: 'everyday-study',
-    title: 'Everyday, considered',
-    category: 'Ready-to-Wear',
-    description:
-      'Ease with intention. Ask for the current ready-to-wear selection, sizes and prices directly from the team.',
-    images: [exhibitionPhotos.earth],
-    mediaStatus: 'stock-reference',
-    source: 'Taiye Salawu / Pexels 38188493',
-  },
-  {
-    id: '05',
-    slug: 'finishing-note',
-    title: 'The finishing note',
-    category: 'Caps & Accessories',
-    description:
-      'A cap can change the whole conversation. Explore current caps, watches and accessories with Dadinkowa Couture.',
-    images: [exhibitionPhotos.cap],
-    mediaStatus: 'stock-reference',
-    source: 'Chidera Faustina Okeke / Unsplash xZpVJsIcaiM',
-  },
-  {
-    id: '06',
-    slug: 'ease-in-sand',
-    title: 'Ease in sand',
-    category: 'Ready-to-Wear',
-    description:
-      'A pared-back direction for everyday dressing. Use this as a style reference and enquire about the current range.',
-    images: [exhibitionPhotos.sand],
-    mediaStatus: 'stock-reference',
-    source: 'Skylight Views / Pexels 34362606',
+    description: 'Midnight blue, broad sleeves and sweeping folds explore volume and shadow.',
+    images: [concepts.midnight],
+    mediaStatus: 'ai-concept',
+    source: 'User-supplied AI concept / New_designs.zip',
   },
 ];
 export const media = {
@@ -262,8 +122,8 @@ export const media = {
     source: 'User-supplied recreated-logo-draft.png',
     approvalStatus: 'Provisional reconstruction; owner review required',
   },
-  hero: [exhibitionPhotos.patterned, exhibitionPhotos.blue, exhibitionPhotos.earth],
-  approvalStatus: 'Temporary licensed reference photography; not brand products',
+  hero: [concepts.burgundy],
+  approvalStatus: 'AI-generated style concepts—not actual Dadinkowa products',
 };
 export const socialPosts = [
   {
@@ -293,7 +153,9 @@ export function whatsappUrl({
     interest && `I am interested in ${interest}.`,
     reference && `Look reference: ${reference} (${mediaCopy(mediaStatus).reference}).`,
     message.trim(),
-    'Please share current availability and pricing.',
+    mediaStatus === 'ai-concept' && reference
+      ? 'Could your team create something similar? Please advise what is feasible, possible fabrics, timing and an estimate. I understand this is a concept; availability and exact reproduction are not implied.'
+      : 'Please share current availability and pricing.',
   ];
   return `${business.whatsapp}?text=${encodeURIComponent(parts.filter(Boolean).join('\n'))}`;
 }

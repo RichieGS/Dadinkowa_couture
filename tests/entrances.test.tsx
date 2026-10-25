@@ -68,4 +68,21 @@ describe('coordinated entrance initialization', () => {
     render(<Harness />);
     expect(screen.getByText('Readable copy')).toBeTruthy();
   });
+  it('does not initialize entrance observation when reduced motion is requested', () => {
+    window.matchMedia = vi.fn((query) => ({
+      matches: query.includes('prefers-reduced-motion'),
+      media: query,
+      onchange: null,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    }));
+    const constructor = vi.fn();
+    vi.stubGlobal('IntersectionObserver', constructor);
+    render(<Harness />);
+    expect(constructor).not.toHaveBeenCalled();
+    expect(screen.getByText('Readable copy')).toBeTruthy();
+  });
 });

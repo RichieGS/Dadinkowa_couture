@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { categories, looks, whatsappUrl, type Category } from '../data';
 import { mediaCopy } from '../media';
-import { External, Arrow } from './Shared';
+import { External, Arrow, MediaLabel } from './Shared';
 export function EnquiryComposer() {
   const [params] = useSearchParams();
   const initial = looks.find((l) => l.slug === params.get('look'));
@@ -68,6 +68,7 @@ export function EnquiryComposer() {
           </option>
         ))}
       </select>
+      {chosen && <MediaLabel status={chosen.mediaStatus} />}
       <label htmlFor="message">Your message</label>
       <textarea
         id="message"

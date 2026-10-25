@@ -1,84 +1,22 @@
-# Asset and permission register — 25 October 2026
+# Living Atelier asset register
 
-## Current status
+Source: user-supplied `New_designs.zip`, 25 October 2026. The user identifies these as generated concepts and approves Concept A as the visual direction. Package filenames are asset identifiers, not instructions or evidence of brand products. The board's unverified heritage/workmanship claims were not adopted.
 
-All nine requested originals were supplied in `DDK_img.zip` and integrated after local visual inspection. Exact source-ID matches resolve every file; there are no ambiguous matches. The original names, IDs and SHA-256 hashes are in `photo-provenance.json`, together with dimensions, byte sizes and SHA-256 for all full-frame and derivative WebP outputs. No new remote downloads were attempted.
-
-The originals total 19,866,025 bytes. Two responsive variants per image total 2,147,150 bytes. Variants preserve the full photograph, with no image retouching, upscaling or fabricated views; EXIF was removed. Actual browser screenshots/crop checks remain unrun.
-
-All photo slots are `stock-reference`. The disclosure is “Style inspiration — reference photography, not Dadinkowa products.” No model is a claimed customer; the sewing reference is not Dadinkowa’s workshop. Each current look has one image: no unrelated shots are treated as matching views.
-
-## Integrated photographs (all stock-reference)
-
-Paths are under `public/media/`; each stem has `-700.webp` and `-1400.webp` variants. See `PHOTOGRAPHY_REQUEST.md` for original filenames and placement. Inspected alt text, contained framing and focal positions live in `src/data.ts`. Browser-level framing review is still required.
-
-| Output stem | Photo page / photographer | Licence | Intended slot and inspected description | Replacement requirement |
-| --- | --- | --- | --- | --- |
-| `portrait` | [Unsplash DdNa5AdiRdo](https://unsplash.com/photos/man-in-traditional-nigerian-attire-DdNa5AdiRdo), Chidera Faustina Okeke | [Unsplash](https://unsplash.com/license) | Hero 1; reference portrait of a Nigerian man in patterned traditional attire | Integrated; later replace with approved brand campaign photograph |
-| `cap-portrait` | [Unsplash xZpVJsIcaiM](https://unsplash.com/photos/man-wearing-traditional-african-attire-with-striped-headwrap-xZpVJsIcaiM), Chidera Faustina Okeke | [Unsplash](https://unsplash.com/license) | Accessories; reference rear three-quarter portrait with striped traditional cap | Integrated; approved actual accessory photograph before catalogue launch |
-| `agbada-burgundy` | [Pexels 37766536](https://www.pexels.com/photo/stylish-african-man-wearing-traditional-agbada-37766536/), mk_photoz | [Pexels](https://www.pexels.com/license/) | Featured tailoring; burgundy tunic, sunglasses and baseball cap (source metadata corrected) | Integrated; actual approved garment photo |
-| `agbada-blue` | [Pexels 37320670](https://www.pexels.com/photo/man-wearing-traditional-nigerian-agbada-outfit-37320670/), Taiye Salawu | [Pexels](https://www.pexels.com/license/) | Hero 2 / native collection / look; reference blue Agbada portrait | Integrated; actual approved garment photo |
-| `sewing` | [Pexels 17710255](https://www.pexels.com/photo/sewing-close-up-17710255/), Cemrecan Yurtman | [Pexels](https://www.pexels.com/license/) | Atelier; reference sewing machine close-up | Integrated; approved Dadinkowa process media, never claim stock workshop is the brand's |
-| `fabric-stack` | [Pexels 6766360](https://www.pexels.com/photo/a-stack-of-assorted-folded-fabrics-on-a-shelf-6766360/), Tima Miroshnichenko | [Pexels](https://www.pexels.com/license/) | Fabric collection / look; reference folded fabric shelves | Integrated; approved fabric selection with truthful availability |
-| `kaftan-sand` | [Pexels 34362606](https://www.pexels.com/photo/man-in-traditional-african-kaftan-outfit-34362606/), Skylight Views | [Pexels](https://www.pexels.com/license/) | Hero 3 / feature; reference sand-toned kaftan portrait with visible clothing tag | Integrated; actual approved garment photograph |
-| `kaftan-earth` | [Pexels 38188493](https://www.pexels.com/photo/modern-portrait-of-man-in-traditional-nigerian-kaftan-38188493/), Taiye Salawu | [Pexels](https://www.pexels.com/license/) | Ready-to-wear collection; reference earth-toned Nigerian attire | Integrated; actual approved ready-to-wear photograph |
-| `fabric-bronze` | [Pexels 4938322](https://www.pexels.com/photo/brown-folded-fabric-4938322/), Kaboompics | [Pexels](https://www.pexels.com/license/) | Full-width craft interlude; reference brown cloth folds | Integrated; approved brand fabric macro |
-
-## Inspection notes
-
-- All nine originals were inspected via a labelled contact sheet, and output dimensions/formats/aspect ratios were checked with Pillow. No visible watermarks were observed.
-- `37766536` is a tunic/baseball-cap portrait, despite the original source-page Agbada title. Alt text and this register are corrected; the stable output stem remains `agbada-burgundy`.
-- The sand kaftan photograph has a visible clothing tag. It is retained without claiming Dadinkowa ownership or endorsement.
-- No second photograph is assigned as a front/back/detail view. The original Unsplash pair appears to share an outfit, but remains independently assigned rather than manufacturing a catalogue view set.
-- Portraits are contained with padding; mobile hero text is placed below the photo. Macro/process crops use explicit focal positions and a native-ratio Atelier frame. Real-browser verification remains open.
-
-The free-use licence terms were verified on the platforms, but no separate releases have been obtained or claimed. Endorsement is not implied. No images are purchased, hotlinked, scraped from a brand catalogue or rehosted through an alternate download service. There is no remote photo loading in the current application.
-
-## Bundled assets
-
-| Path | Source / status | Use | Replacement requirement |
-| --- | --- | --- | --- |
-| `public/media/logo-draft.png` | User-supplied reconstructed raster PNG; provisional | Header; original DK/T-shirt motif retained without stretching | Owner-approved production logo master |
-| `public/favicon.svg` | Original type-only DK placeholder | Browser tab, not certified logo | Approved favicon derived from final logo |
-| `public/media/og-placeholder.svg` | Original type-only placeholder | Sharing metadata | Approved social sharing graphic with final domain |
-
-System serif and sans-serif stacks only; no third-party font downloads. TikTok items are external links only. Supplied original-logo screenshot and superseded horizontal concept remain references and are not displayed. No screenshot phone controls appear on the site.
-
-## Media state contract
-
-`illustration`, `stock-reference` and `approved-brand` have distinct card/dialog notices and WhatsApp qualifications in `src/media.ts`. Approved-brand images receive no illustrative/stock disclosure. The record's factual image alt/caption/source must also be updated with the actual approved asset; changing a status is not a substitute for approval. `photo-inventory.json` tracks whether an optimised local file exists, independently of ownership status; all nine are installed.
-
-## Exhibition derivatives — face-free, still stock-reference
-
-These are deliberate crops of the same licensed originals, not new views of a garment. No background removal, synthetic fill or geometry generation was performed. Both 700px/1400px variants are installed. Exact relative crop boxes and file integrity records are in `photo-provenance.json`; processing is reproducible with `scripts/prepare-exhibition-crops.py`.
-
-| Crop stem | Original slot / unchanged source and licence | Visible use |
+| Supplied file | Website use | Output |
 | --- | --- | --- |
-| `portrait-garment` | `portrait` / Chidera Faustina Okeke, Unsplash DdNa5AdiRdo | Hero: patterned tunic neckline/sleeves and photographed trousers |
-| `blue-garment` | `agbada-blue` / Taiye Salawu, Pexels 37320670 | Hero, collection, lookbook and Gallery: embroidered blue native garment |
-| `burgundy-garment` | `agbada-burgundy` / mk_photoz, Pexels 37766536 | Lookbook: burgundy tunic and hands, no baseball-cap portrait |
-| `sand-garment` | `kaftan-sand` / Skylight Views, Pexels 34362606 | Lookbook and Gallery: sand kaftan with original clothing tag |
-| `earth-garment` | `kaftan-earth` / Taiye Salawu, Pexels 38188493 | Hero, collection, lookbook and Gallery: long earth-toned kaftan |
-| `cap-detail` | `cap-portrait` / Chidera Faustina Okeke, Unsplash xZpVJsIcaiM | Accessories collection/lookbook: face-free cap-pattern detail, not a separately photographed cap |
+| Sculptural oxblood agbada with tonal embroidery-1.png | Layered hero; burgundy collection/lookbook/dialog | concept-burgundy-500/1000.webp |
+| Ivory Nigerian Senator-Style Ensemble-2.png | Ivory collection/lookbook/dialog | concept-ivory-500/1000.webp |
+| Midnight navy sculptural agbada-3.png | Midnight collection/lookbook/dialog | concept-midnight-500/1000.webp |
+| Oxblood fabric folds in warm light-4.png | Separate hero background | concept-folds-700/1400.webp |
+| Oxblood geometric embroidery in relief-5.png | First ivory editorial section | concept-embroidery-700/1400.webp |
+| Dadinkowa Couture living atelier board.png | Visual reference only | Not shipped or embedded |
 
-The derivative files were inspected locally. Faces are outside the crop boxes; no original facial image is distorted or presented as a mannequin. Shoulder/neckline framing follows what the original photograph allows; these are garment references, not claimed complete catalogue views. The original six full-frame human photographs remain retained source references but are no longer used as the visible garment presentations. The fabric images and hands-only sewing image remain unchanged.
+All five assets are `ai-concept`. Required visible notice: **AI-generated style concept—not an actual Dadinkowa product.** Generated cloth/embroidery is conceptual too. No asset depicts a verified Dadinkowa workshop, product, customer, material stock or production technique. There are exactly three garment concepts; no accessory/fabric-product/ready-to-wear looks are fabricated to fill old slots.
 
-Six derivatives add 12 WebP files totalling 1,253,938 bytes. All 30 full-frame/derivative variants total 3,401,088 bytes. The first hero derivative is 437,704 bytes at 1400px. The standalone embeds both original and derivative assets for offline use; none loads from an external CDN.
+Three garment PNGs are RGBA, 1024×1536, alpha extrema 0–254; fabric folds are RGB 2048×768 and embroidery RGB 1536×1024. Local composite review on charcoal #1c191a and ivory #f5f0e6 found no conspicuous fringe at the inspected scale. No destructive thresholding, background flattening or new cutout was applied. Full supplied silhouettes and alpha are retained. All six responsive garment WebPs decode with alpha; all ten variants decode, match recorded dimensions and carry no EXIF. Live browser-scale halo/framing inspection is pending.
 
-### Additional references reviewed, not selected
+`concept-provenance.json` records exact source filenames, SHA-256 hashes, status, output dimensions/bytes/alpha. `scripts/prepare-concepts.py` reproduces the encoding (Pillow WebP quality 88, no upscaling). Outputs total 1,204,352 bytes. Originals, mockup and review composites stay local, outside Git.
 
-- [Tima Miroshnichenko / Pexels 6764954](https://www.pexels.com/photo/a-bespoke-suit-jacket-on-a-tailor-dummy-6764954/): the page identifies a Western suit on a tailor dummy. Used only as presentation context; no photograph downloaded or substituted for Nigerian menswear.
-- [Bruno Thethe / Unsplash lAKMGwfMC2g](https://unsplash.com/photos/abstract-pattern-of-folded-fabric-in-black-and-white-lAKMGwfMC2g): source page reviewed; no image downloaded/selected, since supplied fabric references already serve the tactile section.
-- [Cemrecan Yurtman / Pexels 17710255](https://www.pexels.com/photo/sewing-close-up-17710255/): existing supplied hands-only image retained, locally inspected and covered by its Pexels licence record above.
+Generation provider/model/prompt and licence terms were not supplied. Owner rights/brand review remains a launch requirement; no third-party licence has been inferred from the files. No purchases/downloads were made.
 
-No repeated blocked downloads were attempted. Cleanly isolated Nigerian garments on headless mannequins/hangers and independently photographed caps are still missing. The current fallback is explicitly photographic panels, with no claim of true 3D or unseen back views. All inherited stock-reference disclosures and source records remain in force.
-
-## Screen-recording feedback pass
-
-The supplied 1916×874, approximately 31-second screen recording was inspected at representative transition and gallery timestamps. It is private visual feedback, not a brand media asset; neither the video/audio nor extracted frames are committed or embedded. Its ghosted hero and out-of-view gallery/caption composition informed the new single-photo curtain and compact depth-stage layout.
-
-No photograph was newly downloaded, altered, isolated or purchased in this pass. Existing inspected face-free stock-reference crops are retained. Their backgrounds include models/hands, scenery and fabric tones that do not support a clean garment-only cutout; a forced cutout would be misleading and visually poor. The fallback remains clearly photographic, with mat borders removed and environmental depth provided by CSS—not a claim of unseen garment geometry.
-
-Additional source research did not identify an inspected, suitable replacement within the available free assets. Western suits, unrelated women's/Arab garments and paid/licensable imagery were not substituted. Restricted image-host access remains unchanged and no repeated blocked download was attempted.
-
-Exact remaining production assets: a rights-cleared Nigerian Senator/kaftan front on a headless mannequin or hanger with the full neckline, sleeves and hem in frame; an equivalent Agbada front; and, ideally, a genuine isolated transparent garment layer from a clean photograph. Use at least 1400px width, even light and clear silhouette edges. Any back/detail view must actually belong to the same garment. Independent caps/accessory shots remain useful. No current image is represented as Dadinkowa work.
+The existing `logo-draft.png` is preserved byte-for-byte. It is still the provisional user-supplied DK/T-shirt reconstruction, requiring a production master before launch. The social-placeholder and favicon remain provisional. Historic stock source records in `photo-provenance.json` and earlier Git history are archival; those files are no longer displayed or shipped. `PHOTOGRAPHY_REQUEST.md` now explains the superseded stock-image request.

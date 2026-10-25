@@ -9,7 +9,7 @@ import { business, looks, whatsappUrl } from '../src/data';
 import { LookCard } from '../src/components/LookCard';
 import { LookDialog } from '../src/components/LookDialog';
 
-const statuses: MediaStatus[] = ['illustration', 'stock-reference', 'approved-brand'];
+const statuses: MediaStatus[] = ['ai-concept', 'illustration', 'stock-reference', 'approved-brand'];
 describe.each(statuses)('%s media status', (status) => {
   it('uses its own disclosure on the card', () => {
     const { container } = render(
@@ -53,7 +53,7 @@ describe.each(statuses)('%s media status', (status) => {
 });
 it('does not invent stock, price, or multi-view details', () => {
   for (const look of looks) {
-    expect(look.mediaStatus).toBe('stock-reference');
+    expect(look.mediaStatus).toBe('ai-concept');
     expect(look.images).toHaveLength(1);
     expect(look).not.toHaveProperty('price');
     expect(look).not.toHaveProperty('stock');

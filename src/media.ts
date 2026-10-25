@@ -1,7 +1,13 @@
-export type MediaStatus = 'illustration' | 'stock-reference' | 'approved-brand';
+export type MediaStatus = 'ai-concept' | 'illustration' | 'stock-reference' | 'approved-brand';
 
 export function mediaCopy(status: MediaStatus) {
   switch (status) {
+    case 'ai-concept':
+      return {
+        short: 'AI style concept',
+        disclosure: 'AI-generated style concept—not an actual Dadinkowa product.',
+        reference: 'AI-generated style concept—not an actual Dadinkowa product',
+      };
     case 'illustration':
       return {
         short: 'Illustrative preview',

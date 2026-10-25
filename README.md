@@ -1,99 +1,46 @@
-# Dadinkowa Couture — editorial MVP (draft)
+# Dadinkowa Couture — Living Atelier MVP
 
-Nine user-supplied stock-reference photographs are now integrated in the hero, collections, lookbook and Atelier. All files matched the requested source IDs without ambiguity. The images were inspected locally and optimised to 700px/1400px WebP variants; no originals are committed. The burgundy tunic/baseball-cap photo's inaccurate Agbada description was corrected, and the visible tag in the sand-kaftan reference is documented.
+Local-only React + TypeScript + Vite website. The approved Concept A reference guides the composition: charcoal/burgundy layered hero, real “Cloth. Form. Identity.” headline, ivory embroidery editorial and three asymmetric garment studies. The existing supplied DK logo is unchanged. Nothing is merged or deployed.
 
-Visible garment placements now use inspected face-free derivatives. The mobile hero separates image and text to keep garment details readable; the Atelier uses the sewing image's landscape ratio. These are implemented framing choices, **not a claim of real-browser visual QA**. Browser tooling remains unavailable.
+## Run
 
-## Run and inspect
-
-React + TypeScript + Vite. Node 22.12+ or 24 recommended.
+Node 22.12+ or 24 recommended. No backend or secrets required.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Open the printed local address (normally `http://localhost:5173`). Home `/`, Lookbook `/lookbook`, Contact `/contact`. No backend or secrets are required.
+Open the printed local address. Routes: `/`, `/lookbook`, `/contact`. The site retains noindex preview metadata, verified phone/address/social links, accessible native dialogs, category filtering, router-safe section anchors and qualified WhatsApp drafts. Ready-to-wear, fabrics, caps and accessories remain service text and enquiry options; only Tailoring has suitable garment concept imagery, so the visual filter offers All/Tailoring. Old category URLs still show a truthful empty state.
+
+## Art direction and disclosures
+
+The five separate images from `New_designs.zip` are the only displayed concept media. Three transparent garments use 500/1000px WebP; two fabric/detail assets use 700/1400px WebP. The mockup is not shipped as an image. Previous stock photographs are removed from the shipped media directory, with their source history retained in Git. See [ASSET_MANIFEST.md](ASSET_MANIFEST.md) and [concept-provenance.json](concept-provenance.json).
+
+Every garment presentation and generated fabric detail carries `ai-concept` disclosure: “AI-generated style concept—not an actual Dadinkowa product.” Fabric imagery is additionally described as conceptual. Each garment has one actual supplied image; no duplicated looks, fabricated views, 360-degree viewer, stock availability or exact-reproduction promise is offered. “Discuss this style” selects the correct AI concept and asks whether the team could create something similar. The website opens a draft only; the visitor decides whether to send it.
+
+Hero cloth, lighting and transparent garment are separate layers. A single 1500ms garment entrance settles permanently while the headline and actions stay readable. Hover changes are limited to 2 degrees and 5px; no oval platform or rectangular floating cards remain. Section sequences run image/heading/copy at 0/140/280ms, remain visible after completion and have visible initialization fallback. Reduced motion disables the hero/hover/section animations. Scrolling remains native. Mobile uses its own stacked layout, spaced/wrapping headline, contained garments and nearby concept controls.
+
+`src/living-atelier.css` is the final design layer after base styles. Routes, enquiry forms and dialog lifecycle stay in their existing components. The replaced slideshow/rotating gallery and their obsolete state tests were removed; current composition regressions and preserved navigation/enquiry/dialog/filter tests cover the replacement.
+
+## Checks and standalone preview
 
 ```sh
+npm run format:check
 npm run typecheck
 npm run lint
-npm run format:check
 npm test
-npm run build
-npm exec vite preview -- --host 127.0.0.1
-```
-
-Read [MANUAL_QA.md](MANUAL_QA.md) for exact real-browser checks at 1916×874 (recording size), 390/768/1440px, reduced motion, route/section navigation, modal/menu interaction and WhatsApp drafts. Browser-control tooling was unavailable in this session. No visual QA, screenshot, recording or animation smoothness claim is based on jsdom.
-
-## Exhibition presentation
-
-The homepage now frames clothing as an exhibition. A garment-led hero, asymmetric collections, manual Garment Gallery, tactile fabric interlude, quiet hands-only Atelier and calm contact section give each part a distinct role. Descriptive text is 17–18px with 1.7 line height; secondary labels, hints and disclosures are at least 14px. Readable solid panels replace text over variable fabric tones. Text stays stationary after its brief opacity entrance; gallery captions never tilt or slide with the images. Headline scale is reduced relative to descriptive copy, and the hero description sits in a separate unscaled reading wrapper rather than inheriting older direct-child paragraph rules.
-
-The **Garment Gallery** presents blue Agbada, an earth-toned kaftan and a sand kaftan as photographic planes. The white mat/frame treatment is removed. A foreground garment plane, recessed neighbours, arched backdrop and projected floor/shadows establish distinct depth layers. The image and stationary reading rail share a compact viewport-aware presentation; mobile places the reading rail directly below the image. Previous/next, neighbour selection, Arrow keys/Home/End and horizontal touch swipes select a look immediately; Explore opens the correct accessible detail dialog. Vertical scrolling remains native, and a swipe does not accidentally open a detail. There is no gallery autoplay. Pointer tilt is bounded to 4 degrees on each axis on the central panel; neighbours rotate only 6 degrees. Captions and controls sit outside the tilting layer. Reduced motion removes spatial effects and neighbour focus, retaining explicit controls. This is photographic depth, not 360-degree rendering or a generated garment back.
-
-Six deterministic face-free derivatives were inspected and generated from the supplied stock originals: five garment crops and one cap-pattern detail. Necklines, sleeves and the photographed silhouettes are retained where the source composition allows; the sand garment's original tag remains visible. No background isolation, retouching, unseen geometry or fabricated views are used. Original full-frame references remain in the asset history; visible garment browsing uses the face-free derivatives. No Western suit is substituted for Nigerian menswear. The supplied suit-dummy page was read for presentation context only; no new asset download was attempted. Approved Nigerian garment-on-mannequin/hanger images and independent accessory photographs remain useful future additions, not blockers to the current photographic panels.
-
-### Motion timing
-
-`src/motion.ts` is the shared timing source. `installMotionTokens()` exposes its values to CSS; JavaScript uses the same values for scheduling and native-dialog cleanup.
-
-| Treatment | Timing |
-| --- | --- |
-| Hero staged transition | 1400ms: 220ms opaque cover, then 1180ms unveil |
-| Hero hold after transition | 9000ms after settling (normally 10400ms between transition starts) |
-| Coordinated section image | 900ms |
-| Coordinated heading / copy | 650ms, starting 140ms / 280ms after the image |
-| Detail/menu entrance / exit | 550ms / 320ms |
-| Gallery selection | 1100ms |
-| Button/pointer feedback | 180ms |
-| Filter / route response | 260ms / 220ms |
-
-The hero mounts exactly one photograph. It keeps the outgoing photograph while the next responsive image decodes, covers the source change with an opaque curtain, then unveils the incoming photograph with slight movement. `useStagedHero` cancels previous phase timers and ignores stale readiness promises on repeated requests. Heading and copy settle in after the image begins revealing; CTAs remain outside that sequence. An unavailable image retains the normal fallback, and later slides can recover. There is no opacity blend between two garment photographs.
-
-Major image-led sections are observed as groups at a 22% threshold with an 8% lower viewport inset. Image, heading and copy start at 0/140/280ms and finish by about 930ms. Content is visible before initialization, stays visible after entrance and remains available if observer creation fails. Local recording feedback was inspected at 0/4/5.5/7/12/17/18/19/24/30 seconds; that is evidence about the previous presentation, not a browser test of these new changes.
-
-Hero CTAs, filters and navigation do not wait for animations. Pause/play and manual slides remain visible; document interaction, wheel scrolling, hidden tabs and reduced motion stop automatic advance. The gallery is entirely manual. One CSS/IntersectionObserver/requestAnimationFrame approach is retained, with no 3D engine or extra animation dependency. Reduced motion disables spatial motion, parallax and automatic scheduling. Content is visible if observation/animation fails. No scroll hijacking, particles or custom cursor.
-
-## Maintainable source
-
-- `src/data.ts`: verified business information, typed looks, proposed photo slots, site copy and WhatsApp generation.
-- `src/media.ts`: distinct `illustration`, `stock-reference`, `approved-brand` disclosure/reference wording.
-- `src/components/`: reusable hero, layout, image/section-link helpers, cards, modal viewer, enquiry composer.
-- `src/pages/`: Home, Lookbook and Contact compositions.
-- `src/hooks/`: reduced-motion/reveal/parallax behaviour and native dialog lifecycle; `useStagedHero` owns latest-request-wins reveal phases.
-- `src/styles.css`: base layouts and responsive rules; `src/exhibition.css`: initial exhibition rules; `src/refinements.css`: recording-led cascade, staged hero and compact layered gallery; `src/motion.ts`: shared timing tokens.
-- `src/photo-inventory.json`: installed image dimensions, populated with the nine supplied photographs and six editorial derivatives. It is independent of ownership/approval status.
-
-Source and tests are formatted with Prettier; `npm run format` updates formatting. The uploaded handoff documents remain local and excluded from Git. Verified facts were taken from that dated source; owner approval of design proposals is not implied. Phone, address, Maps and social URLs remain unchanged.
-
-## Replace or reprocess the photographs
-
-1. Inspect the actual originals for composition, quality, watermarks and suitability. The supplied originals have been inspected; future replacements must also be reviewed rather than relying on source metadata.
-2. Put the named originals in a local ignored working folder. Install Pillow in your Python environment if needed.
-3. Run `python3 scripts/prepare-photos.py /absolute/path/to/originals`.
-4. The command preserves the full composition, emits 700/1400px WebP variants to `public/media/`, removes metadata on re-encoding and updates the inventory. It does not download, crop, upscale, manufacture detail views or claim brand approval.
-5. Review focal positions/alt text and update the asset register. Real-device review is required before calling integration complete.
-6. Run `python3 scripts/prepare-exhibition-crops.py /absolute/path/to/originals` to reproduce the six inspected derivatives, then rebuild and regenerate the standalone preview. Crop boxes are recorded in the script and provenance register.
-
-Photo sources, photographers, licence URLs, intended slots and replacement requirements are in [ASSET_MANIFEST.md](ASSET_MANIFEST.md). All supplied photos remain stock-reference and are not Dadinkowa inventory or workmanship evidence. Owner-approved brand media needs truthful per-image alt/caption/source as well as its `approved-brand` status. The logo is still a provisional supplied reconstruction.
-
-## Standalone offline preview
-
-```sh
 npm run build
 python3 scripts/pack-preview.py work/Dadinkowa-Preview.html
 node scripts/check-preview.mjs work/Dadinkowa-Preview.html
 ```
 
-Download/open the generated HTML in a modern browser. The file uses HashRouter and embeds all installed local images, CSS and JavaScript; all supplied photographs and six face-free derivatives, in both responsive sizes, are embedded. It supports the same animations and disables automatic/spatial motion for reduced motion. Section and skip links scroll directly without replacing HashRouter's route fragment. An initial browser may restrict local-file module scripts; use the dev server if so. Contact actions require external network access, but nothing loads from social sites merely by visiting the page.
+The standalone HTML embeds the production bundle, logo and ten responsive concept variants; it uses HashRouter for local-file browsing. External actions require a connection. Review downloads are committed in `deliverables/` so GitHub raw download links can be shared without deployment. Regenerate with `python3 scripts/package-downloads.py /absolute/path/to/Dadinkowa-Preview.html` after staging the source files. The source ZIP excludes dependencies, secrets, raw uploads and recursive deliverables. There is no attachment delivery or external preview-forwarding tool exposed in this session.
 
-The preview was regenerated and its production bundle checked in jsdom. Generated output is kept out of Git; reproduce it with these commands. No attachment delivery or external port-forwarding tool is exposed in this session.
+To reproduce responsive assets, install Pillow and run `python3 scripts/prepare-concepts.py /absolute/path/to/New_designs`. It preserves alpha and full supplied composition, strips metadata by re-encoding and records source hashes/dimensions. It never downloads or generates substitute imagery.
 
-## Hosting later
+Checkpoint: tag `checkpoint/pre-living-atelier-20261025`, commit `7ed70e2`. The same branch `feat/dadinkowa-website-mvp` and draft PR #1 are used.
 
-Nothing is deployed, purchased or merged. No hosting/domain is registered. A future static host must rewrite non-file routes (`/lookbook`, `/contact`) to `/index.html` with HTTP 200, while serving assets normally and retaining genuine asset 404s. Deploy at domain root unless both Vite base and router basename are configured. Set approved canonical/social URLs, HTTPS and final sharing/favicon assets. Keep `site.previewMode` and the static robots metadata in agreement; preview remains noindex.
+Browser-control tooling remains unavailable. Local compositing inspection and DOM checks do not verify live layout, computed styles, device crops, animation quality or native browser focus. Desktop/mobile screenshots and recording remain pending. See [TEST_RESULTS.md](TEST_RESULTS.md), [MANUAL_QA.md](MANUAL_QA.md) and [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md).
 
-No stock inventory, prices, fitting confirmation, delivery guarantees or unverified brand history is invented. WhatsApp opens a qualified draft for the visitor to send. No messages have been sent. Payments, checkout, accounts, CMS, scheduling, inventory and tracking remain outside this MVP.
-
-See [TEST_RESULTS.md](TEST_RESULTS.md) for actual checks and [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) for remaining approvals and QA.
+A future host must serve SPA routes through `/index.html`, preserve genuine asset 404s and configure HTTPS/canonical URLs. Keep preview noindex until owner approval. No payments, inventory, checkout, accounts, CMS, analytics or scheduling are included.

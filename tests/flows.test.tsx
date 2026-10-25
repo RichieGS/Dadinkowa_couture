@@ -21,16 +21,15 @@ describe('working enquiry and browsing journeys', () => {
     expect(filterLooks('All')).toHaveLength(looks.length);
     for (const cat of categories.slice(1)) {
       expect(filterLooks(cat).every((look) => look.category === cat)).toBe(true);
-      expect(filterLooks(cat).length).toBeGreaterThan(0);
     }
     expect(filterLooks('Fabrics', [])).toEqual([]);
   });
   it('filters the rendered lookbook and announces results', async () => {
     mount('/lookbook');
     expect(screen.getAllByRole('button', { name: /^View look:/ })).toHaveLength(looks.length);
-    await userEvent.click(screen.getByRole('button', { name: 'Fabrics', exact: true }));
-    expect(screen.getAllByRole('button', { name: /^View look:/ })).toHaveLength(1);
-    expect(screen.getByRole('status').textContent).toContain('1 look · Fabrics');
+    await userEvent.click(screen.getByRole('button', { name: 'Tailoring', exact: true }));
+    expect(screen.getAllByRole('button', { name: /^View look:/ })).toHaveLength(3);
+    expect(screen.getByRole('status').textContent).toContain('3 looks · Tailoring');
   });
   it('enables installed-photo zoom and restores focus after animated closing', async () => {
     mount('/lookbook');
@@ -87,10 +86,10 @@ describe('working enquiry and browsing journeys', () => {
       within(dialog).getByRole('button', { name: '− Zoom out' }).getAttribute('aria-pressed'),
     ).toBe('true');
   });
-  it('carries the selected stock reference into the WhatsApp draft', async () => {
+  it('carries the selected AI concept into the WhatsApp draft', async () => {
     mount('/lookbook');
     await userEvent.click(screen.getByRole('button', { name: `View look: ${looks[0].title}` }));
-    await userEvent.click(screen.getByRole('link', { name: /Enquire about this look/ }));
+    await userEvent.click(screen.getByRole('link', { name: /Discuss this style/ }));
     expect((screen.getByLabelText(/Lookbook reference/) as HTMLSelectElement).value).toBe(
       looks[0].slug,
     );
@@ -101,7 +100,7 @@ describe('working enquiry and browsing journeys', () => {
     expect(url.origin + url.pathname).toBe(business.whatsapp);
     expect(url.searchParams.get('text')).toContain(looks[0].title);
     expect(url.searchParams.get('text')).toContain(
-      'reference photography, not a Dadinkowa product',
+      'AI-generated style concept—not an actual Dadinkowa product',
     );
     expect(screen.getByText(/Nothing has been sent/)).toBeTruthy();
     expect(document.body.style.overflow).toBe('');

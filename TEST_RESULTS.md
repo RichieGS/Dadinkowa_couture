@@ -1,50 +1,26 @@
-# Verification results — recording-led refinement, 25 October 2026
+# Test results — Living Atelier
 
-## Visual feedback actually inspected
+25 October 2026. Source branch: `feat/dadinkowa-website-mvp`. Baseline checkpoint: `7ed70e2` / `checkpoint/pre-living-atelier-20261025`. Same draft PR #1; nothing merged or deployed.
 
-The supplied recording is approximately 31.23 seconds at 1916×874 pixels. Local frame inspection at 0/4/5.5/7/12/17/18/19/24/30 seconds showed the existing hero double-image overlap and gallery frame movement, with the garment and reading/control area separated by excessive vertical space. Extracted frames/video/audio remain outside Git and are not site assets.
+## Passed
 
-This is evidence about the previous presentation. It does not establish the new site's computed styles, browser zoom, device-pixel ratio, cropping, motion quality or viewport fit.
+- Prettier format check, TypeScript build/type check, ESLint.
+- **39 Vitest tests across 6 files:** browsing/enquiries/dialogs (10), router-safe navigation in BrowserRouter/HashRouter (6), concept composition and qualified drafts (5), all four media statuses (13), persistent/visible-fallback entrance initialization/reduced-motion bypass (4), concept delivery integrity (1).
+- Production Vite build: 58 modules; JS 289.45 kB / gzip 91.80 kB; CSS 50.89 kB / gzip 11.01 kB.
+- Regenerated standalone `/workspace/work/Dadinkowa-Preview.html`: 2,687,715 bytes. Actual embedded production bundle executed in jsdom: all three HashRouter routes, collection/skip/cross-route Atelier anchors, All/Tailoring filtering, three concept records, native-dialog lifecycle shim and focus restoration, embedded logo and concept WebPs. No simulated runtime errors.
+- Pillow decoded all ten responsive WebPs; dimensions match concept-provenance.json; no EXIF. All six garment outputs retain alpha with transparent pixels and opaque garment interior. Total WebP bytes: **1,204,352**.
+- Source PNG transparency inspected by local charcoal/ivory composites: no conspicuous halo at reviewed scale. Full silhouettes retained; no destructive edge removal. This is image inspection, not website/browser QA.
+- Preserved logo SHA-256 matches checkpoint: `afd052d45ce3f99f246d8587a8ddd6c4d3b8e00887e542cf0d1271ccea9973e4`.
+- Old stock WebPs removed from shipped directory; exactly three unique garment concepts and two conceptual cloth/details in ten responsive files. Mockup is not embedded. Diff whitespace check passed.
 
-## Implemented response
+The replaced slideshow/rotating gallery no longer exists, so their 18 obsolete state tests were replaced with five current-composition tests. Stock-delivery checks now verify current concept assets. Navigation/enquiry/dialog regression coverage remains. Test counts are not a claim of equivalent visual coverage.
 
-- **Hero:** one mounted photograph, not two opacity-blended layers. The current view stays while a responsive image decodes, then a 220ms opaque cover precedes a source change and 1180ms unveil/slight movement. Total visual transition is 1400ms, followed by 9000ms settled hold. The initial view holds 9 seconds. Late decoding can extend the current readable view. Latest requests replace timers/readiness generations; no transition queue is maintained. Hidden tabs/reduced motion settle pending phases. Image failures do not poison later slides.
-- **Text coordination:** heading and supporting copy enter after the image begins revealing; CTAs are outside that sequence. During reading, text is stationary. A separate reading wrapper avoids older direct-child paragraph rules; main copy is 17–18px, normally 18px, with smaller headline caps and no container-scale treatment on reading areas.
-- **Gallery:** white mat borders removed. A backdrop, projected floor, recessed neighbours and active foreground plane/shadow establish depth. Captions and explicit controls are in a stationary side rail on desktop and directly below the garment on mobile. A reserved two-line title area avoids control shifts between shorter/longer titles. Stage height is viewport/header-aware; images stay contained instead of being clipped to force a fit. Actual fit remains unverified.
-- **Section entrances:** one group observes a 22% useful portion with an 8% lower viewport inset. Image/heading/copy start at 0/140/280ms and settle by roughly 930ms. Groups are unobserved after entry; content is visible before initialization and survives an unavailable/failed observer. Native scroll remains intact.
+During standalone validation, the first checker treated the shared Home/Lookbook heading as proof of route completion; another attempt selected a trigger before the filter rerender finished. The checker now waits for the route container and pressed filter state, then checks the connected trigger. Final run passes. These were checker synchronization errors, not live browser evidence.
 
-No new image was downloaded, purchased, isolated or fabricated. Existing face-free Nigerian clothing references retain their stock-reference disclosure/source records. Clean native garment/mannequin/hanger assets remain a gap; current scenery/model backgrounds were not forced into poor cutouts. No 360-degree geometry is claimed.
+## Not performed / pending
 
-## Checks actually passed
+Tool discovery found no browser-control or Node browser REPL capability. No actual desktop/mobile rendering, computed-style inspection, horizontal-overflow measurement, motion smoothness, native dialog focus trapping, device WhatsApp handoff, live reduced-motion appearance, browser-scale alpha review, Lighthouse or performance measurement was performed. **375×667 visual QA is pending**, alongside desktop/tablet/390px review. No updated-site screenshots or short recording could be captured.
 
-| Check | Result |
-| --- | --- |
-| `npm run format:check` | Passed |
-| `npm run typecheck` | Passed |
-| `npm run lint` | Passed |
-| `npm test` | **49/49**, seven files |
-| `npm run build` | Passed, 60 modules; approximately 302KB JS (95KB gzip), 43KB CSS (9KB gzip) |
-| Production routes | Home/Lookbook/Contact return HTTP 200 and noindex metadata |
-| Media integrity/HTTP | All 30 WebP files decode, have no EXIF and serve correct MIME/identical bytes |
-| Standalone preview | Regenerated, approximately 5.62MB; all 30 exact WebP files embedded, no remote photo dependency |
-| Offline production bundle | Three HashRouter routes, section/skip/Atelier links, filters, gallery selection/details, modal close/focus restoration and installed images pass in jsdom; no simulated runtime errors |
-| `git diff --check` | Passed |
+No server was started for browser QA because the managed environment has no browser-control tool. No external preview forwarding or file-attachment upload capability is available. The standalone preview and a clean source ZIP are available in `deliverables/` for GitHub download and can be reproduced with README commands. No hosted preview/deployment link is claimed.
 
-### Regression scope
-
-- 11 hero tests: first hold, cover/source-change boundary, single mounted image, post-settle hold, rapid latest-request-wins navigation, selecting current image cancels pending work, pointer pause/play, wheel/CTA stops, hidden-tab settlement, reduced-motion manual operation, image-failure recovery, stale decoded-image promises and actual component/readiness integration. Some tests exercise multiple related assertions.
-- 3 entrance tests: one group rather than nested independent observations, persistent entry/unobserve, visible content before initialization and fallback when the observer is unavailable or throws.
-- 7 gallery tests: central/neighbour state, caption outside tilt layers, immediate controls/wrap/Explore, neighbour selection, keyboard/focus, horizontal versus vertical touch/swipe click suppression, no autoplay and reduced-motion controls/focus.
-- 10 browsing/enquiry, 10 media-status, 6 dual-router navigation and 2 image integrity tests remain passing.
-
-These are state, event, source and integrity checks. They do not prove that a wipe looks clean, that dimensional depth is convincing or that animation is smooth.
-
-## Readability and visual-QA limits
-
-The cascade/source audit covers paragraph rules, heading scale, line lengths, settled opacity, unscaled caption containers and stable solid reading surfaces. Existing declared solid colour pairs remain above 4.5:1 (representative minimum 5.93:1). No new computed-style measurement or rendered contrast audit could be performed.
-
-Tool discovery exposed no callable browser-control tool. Therefore the revised page has **not** been inspected in a live browser at the recording size, desktop or mobile. Actual computed styles/inherited opacity/scale, viewport fit, horizontal overflow, caption stability, native focus trapping, reduced-motion visuals, image crop edges and rendered animation remain unverified. No new desktop/mobile screenshots or motion recording were captured. Local extracted feedback frames are not new-page screenshots.
-
-`MANUAL_QA.md` includes exact checks at 1916×874, 1440×900, 768×1024 and 390×844, including browser zoom, throttled decoding, rapid controls and offline routing. Short windows may need natural scrolling; the implementation does not clip garments to guarantee a one-screen claim.
-
-No merge, deployment, purchase or message to the business occurred. Raw uploads, video/frames, generated previews/builds, dependencies, caches and credentials are excluded from the commit.
+Use MANUAL_QA.md for the exact pending steps and LAUNCH_CHECKLIST.md for release requirements.

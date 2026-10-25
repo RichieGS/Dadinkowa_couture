@@ -70,7 +70,7 @@ export function LookDialog({ look, onClose }: { look: Look | null; onClose: () =
             >
               ← Previous
             </button>
-            <span>{displayed.images.length < 2 ? 'Single photograph' : 'Use arrow keys'}</span>
+            <span>{displayed.images.length < 2 ? 'Single concept view' : 'Use arrow keys'}</span>
             <button
               disabled={displayed.images.length < 2}
               onClick={() => move(1)}
@@ -79,13 +79,13 @@ export function LookDialog({ look, onClose }: { look: Look | null; onClose: () =
               Next →
             </button>
           </div>
-          <p>Enquire for availability and pricing.</p>
+          <p>Discuss feasibility, fabrics and possible alternatives with the team.</p>
           <Link
             className="button dark"
             to={`/contact?look=${encodeURIComponent(displayed.slug)}`}
             onClick={dismissForNavigation}
           >
-            Enquire about this look <Arrow />
+            Discuss this style <Arrow />
           </Link>
           <small>{mediaCopy(displayed.mediaStatus).short} · no order is placed here.</small>
         </div>

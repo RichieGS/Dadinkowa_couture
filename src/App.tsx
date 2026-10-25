@@ -11,6 +11,7 @@ import { useEditorialMotion } from './hooks/useMotion';
 import './styles.css';
 import './exhibition.css';
 import './refinements.css';
+import './living-atelier.css';
 
 export function App() {
   const location = useLocation();

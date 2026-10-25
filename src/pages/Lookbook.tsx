@@ -12,33 +12,35 @@ export function Lookbook({ onOpen }: { onOpen: (look: Look) => void }) {
   return (
     <main className="page lookbook-page">
       <div className="page-heading">
-        <p className="eyebrow">THE EDIT / STYLE INSPIRATION</p>
+        <p className="eyebrow">THE LIVING ATELIER / AI CONCEPTS</p>
         <h1>
           Cloth. Form.
           <br />
-          <i>Individuality.</i>
+          <i>Identity.</i>
         </h1>
         <p>
           Explore a direction. Make it personal.
           <br />
-          Ask the team for the current collection and pricing.
+          Three generated concepts. Discuss whether something similar is possible.
         </p>
       </div>
-      {filtered.some((look) => look.mediaStatus === 'stock-reference') && (
-        <MediaLabel status="stock-reference" className="page-disclosure" />
+      {filtered.some((look) => look.mediaStatus === 'ai-concept') && (
+        <MediaLabel status="ai-concept" className="page-disclosure" />
       )}
       <div className="filters" aria-label="Filter lookbook by category">
-        {categories.map((cat) => (
-          <button
-            aria-pressed={category === cat}
-            key={cat}
-            onClick={() =>
-              setParams(cat === 'All' ? {} : { category: cat }, { preventScrollReset: true })
-            }
-          >
-            {cat}
-          </button>
-        ))}
+        {categories
+          .filter((cat) => cat === 'All' || filterLooks(cat).length > 0)
+          .map((cat) => (
+            <button
+              aria-pressed={category === cat}
+              key={cat}
+              onClick={() =>
+                setParams(cat === 'All' ? {} : { category: cat }, { preventScrollReset: true })
+              }
+            >
+              {cat}
+            </button>
+          ))}
       </div>
       <p className="results-count" role="status">
         {filtered.length} {filtered.length === 1 ? 'look' : 'looks'} · {category}

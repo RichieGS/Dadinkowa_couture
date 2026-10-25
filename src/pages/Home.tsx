@@ -1,179 +1,101 @@
-import type { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
-import { business, exhibitionPhotos, photos, socialPosts, type Look } from '../data';
+import { concepts, looks, type Look } from '../data';
 import { Hero } from '../components/Hero';
-import { Arrow, External, MediaLabel, Photography } from '../components/Shared';
-import { GarmentGallery } from '../components/GarmentGallery';
-
-const collections = [
-  {
-    category: 'Tailoring',
-    title: 'Made for\nyour own expression.',
-    photo: exhibitionPhotos.blue,
-    note: 'TAILORING & NATIVE STYLES',
-  },
-  {
-    category: 'Fabrics',
-    title: 'Begin with the cloth.',
-    photo: photos.fabrics,
-    note: 'COLOUR / TEXTURE / POSSIBILITY',
-  },
-  {
-    category: 'Ready-to-Wear',
-    title: 'Everyday. Elevated.',
-    photo: exhibitionPhotos.earth,
-    note: 'READY-TO-WEAR',
-  },
-  {
-    category: 'Caps & Accessories',
-    title: 'A final point of view.',
-    photo: exhibitionPhotos.cap,
-    note: 'CAPS & ACCESSORIES',
-  },
-];
+import { Arrow, MediaLabel, Photography } from '../components/Shared';
 
 export function Home({ onOpen }: { onOpen: (look: Look) => void }) {
   return (
     <>
       <Hero />
-      <section id="collections" tabIndex={-1} className="section collection-section">
-        <div className="collection-intro" data-reveal="text">
-          <p className="eyebrow">01 / THE COLLECTIONS</p>
+      <section className="living-detail" data-sequence>
+        <div className="living-detail-image" data-sequence-part="image">
+          <Photography {...concepts.embroidery} />
+        </div>
+        <div className="living-detail-copy">
+          <p className="eyebrow">01 / A CLOSER LOOK</p>
+          <h2 data-sequence-part="heading">
+            The art is
+            <br /> in <i>the detail.</i>
+          </h2>
+          <div data-sequence-part="copy">
+            <p>
+              Raised lines. Tonal texture. A different rhythm in every fold. A conceptual study of
+              colour and surface.
+            </p>
+            <MediaLabel status="ai-concept" />
+            <p className="small-note">Generated fabric detail · conceptual imagery.</p>
+          </div>
+        </div>
+      </section>
+      <section id="collections" tabIndex={-1} className="living-collection section">
+        <div className="living-collection-heading" data-reveal="text">
+          <p className="eyebrow">02 / FORM & EXPRESSION</p>
           <h2>
-            A wardrobe.
+            Three studies.
             <br />
-            <i>A point of view.</i>
+            <i>Your point of view.</i>
           </h2>
           <p>
-            For the everyday. For the occasion.
-            <br />
-            For the way you want to feel.
+            Explore silhouette, colour and proportion. Discuss what might be possible with the team.
           </p>
         </div>
-        <div className="collection-grid">
-          {collections.map((item, index) => (
-            <Link
-              className={`collection-panel panel-${index}`}
-              data-sequence
-              key={item.category}
-              to={`/lookbook?category=${encodeURIComponent(item.category)}`}
-              style={{ '--stagger': `${index * 90}ms` } as CSSProperties}
-            >
-              <div
-                className="collection-photo"
+        <div className="living-looks">
+          {looks.map((look, index) => (
+            <article className={`living-look living-look-${index}`} key={look.id} data-sequence>
+              <button
+                className="living-look-image"
+                onClick={() => onOpen(look)}
+                aria-label={`View look: ${look.title}`}
                 data-sequence-part="image"
-                data-parallax={index === 0 ? '' : undefined}
               >
-                <Photography {...item.photo} />
-                <span className="panel-number">0{index + 1}</span>
-                <span className="panel-action">
-                  Explore <Arrow />
-                </span>
+                <span className="concept-light" aria-hidden="true" />
+                <Photography {...look.images[0]} />
+              </button>
+              <div className="living-look-copy">
+                <p className="eyebrow">CONCEPT / {look.id}</p>
+                <h3 data-sequence-part="heading">{look.title}</h3>
+                <div data-sequence-part="copy">
+                  <p>{look.description}</p>
+                  <MediaLabel status={look.mediaStatus} />
+                  <div className="living-look-actions">
+                    <button className="text-link" onClick={() => onOpen(look)}>
+                      View concept <Arrow />
+                    </button>
+                    <Link className="text-link" to={`/contact?look=${look.slug}`}>
+                      Discuss this style <Arrow />
+                    </Link>
+                  </div>
+                </div>
               </div>
-              <p className="eyebrow">{item.note}</p>
-              <h3 data-sequence-part="heading">{item.title}</h3>
-              <div data-sequence-part="copy">
-                <MediaLabel status="stock-reference" />
-              </div>
-            </Link>
+            </article>
           ))}
         </div>
+        <Link to="/lookbook" className="text-link">
+          Explore all concepts <Arrow />
+        </Link>
       </section>
-      <GarmentGallery onOpen={onOpen} />
-      <section className="craft-interlude" data-sequence>
-        <div className="craft-photo" data-parallax>
-          <div className="craft-reveal" data-sequence-part="image">
-            <Photography {...photos.texture} />
-          </div>
-        </div>
-        <div className="craft-words">
-          <p className="eyebrow">A CLOSER LOOK</p>
-          <h2 data-sequence-part="heading">
-            It’s all in
-            <br />
-            <i>the feeling.</i>
-          </h2>
-          <p className="craft-description" data-sequence-part="copy">
-            Texture gives a look its rhythm. Explore fabric possibilities with the team.
+      <section id="atelier" tabIndex={-1} className="living-atelier section" data-sequence>
+        <p className="eyebrow">03 / THE ATELIER · OFFA</p>
+        <h2 data-sequence-part="heading">
+          Begin with
+          <br />
+          <i>a conversation.</i>
+        </h2>
+        <div data-sequence-part="copy">
+          <p>
+            Bring an idea, a colour or a style reference. Discuss fabric, fit and timing directly
+            with Dadinkowa Couture.
           </p>
-        </div>
-        <MediaLabel status="stock-reference" />
-      </section>
-      <section id="atelier" tabIndex={-1} className="atelier section" data-sequence>
-        <div className="atelier-image">
-          <div className="atelier-photo" data-sequence-part="image">
-            <Photography {...photos.sewing} />
-          </div>
-          <MediaLabel status="stock-reference" />
-          <p className="small-note">Tailoring reference photography · not Dadinkowa’s workshop.</p>
-        </div>
-        <div className="atelier-copy" data-reveal="text">
-          <p className="eyebrow">03 / THE ATELIER</p>
-          <h2 data-sequence-part="heading">
-            A conversation
-            <br />
-            before <i>the cloth.</i>
-          </h2>
-          <p data-sequence-part="copy">
-            Start with an idea, a style reference, or a fabric that catches your eye. Explore
-            tailoring, fabrics and finishing touches with Dadinkowa Couture in Offa.
+          <p>
+            Services and enquiries: tailoring, ready-to-wear, fabrics, caps and accessories. Ask the
+            team about current options.
           </p>
           <ol>
-            {[
-              'Tell us what you have in mind',
-              'Discuss fabric, measurements and timing',
-              'Confirm the details directly with the team',
-            ].map((text, index) => (
-              <li key={text}>
-                <span>0{index + 1}</span>
-                {text}
-              </li>
-            ))}
+            <li>Share the direction you have in mind.</li>
+            <li>Discuss materials, measurements and timing.</li>
+            <li>Confirm feasibility and details with the team.</li>
           </ol>
-          <Link className="text-link" to="/contact?interest=Tailoring">
-            Discuss your look <Arrow />
-          </Link>
-        </div>
-      </section>
-      <section className="section notes">
-        <div className="row-heading" data-reveal="text">
-          <div>
-            <p className="eyebrow">04 / FROM THE BRAND</p>
-            <h2>
-              Notes from <i>Offa.</i>
-            </h2>
-          </div>
-          <External href={business.socials.TikTok} className="text-link">
-            Follow on TikTok <Arrow />
-          </External>
-        </div>
-        <div className="notes-grid">
-          {socialPosts.map((post) => (
-            <External href={post.url} key={post.url} className="social-note">
-              <span className="eyebrow">{post.label}</span>
-              <h3>{post.title}</h3>
-              <p>{post.description}</p>
-              <span className="text-link">
-                View original post <Arrow />
-              </span>
-            </External>
-          ))}
-        </div>
-      </section>
-      <section className="home-contact section">
-        <p className="eyebrow">YOUR NEXT LOOK STARTS HERE</p>
-        <h2>
-          Have something
-          <br />
-          <i>in mind?</i>
-        </h2>
-        <div>
-          <p>
-            A fabric question. A style reference.
-            <br />
-            Let’s begin with a conversation.
-          </p>
-          <Link to="/contact" className="button light">
+          <Link to="/contact" className="button dark">
             Discuss your look <Arrow />
           </Link>
         </div>

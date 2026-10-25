@@ -41,10 +41,10 @@ const until = async (predicate, label) => {
   assert.ok(predicate(), label);
 };
 await until(
-  () => doc.querySelector('h1')?.textContent.includes('Considered style'),
+  () => doc.querySelector('h1')?.textContent.includes('Cloth. Form.'),
   'Home should render',
 );
-assert.match(doc.querySelector('h1').textContent, /Considered style/);
+assert.match(doc.querySelector('h1').textContent, /Cloth. Form./);
 assert.match(doc.querySelector('.brand img').src, /^data:image\/png;base64,/);
 const checkPhotography = (selector) => {
   const photo = doc.querySelector(`${selector} img`);
@@ -53,27 +53,12 @@ const checkPhotography = (selector) => {
   assert.match(photo.srcset, /data:image\/webp;base64,/);
   assert.equal(doc.querySelector(`${selector} .photo-slot`), null);
 };
-checkPhotography('.hero-slide');
-assert.equal(doc.querySelectorAll('.hero-slide img').length, 1);
+checkPhotography('.living-garment');
+assert.equal(doc.querySelectorAll('.living-garment img').length, 1);
+assert.equal(doc.querySelectorAll('.living-look').length, 3);
 assert.equal(doc.querySelectorAll('.photo-slot').length, 0);
-assert.equal(doc.querySelectorAll('.gallery-panel').length, 3);
-const beforeGallery = doc.querySelector('.gallery-panel[data-position=current] img').src;
-doc.querySelector('button[aria-label="Next gallery look"]').click();
-await until(
-  () => doc.querySelector('.gallery-panel[data-position=current] img').src !== beforeGallery,
-  'Gallery should advance',
-);
-doc.querySelector('.gallery-actions > button').click();
-await until(
-  () => !!doc.querySelector('.look-dialog[open]'),
-  'Gallery should open its selected look',
-);
-doc.querySelector('.dialog-close').click();
-await until(() => !doc.querySelector('.look-dialog[open]'), 'Gallery detail should close');
-
-doc.querySelector('.hero-bottom a').click();
+doc.querySelector('.living-actions a').click();
 assert.equal(doc.activeElement.id, 'collections');
-assert.match(doc.querySelector('h1').textContent, /Considered style/);
 doc.querySelector('.skip-link').click();
 assert.equal(doc.activeElement.id, 'main');
 const collections = [...doc.querySelectorAll('.desktop-nav a')].find(
@@ -81,20 +66,17 @@ const collections = [...doc.querySelectorAll('.desktop-nav a')].find(
 );
 assert.equal(collections.getAttribute('href'), '#/lookbook');
 collections.click();
-await until(
-  () => doc.querySelector('h1')?.textContent.includes('Cloth. Form'),
-  'Lookbook should render',
-);
+await until(() => !!doc.querySelector('.lookbook-page'), 'Lookbook should render');
 assert.match(doc.querySelector('h1').textContent, /Cloth. Form/);
-assert.equal(doc.querySelectorAll('.look-card').length, 6);
+assert.equal(doc.querySelectorAll('.look-card').length, 3);
 [...doc.querySelectorAll('.filters button')]
-  .find((button) => button.textContent === 'Fabrics')
+  .find((button) => button.textContent === 'Tailoring')
   .click();
 await until(
-  () => doc.querySelectorAll('.look-card').length === 1,
-  'Fabric filter should render one look',
+  () => doc.querySelector('.filters button[aria-pressed="true"]')?.textContent === 'Tailoring',
+  'Tailoring filter should render three concepts',
 );
-assert.equal(doc.querySelectorAll('.look-card').length, 1);
+assert.equal(doc.querySelectorAll('.look-card').length, 3);
 checkPhotography('.look-card');
 const before = dom.window.location.href;
 doc.querySelector('.skip-link').click();
@@ -107,7 +89,7 @@ assert.ok(doc.querySelector('.look-dialog[open]'));
 doc.querySelector('.dialog-close').click();
 await until(() => !doc.querySelector('.look-dialog[open]'), 'Look dialog should close');
 assert.equal(doc.querySelector('.look-dialog[open]'), null);
-assert.equal(doc.activeElement, trigger);
+assert.ok(doc.activeElement === trigger, 'Dialog should restore focus to its connected trigger');
 [...doc.querySelectorAll('.desktop-nav a')].find((link) => link.textContent === 'Contact').click();
 await until(
   () => doc.querySelector('h1')?.textContent.includes('Good style starts'),
@@ -120,6 +102,6 @@ await until(() => doc.activeElement?.id === 'atelier', 'Atelier should receive f
 assert.equal(doc.activeElement.id, 'atelier');
 assert.deepEqual(errors, []);
 console.log(
-  'PASS: offline production bundle: 3 HashRouter routes, section/skip/Atelier navigation, filtering, gallery selection/details, modal close/focus restoration, embedded logo and installed WebP photography. No simulated runtime errors.',
+  'PASS: offline production bundle: 3 HashRouter routes, section/skip/Atelier navigation, filtering, three concept records, modal close/focus restoration, embedded logo and AI concept WebP imagery. No simulated runtime errors.',
 );
 dom.window.close();
