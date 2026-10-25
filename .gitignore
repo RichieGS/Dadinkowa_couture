@@ -1,0 +1,15 @@
+node_modules/
+dist/
+work/
+coverage/
+.env
+.env.*
+!.env.example
+*.local
+*.log
+*.tsbuildinfo
+*.zip
+.DS_Store
+
+# Uploaded handoff documents remain local and are not published.
+/reference/
