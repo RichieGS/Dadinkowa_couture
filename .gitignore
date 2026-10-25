@@ -13,3 +13,8 @@ coverage/
 
 # Uploaded handoff documents remain local and are not published.
 /reference/
+
+# Python image preparation caches and local environments.
+__pycache__/
+*.py[cod]
+.venv/

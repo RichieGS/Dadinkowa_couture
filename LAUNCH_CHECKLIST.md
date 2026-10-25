@@ -1,20 +1,32 @@
-# Remaining launch requirements
+# Remaining requirements — draft, not deployed
 
-Nothing is published. The preview is noindex and uses illustrations and a draft logo.
+## Immediate photography handoff (INCOMPLETE)
 
-- [ ] Owner approves final logo fidelity (including T-shirt motif) and supplies production master.
-- [ ] Obtain approved, rights-cleared outfit/front/detail/back photos, fabric macros, cap/accessory shots and optional silent craft clip. Document permission and keep matching views together.
-- [ ] Confirm current catalogue, availability, prices and accurate item descriptions. Replace all illustrative studies and review every preview notice, alt text and caption.
-- [ ] Approve editorial copy and proposed palette/typography; no history/founder claims are currently made.
-- [ ] Confirm fitting/measurement procedure, production times, deposits, cancellation, alteration and return policies.
-- [ ] Confirm delivery coverage/charges and visiting arrangements. Hours and email are omitted until verified.
-- [ ] Confirm the second contact number's role; it remains excluded. Do not merge the separate watch business into the brand story.
-- [ ] Recheck primary phone, WhatsApp, Maps and social destinations with the owner. Resolve landmark wording before using it.
-- [ ] Conduct real-browser testing at 360/390, 768 and 1440px: overflow/wrapping, native modal focus containment, Escape/close/focus restoration, touch image controls, menu, zoom, filters, reduced motion, media failures and keyboard navigation.
-- [ ] Test WhatsApp handoff on actual devices without sending an unintended message; verify phone/copy fallback and Maps.
-- [ ] Capture representative desktop/mobile screenshots and run performance/accessibility checks; remediate observed issues.
-- [ ] Select domain and hosting ownership with explicit authorization. Configure SPA fallback, HTTPS and real asset 404s; validate deep links.
-- [ ] Approve favicon/social sharing image, canonical URLs and launch metadata; then explicitly enable indexing.
-- [ ] Decide whether future data collection/analytics are necessary; none are included in this MVP.
+- [ ] User downloads/uploads the nine exact originals in `PHOTOGRAPHY_REQUEST.md`. No further blocked-download retries are planned.
+- [ ] Inspect actual images for composition, quality, suitability, watermarks and source consistency. Page metadata is not visual inspection.
+- [ ] Optimise to 700/1400px WebP using `scripts/prepare-photos.py`, update inventory/asset manifest and integrate the real images. Current preview shows explicit pending slots, not the old clothing illustrations.
+- [ ] Review hero and mobile focal positions/crops after integration. Confirm all disclosures, alt text and captions are accurate.
+- [ ] Regenerate standalone preview with installed photos and repeat browser QA.
 
-Later phases, outside this MVP: ecommerce/deposits, stock management, order tracking, booking, CMS and additional campaigns.
+## Design and functional review
+
+- [x] Rebuild editorial page compositions and readable component structure.
+- [x] Implement hero schedule/pause/interaction handling, reveal/stagger/parallax rules, filter/card/dialog/menu/route transitions and reduced-motion behaviour.
+- [x] Fix section/skip navigation in BrowserRouter and standalone HashRouter; add media-state regressions.
+- [ ] Run the real-browser matrix and exact steps in `MANUAL_QA.md` at 390/768/1440px (plus 360px overflow check). Confirm actual animation, contrast, cropping, focus trapping, mobile menu and keyboard operation.
+- [ ] Capture screenshots and an optional motion recording. Neither was available in this session.
+- [ ] Verify native WhatsApp handoff on actual devices without unintended sending; verify phone/copy and directions.
+- [ ] Measure performance/accessibility once representative real media is present. No Core Web Vitals or Lighthouse scores are claimed.
+
+## Owner approval before launch
+
+- [ ] Approve DK/T-shirt logo fidelity and supply a production master, favicon and social sharing image.
+- [ ] Replace temporary stock references with approved brand media and truthful catalogue descriptions; set each record's status/captions/source correctly.
+- [ ] Approve editorial copy, palette and typography; no owner/founder/history claims are invented.
+- [ ] Confirm catalogue, availability, prices, sizing/fitting process, production times, deposits, cancellation/alteration/return policies.
+- [ ] Confirm delivery coverage/charges and visiting arrangements. Hours/email remain omitted until verified.
+- [ ] Confirm the second contact number's role; it remains excluded. Recheck primary phone, WhatsApp, Maps/social links and landmark wording with the owner.
+- [ ] Select hosting/domain ownership with explicit authorisation; configure HTTPS, SPA fallback and genuine asset 404s. No deployment, domain purchase or merge is authorised in this pass.
+- [ ] Approve canonical/social URLs and enable indexing only after the content is ready. Preview remains noindex.
+
+Payments, inventory, checkout, accounts/CMS/admin, scheduling and analytics remain outside scope.

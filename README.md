@@ -1,54 +1,76 @@
-# Dadinkowa Couture — unpublished MVP
+# Dadinkowa Couture — editorial MVP (draft)
 
-React + TypeScript + Vite. Three routes: Home `/`, Lookbook `/lookbook`, Contact `/contact`. No backend, account, checkout, purchases, social mutations, messages or deployment was performed.
+**Photography is incomplete.** The user will manually upload nine licensed originals listed in [PHOTOGRAPHY_REQUEST.md](PHOTOGRAPHY_REQUEST.md). The cloud proxy blocks image downloads with HTTP 403; at the user's direction there are no repeated attempts. Source-page metadata and licence terms were inspected, but the photographs themselves have not yet been visually reviewed, optimised or integrated. The old clothing illustrations are removed. Explicit pending-photo slots preserve the new compositions without masquerading as fashion photography.
 
-## Run locally
+## Run and inspect
 
-Node 22.12+ or 24 recommended. From this folder:
+React + TypeScript + Vite. Node 22.12+ or 24 recommended.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Open the printed local URL (normally `http://localhost:5173`). Vite serves direct loads of all three routes. For production output:
+Open the printed local address (normally `http://localhost:5173`). Home `/`, Lookbook `/lookbook`, Contact `/contact`. No backend or secrets are required.
 
 ```sh
 npm run typecheck
 npm run lint
+npm run format:check
 npm test
 npm run build
 npm exec vite preview -- --host 127.0.0.1
 ```
 
-The delivered `/workspace/work/Dadinkowa-Preview.html` is a self-contained offline preview. Download it and open it in a modern browser; all imagery, CSS and JavaScript are embedded. It uses hash navigation only for file URLs, so its three routes work without a web server. Contact actions require network access and WhatsApp as usual. No external resources load until a visitor follows a link. If a browser/file viewer blocks module scripts, use the local development commands above.
+Read [MANUAL_QA.md](MANUAL_QA.md) for exact real-browser checks at 390/768/1440px, reduced motion, route/section navigation, modal/menu interaction and WhatsApp drafts. Browser-control tooling was unavailable in this session. No visual QA, screenshot, recording or animation smoothness claim is based on jsdom.
 
-Recreate the standalone preview after changes with `python3 scripts/pack-preview.py /absolute/path/Dadinkowa-Preview.html` after `npm run build`.
+## What changed
 
-## Implemented
+The home composition is rebuilt: full-viewport layered hero, expressive staggered headlines, offset collection spreads, two large featured looks, a full-width texture interlude, a close-up Atelier spread and a warm, large-scale contact invitation. Contact and Lookbook retain their working enquiry and browsing flow. The DK/T-shirt raster logo, black/ivory foundation and verified business details are preserved. Research/implementation commentary lives in documentation; required image disclosures remain on the site.
 
-- Editorial home, asymmetrical collection panels, Atelier enquiry guide and two selected external TikTok references.
-- Manual hero illustration crossfade, card/detail illustration swaps, filter transitions, one-time scroll reveals and reduced-motion CSS.
-- Filterable data-driven lookbook, native modal detail viewer, image navigation and zoom. Native dialog provides focus containment, Escape/cancel and focus restoration; touch uses explicit viewer controls.
-- Contact composer with selected study context, validation and encoded WhatsApp draft to **2348033895505**. It never says a message was sent or a fitting booked. Phone, copy-number fallback and verified directions/social links.
-- Visible demonstration labels, noindex, per-route titles/descriptions, verified-only business schema, media failure fallback and noscript contact fallback.
+One motion approach: CSS transitions/animations plus IntersectionObserver and a bounded requestAnimationFrame scroll handler. Hero transitions use a 1000ms opacity/mask reveal and 1100ms image scale; a 6500ms scheduler auto-advances until paused, interacted with, hidden or reduced motion is requested. Controls are always usable; reduced-motion users retain manual slide navigation. Scroll reveals apply image masks, short text fades and collection staggering. Two large image areas receive restrained desktop parallax. Cards zoom or swap only if a genuine second image exists. Filters fade/move into their new arrangement without a blank interval. Native dialogs/menu have entrance/exit animations; normal exits retain the modal until animation completion, while route navigation releases it immediately for correct focus. Routes use a short opacity entrance without waiting to navigate.
 
-## Content and provenance
+All motion is disabled/minimised through `prefers-reduced-motion`; parallax and slideshow scheduling stop in JavaScript as well. Content is visible by default if observation or animation fails. No scroll hijacking, custom cursor, autoplay audio or additional motion library.
 
-The uploaded handoff research was the dated source of truth for verified business details. The handoff documents remain local and are excluded from this repository. Proposed copy and visual direction are not owner-approved business claims. Research was not independently refreshed.
+## Maintainable source
 
-Edit typed content in `src/data.ts`: `business`, `looks`, `media`, `site`, `socialPosts`. Layout/components live in `src/App.tsx`; tokens, responsive rules and CSS transitions live in `src/styles.css`. `src/main.tsx` handles bootstrapping and verified schema. The only live destination is the contact number; no messages were sent during testing (window.open is mocked).
+- `src/data.ts`: verified business information, typed looks, proposed photo slots, site copy and WhatsApp generation.
+- `src/media.ts`: distinct `illustration`, `stock-reference`, `approved-brand` disclosure/reference wording.
+- `src/components/`: reusable hero, layout, image/section-link helpers, cards, modal viewer, enquiry composer.
+- `src/pages/`: Home, Lookbook and Contact compositions.
+- `src/hooks/`: reduced-motion/reveal/parallax behaviour and native dialog lifecycle.
+- `src/styles.css`: formatted tokens, layouts, motion rules and responsive breakpoints.
+- `src/photo-inventory.json`: installed image dimensions, currently empty. It is independent of ownership/approval status.
 
-No authentic garment media was provided. Five original, visibly labelled vector studies keep browsing functional without inventing products, stock, prices or craftsmanship evidence. Enlarged views are of the same illustrations; they are not claimed as photographs. The supplied reconstructed raster logo retains the T-shirt motif and is provisional. See `ASSET_MANIFEST.md` for every visual and replacement requirement.
+Source and tests are formatted with Prettier; `npm run format` updates formatting. The uploaded handoff documents remain local and excluded from Git. Verified facts were taken from that dated source; owner approval of design proposals is not implied. Phone, address, Maps and social URLs remain unchanged.
 
-To replace a study: supply rights-cleared local media with explicit sizes; set truthful alt/captions, source and approval status, and revise the description to verified facts. Use a second view only if it actually belongs to the same garment. Do not enable a real catalogue simply by removing a label. Header/preview wording and helper labels also need editorial review. Keep previews noindex until all content is approved. No approved video exists, so the hero uses still illustrations, with no autoplay or parallax.
+## Integrate the requested photos after upload
+
+1. Inspect the actual originals for composition, quality, watermarks and suitability. The current selections are provisional; revise captions/focal points if the photographs differ from source metadata.
+2. Put the named originals in a local ignored working folder. Install Pillow in your Python environment if needed.
+3. Run `python3 scripts/prepare-photos.py /absolute/path/to/originals`.
+4. The command preserves the full composition, emits 700/1400px WebP variants to `public/media/`, removes metadata on re-encoding and updates the inventory. It does not download, crop, upscale, manufacture detail views or claim brand approval.
+5. Review focal positions/alt text and update the asset register. Real-device review is required before calling integration complete.
+6. Rebuild and regenerate the standalone preview.
+
+Photo sources, photographers, licence URLs, intended slots and replacement requirements are in [ASSET_MANIFEST.md](ASSET_MANIFEST.md). All proposed photos remain stock-reference and are not Dadinkowa inventory or workmanship evidence. Owner-approved brand media needs truthful per-image alt/caption/source as well as its `approved-brand` status. The logo is still a provisional supplied reconstruction.
+
+## Standalone offline preview
+
+```sh
+npm run build
+python3 scripts/pack-preview.py work/Dadinkowa-Preview.html
+node scripts/check-preview.mjs work/Dadinkowa-Preview.html
+```
+
+Download/open the generated HTML in a modern browser. The file uses HashRouter and embeds all installed local images, CSS and JavaScript; pending-photo slots remain pending. It supports the same animations and disables automatic/spatial motion for reduced motion. Section and skip links scroll directly without replacing HashRouter's route fragment. An initial browser may restrict local-file module scripts; use the dev server if so. Contact actions require external network access, but nothing loads from social sites merely by visiting the page.
+
+The preview was regenerated and its production bundle checked in jsdom. Generated output is kept out of Git; reproduce it with these commands. No attachment delivery or external port-forwarding tool is exposed in this session.
 
 ## Hosting later
 
-No domain/provider has been selected and nothing is registered or deployed. The production files are in `dist/`. A future static host must rewrite unknown non-file paths (including `/lookbook` and `/contact`) to `/index.html` with HTTP 200, while serving assets normally; keep genuine asset errors as 404. Serve at domain root, or set Vite `base` and router basename for a subpath. Confirm HTTPS, permissions, ownership and caching. Add a verified absolute canonical domain, social image URL and approved favicon/OG image at launch. `site.previewMode` and the static robots tag control indexing; keep them in agreement. No secrets are needed.
+Nothing is deployed, purchased or merged. No hosting/domain is registered. A future static host must rewrite non-file routes (`/lookbook`, `/contact`) to `/index.html` with HTTP 200, while serving assets normally and retaining genuine asset 404s. Deploy at domain root unless both Vite base and router basename are configured. Set approved canonical/social URLs, HTTPS and final sharing/favicon assets. Keep `site.previewMode` and the static robots metadata in agreement; preview remains noindex.
 
-## Verification and limitations
+No stock inventory, prices, fitting confirmation, delivery guarantees or unverified brand history is invented. WhatsApp opens a qualified draft for the visitor to send. No messages have been sent. Payments, checkout, accounts, CMS, scheduling, inventory and tracking remain outside this MVP.
 
-See `TEST_RESULTS.md` for actual results and `LAUNCH_CHECKLIST.md` for owner decisions. Automated UI checks run in jsdom, not a real browser. Native focus trapping, visual layout at 360/390/768/1440px, reduced-motion rendering and screenshots still require a real browser because the browser-control tool was not exposed in this session. No Lighthouse/Core Web Vitals measurements are claimed.
-
-Deferred as requested: payments, cart, inventory, account/CMS/admin, scheduling, virtual try-on and automatic social feeds.
+See [TEST_RESULTS.md](TEST_RESULTS.md) for actual checks and [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) for remaining approvals and QA.

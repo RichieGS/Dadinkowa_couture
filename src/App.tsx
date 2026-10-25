@@ -1,43 +1,82 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, Route, Routes, useLocation, useSearchParams } from 'react-router-dom';
-import { business, categories, filterLooks, looks, media, socialPosts, whatsappUrl, type Category, type Look } from './data';
+import { useEffect, useRef, useState } from 'react';
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import { business, type Look } from './data';
+import { Header, Footer } from './components/Layout';
+import { LookDialog } from './components/LookDialog';
+import { Arrow, SectionLink, focusSection } from './components/Shared';
+import { Home } from './pages/Home';
+import { Lookbook } from './pages/Lookbook';
+import { Contact } from './pages/Contact';
+import { useEditorialMotion } from './hooks/useMotion';
 import './styles.css';
 
-function External({href,children,className=''}:{href:string;children:React.ReactNode;className?:string}){return <a href={href} className={className} target="_blank" rel="noopener noreferrer">{children}<span className="sr-only"> (opens in a new tab)</span></a>;}
-function Arrow(){return <span aria-hidden="true">↗</span>;}
-function Art({src,alt,className='',eager=false}:{src:string;alt:string;className?:string;eager?:boolean}){
- const [failed,setFailed]=useState(false);
- return failed?<div className={`media-fallback ${className}`} role="img" aria-label={alt}>Illustration unavailable<span>Explore the story or enquire with the team.</span></div>:<img src={src} alt={alt} className={className} width="800" height="1000" loading={eager?'eager':'lazy'} fetchPriority={eager?'high':undefined} onError={()=>setFailed(true)}/>;
-}
-function useDialog(open:boolean,ref:React.RefObject<HTMLDialogElement|null>,onClose:()=>void){
- useEffect(()=>{const el=ref.current;if(!el||!open)return;const trigger=document.activeElement as HTMLElement|null;el.showModal();const prior=document.body.style.overflow;document.body.style.overflow='hidden';return()=>{el.close();document.body.style.overflow=prior;trigger?.focus();};},[open,ref]);
- return {onCancel:(e:React.SyntheticEvent)=>{e.preventDefault();onClose();},onClick:(e:React.MouseEvent<HTMLDialogElement>)=>{if(e.target===ref.current){const bounds=ref.current.getBoundingClientRect();if(e.clientX<bounds.left||e.clientX>bounds.right||e.clientY<bounds.top||e.clientY>bounds.bottom)onClose();}}};
-}
-function Header(){
- const [menu,setMenu]=useState(false);const ref=useRef<HTMLDialogElement>(null);const location=useLocation();const close=()=>setMenu(false);const events=useDialog(menu,ref,close);
- useEffect(()=>setMenu(false),[location]);
- const nav=<><NavLink to="/lookbook">Collections</NavLink><Link to="/#atelier">Atelier</Link><NavLink to="/contact">Contact</NavLink></>;
- return <><header className="site-header"><Link to="/" className="brand" aria-label="Dadinkowa Couture home"><img src={media.logo.src} width="100" height="100" alt="Dadinkowa Couture DK and T-shirt draft logo"/></Link><nav aria-label="Main navigation" className="desktop-nav">{nav}</nav><External href={whatsappUrl()} className="header-enquire">Enquire on WhatsApp <Arrow/></External><button className="menu-toggle" onClick={()=>setMenu(true)} aria-haspopup="dialog" aria-expanded={menu}>Menu <span aria-hidden="true">☰</span></button></header><dialog ref={ref} className="mobile-menu" aria-labelledby="menu-title" {...events}><div className="menu-top"><span id="menu-title">DADINKOWA COUTURE</span><button onClick={close}>Close ×</button></div><nav aria-label="Mobile navigation"><Link to="/">Home</Link>{nav}<Link to="/contact">Start an enquiry <Arrow/></Link></nav><p>TAILORING · FABRICS · PERSONAL EXPRESSION</p></dialog></>;
-}
-function Footer(){return <footer><div className="footer-main"><div><p className="eyebrow">DADINKOWA COUTURE / OFFA</p><h2>Let’s talk<br/><i>about your next look.</i></h2><Link to="/contact" className="text-link">Start a conversation <Arrow/></Link></div><div className="footer-contact"><p>{business.address}</p><a href={`tel:${business.phoneRaw}`}>{business.phone}</a><External href={business.map}>Get directions <Arrow/></External></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Dadinkowa Couture</span><div>{Object.entries(business.socials).map(([name,url])=><External key={name} href={url}>{name} <Arrow/></External>)}</div><span>Editorial preview · draft logo</span></div></footer>;}
-function PreviewNote(){return <p className="preview-note"><span aria-hidden="true">◌</span> Editorial preview. Garment visuals are illustrations, not Dadinkowa products. Ask the team for its current collection.</p>;}
-function Hero(){const [active,setActive]=useState(0);const slides=[looks[0],looks[2]];return <section className="hero"><div className="hero-art" aria-live="polite">{slides.map((look,i)=><div key={look.id} className={`hero-slide ${i===active?'is-active':''}`} aria-hidden={i!==active}><Art {...look.images[0]} eager={i===0}/></div>)}<div className="art-index">SILHOUETTE STUDY / 0{active+1}</div><span className="hero-art-label">ILLUSTRATIVE PREVIEW · NOT BRAND PRODUCTS</span></div><div className="hero-copy"><p className="eyebrow">OFFA, KWARA · NIGERIA</p><h1>Considered style.<br/><i>Personal<br className="desktop-break"/> expression.</i></h1><p>Explore tailoring, fabrics and accessories<br className="desktop-break"/> from Dadinkowa Couture in Offa.</p><div className="hero-links"><Link to="/lookbook" className="button light">Explore the collection <Arrow/></Link><Link to="/contact" className="text-link">Discuss your outfit <Arrow/></Link></div></div><div className="hero-bottom"><span>THE ART OF GETTING DRESSED</span><div className="hero-controls"><button onClick={()=>setActive((active+1)%2)} aria-label="Previous hero illustration">←</button>{slides.map((_,i)=><button key={i} aria-label={`Show hero illustration ${i+1}`} aria-pressed={active===i} onClick={()=>setActive(i)}>0{i+1}</button>)}<button onClick={()=>setActive((active+1)%2)} aria-label="Next hero illustration">→</button></div><a href="#collections" aria-label="Discover collections below">SCROLL TO DISCOVER ↓</a></div></section>;}
-function LookCard({look,onOpen,index=0}:{look:Look;onOpen:(look:Look)=>void;index?:number}){return <article className={`look-card look-${index%5}`}><button className="look-image" onClick={()=>onOpen(look)} aria-label={`Inspect ${look.title}`}><Art {...look.images[0]}/>{look.images[1]&&<Art {...look.images[1]} className="alternate"/>}<span className="image-label">ILLUSTRATIVE PREVIEW</span><span className="inspect">View study <Arrow/></span></button><div className="look-meta"><span className="eyebrow">{look.category}</span><span>{look.id}</span></div><h3><button onClick={()=>onOpen(look)}>{look.title} <Arrow/></button></h3><span className="card-note">Illustration · not a brand product</span></article>;}
-function LookDialog({look,onClose}:{look:Look|null;onClose:()=>void}){
- const [index,setIndex]=useState(0);const [zoom,setZoom]=useState(false);const ref=useRef<HTMLDialogElement>(null);const events=useDialog(!!look,ref,onClose);
- useEffect(()=>{setIndex(0);setZoom(false);},[look]);
- if(!look)return null;
- const move=(step:number)=>{setIndex((i)=>(i+step+look.images.length)%look.images.length);setZoom(false);};
- return <dialog ref={ref} className="look-dialog" aria-labelledby="look-title" {...events} onKeyDown={e=>{if(e.key==='ArrowRight')move(1);if(e.key==='ArrowLeft')move(-1);}}><button className="dialog-close" onClick={onClose} aria-label="Close look details">Close ×</button><div className="dialog-layout"><div className={`dialog-visual ${zoom?'zoomed':''}`}><Art {...look.images[index]} key={`${look.id}-${index}`}/><button className="zoom-button" onClick={()=>setZoom(!zoom)} aria-pressed={zoom}>{zoom?'− Zoom out':'+ Zoom in'}</button></div><div className="dialog-copy"><p className="eyebrow">{look.category} / STUDY {look.id}</p><h2 id="look-title">{look.title}</h2><p>{look.description}</p><p className="illustration-note">Illustrative preview — not an actual Dadinkowa product. Styling and availability must be confirmed with the team.</p><p className="image-caption" aria-live="polite">{index+1} / {look.images.length} · {look.images[index].caption}</p>{look.images.length>1&&<div className="image-controls"><button onClick={()=>move(-1)} aria-label="Previous image">← Previous</button><button onClick={()=>move(1)} aria-label="Next image">Next →</button></div>}<p>Enquire for availability and pricing.</p><Link className="button dark" to={`/contact?look=${encodeURIComponent(look.slug)}`} onClick={onClose}>Enquire about this look <Arrow/></Link><small>Continue with a preview reference; no order is placed.</small></div></div></dialog>;
-}
-function Home({onOpen}:{onOpen:(look:Look)=>void}){return <><Hero/><section id="collections" className="section collection-section"><div className="section-heading"><p className="eyebrow">01 / THE COLLECTIONS</p><h2>A wardrobe.<br/><i>Your point of view.</i></h2><p>From the cloth to the finishing touch.<br/>Find a starting point for your next conversation.</p></div><PreviewNote/><div className="collection-grid">{[{category:'Tailoring',title:'Tailoring & native styles',look:looks[2],className:'collection-large'},{category:'Fabrics',title:'It starts with cloth',look:looks[1],className:'collection-small'},{category:'Ready-to-Wear',title:'Everyday, considered',look:looks[3],className:'collection-small'},{category:'Caps & Accessories',title:'The finishing touches',look:looks[4],className:'collection-large'}].map((item,i)=><Link className={`collection-panel ${item.className}`} key={item.title} to={`/lookbook?category=${encodeURIComponent(item.category)}`}><div><Art {...item.look.images[0]}/><span className="image-label">ILLUSTRATIVE PREVIEW</span></div><p><span className="eyebrow">0{i+1} / {item.category}</span><Arrow/></p><h3>{item.title}</h3></Link>)}</div></section><section className="section featured"><div className="row-heading"><div><p className="eyebrow">02 / THE EDIT</p><h2>Studies in <i>style.</i></h2></div><Link to="/lookbook" className="text-link">Explore all studies <Arrow/></Link></div><p className="section-intro">An illustrative lookbook to begin the conversation. Ask for current brand photographs, options and pricing.</p><div className="featured-grid">{[looks[0],looks[3],looks[4]].map((look,i)=><LookCard key={look.id} look={look} onOpen={onOpen} index={i}/>)}</div></section><section id="atelier" className="atelier section"><div className="atelier-image"><Art {...looks[1].images[0]}/><span className="image-label">ILLUSTRATED CLOTH STUDY</span><p>Texture, tone, possibility.<br/>A visual study, not a fabric specification.</p></div><div className="atelier-copy"><p className="eyebrow">03 / THE ATELIER</p><h2>A conversation<br/>before <i>the cloth.</i></h2><p>Dadinkowa Couture brings together tailoring, fabrics, ready-to-wear and accessories in Offa. Start with an idea, a style reference, or a question about fabric.</p><p className="muted">A suggested enquiry guide — arrangements are confirmed directly with the team.</p><ol>{['Tell us what you have in mind','Discuss fabric, measurements and timing','Confirm your order directly with the team'].map((text,i)=><li key={text}><span>0{i+1}</span>{text}</li>)}</ol><Link className="text-link" to="/contact?interest=Tailoring">Ask about a fitting <Arrow/></Link></div></section><section className="section notes"><div className="row-heading"><div><p className="eyebrow">04 / FROM THE BRAND</p><h2>Notes from <i>Offa.</i></h2></div><External href={business.socials.TikTok} className="text-link">Follow on TikTok <Arrow/></External></div><div className="notes-grid">{socialPosts.map(post=><External href={post.url} key={post.url} className="social-note"><span className="eyebrow">{post.label}</span><h3>{post.title}</h3><p>{post.description}</p><span className="text-link">View original TikTok post <Arrow/></span></External>)}</div><p className="small-note">External posts open only when you choose. Captions were researched on 24 October 2026; seasonal offers may no longer apply.</p></section></>;}
-function Lookbook({onOpen}:{onOpen:(look:Look)=>void}){const [params,setParams]=useSearchParams();const category=categories.includes(params.get('category') as Category)?params.get('category') as Category:'All';const filtered=filterLooks(category);return <main className="page lookbook-page"><div className="page-heading"><p className="eyebrow">THE LOOKBOOK / AN EDITORIAL PREVIEW</p><h1>Cloth. Form.<br/><i>Individuality.</i></h1><p>Explore a visual direction, then make it personal.<br/>Enquire with the team for the actual collection, availability and pricing.</p></div><PreviewNote/><div className="filters" aria-label="Filter lookbook by category">{categories.map(cat=><button aria-pressed={category===cat} key={cat} onClick={()=>setParams(cat==='All'?{}:{category:cat},{preventScrollReset:true})}>{cat}</button>)}</div><p className="results-count" role="status">{filtered.length} illustrative {filtered.length===1?'study':'studies'} · {category}</p><div className="lookbook-grid" key={category}>{filtered.map((look,i)=><LookCard look={look} key={look.id} index={i} onOpen={onOpen}/>)}</div>{!filtered.length&&<p>No studies in this category yet. <Link to="/contact">Ask the team about current options.</Link></p>}<div className="lookbook-end"><span className="eyebrow">YOUR STYLE STARTS WITH A CONVERSATION</span><Link to="/contact" className="text-link">Discuss an idea of your own <Arrow/></Link></div></main>;}
-function EnquiryComposer(){const [params]=useSearchParams();const initial=looks.find(l=>l.slug===params.get('look'));const [interest,setInterest]=useState(initial?.category||(categories.includes(params.get('interest') as Category)?params.get('interest')!:'Tailoring'));const [reference,setReference]=useState(initial?.slug||'');const [message,setMessage]=useState('');const [error,setError]=useState('');const [ready,setReady]=useState('');const chosen=looks.find(l=>l.slug===reference);
- return <form className="enquiry-form" onSubmit={e=>{e.preventDefault();if(!message.trim()){setError('Tell the team a little about what you have in mind.');document.getElementById('message')?.focus();return;}setError('');window.open(whatsappUrl({interest,reference:chosen?.title,message}),'_blank','noopener,noreferrer');setReady('Continue the conversation in WhatsApp. If it did not open, use the direct link below. Nothing has been sent by this website.');}}><p className="eyebrow">START A CONVERSATION</p><h2>What do you<br/>have <i>in mind?</i></h2><label htmlFor="interest">I’m interested in</label><select id="interest" value={interest} onChange={e=>setInterest(e.target.value)}>{categories.filter(c=>c!=='All').map(c=><option key={c}>{c}</option>)}</select><label htmlFor="reference">Lookbook reference <span>(optional)</span></label><select id="reference" value={reference} onChange={e=>setReference(e.target.value)}><option value="">An idea of my own</option>{looks.map(l=><option key={l.slug} value={l.slug}>{l.title} · illustration</option>)}</select><label htmlFor="message">Your message</label><textarea id="message" required maxLength={600} rows={4} placeholder="Tell us about your preferred style or ask about available fabrics…" value={message} onChange={e=>{setMessage(e.target.value);setError('');}} aria-invalid={!!error} aria-describedby="message-hint message-error"/><div className="field-meta"><small id="message-hint">Please leave measurements and payment details out.</small><small>{message.length}/600</small></div><p id="message-error" role="alert">{error}</p><button className="button dark" type="submit">Continue on WhatsApp <Arrow/></button><p className="small-note">Opens WhatsApp with your draft message. You choose whether to send it. Availability, fittings and orders are confirmed with the team.</p><p role="status">{ready}</p>{ready&&<External href={whatsappUrl({interest,reference:chosen?.title,message})} className="text-link">Open your WhatsApp draft <Arrow/></External>}</form>;
-}
-function Contact(){const [copied,setCopied]=useState('');return <main className="page contact-page"><div className="page-heading"><p className="eyebrow">CONTACT / VISIT / ENQUIRE</p><h1>Good style starts<br/><i>with a hello.</i></h1><p>A fabric question, a look in mind, or a fitting enquiry.<br/>Speak directly with Dadinkowa Couture.</p></div><div className="contact-layout"><section className="contact-details" aria-label="Business contact details"><div><p className="eyebrow">CALL OR WHATSAPP</p><a className="phone" href={`tel:${business.phoneRaw}`}>{business.phone}</a><div className="contact-actions"><External href={business.whatsapp} className="text-link">Open WhatsApp <Arrow/></External><button className="text-link" onClick={async()=>{try{await navigator.clipboard.writeText(business.phone);setCopied('Number copied.');}catch{setCopied(`Copy this number: ${business.phone}`);}}}>Copy number</button></div><p role="status">{copied}</p></div><div><p className="eyebrow">FIND US IN OFFA</p><address>{business.address}</address><External href={business.map} className="text-link">Get directions on Google Maps <Arrow/></External><p className="small-note">Please contact the team before travelling to confirm visiting arrangements.</p></div><div className="contact-social"><p className="eyebrow">FOLLOW THE BRAND</p>{Object.entries(business.socials).map(([name,url])=><External href={url} key={name}>{name} <Arrow/></External>)}</div><div className="contact-note"><p>Have a style reference?</p><span>Send it directly in your WhatsApp conversation. The team can help you explore what is possible.</span></div></section><EnquiryComposer/></div></main>;}
-export function App(){const location=useLocation();const [selected,setSelected]=useState<Look|null>(null);const mainRef=useRef<HTMLDivElement>(null);
- useEffect(()=>{const titles:Record<string,string>={'/':'Tailoring, fabrics & personal expression','/lookbook':'Lookbook · Illustrative studies','/contact':'Contact & WhatsApp enquiries'};document.title=`${titles[location.pathname]||'Page not found'} | Dadinkowa Couture`;document.querySelector('meta[name="description"]')?.setAttribute('content',location.pathname==='/contact'?`Contact Dadinkowa Couture at ${business.address}. Call ${business.phone} or start a WhatsApp enquiry.`:'Explore tailoring, fabrics and accessories from Dadinkowa Couture in Offa. Illustrative preview; enquire for the current collection.');if(location.hash){requestAnimationFrame(()=>document.getElementById(location.hash.slice(1))?.scrollIntoView());}else{window.scrollTo(0,0);}mainRef.current?.focus({preventScroll:true});},[location.pathname,location.hash]);
- useEffect(()=>{const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('revealed');observer.unobserve(entry.target);}}),{threshold:.08});document.querySelectorAll('.section').forEach(el=>observer.observe(el));return()=>observer.disconnect();},[location.pathname]);
- return <><a className="skip-link" href="#main">Skip to content</a><Header/><div id="main" ref={mainRef} tabIndex={-1}><Routes><Route path="/" element={<main><Home onOpen={setSelected}/></main>}/><Route path="/lookbook" element={<Lookbook onOpen={setSelected}/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<main className="page not-found"><h1>A different <i>direction.</i></h1><p>This page could not be found.</p><Link to="/" className="button dark">Return home <Arrow/></Link></main>}/></Routes></div><Footer/><LookDialog look={selected} onClose={()=>setSelected(null)}/></>;
+export function App() {
+  const location = useLocation();
+  const [selected, setSelected] = useState<Look | null>(null);
+  const mainRef = useRef<HTMLDivElement>(null);
+  useEditorialMotion(location.pathname);
+
+  useEffect(() => {
+    const titles: Record<string, string> = {
+      '/': 'Tailoring, fabrics & personal expression',
+      '/lookbook': 'The edit · Style inspiration',
+      '/contact': 'Contact & WhatsApp enquiries',
+    };
+    document.title = `${titles[location.pathname] || 'Page not found'} | Dadinkowa Couture`;
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute(
+        'content',
+        location.pathname === '/contact'
+          ? `Contact Dadinkowa Couture at ${business.address}. Call ${business.phone} or start a WhatsApp enquiry.`
+          : 'Explore tailoring, fabrics and accessories from Dadinkowa Couture in Offa. Discuss your look with the team.',
+      );
+    if (location.hash) {
+      const frame = requestAnimationFrame(() => focusSection(location.hash.slice(1)));
+      return () => cancelAnimationFrame(frame);
+    }
+    window.scrollTo(0, 0);
+    mainRef.current?.focus({ preventScroll: true });
+  }, [location.pathname, location.hash]);
+
+  return (
+    <>
+      <SectionLink id="main" className="skip-link">
+        Skip to content
+      </SectionLink>
+      <Header />
+      <div id="main" ref={mainRef} tabIndex={-1}>
+        <div className="route-content" key={location.pathname}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <main>
+                  <Home onOpen={setSelected} />
+                </main>
+              }
+            />
+            <Route path="/lookbook" element={<Lookbook onOpen={setSelected} />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route
+              path="*"
+              element={
+                <main className="page not-found">
+                  <h1>
+                    A different <i>direction.</i>
+                  </h1>
+                  <p>This page could not be found.</p>
+                  <Link to="/" className="button dark">
+                    Return home <Arrow />
+                  </Link>
+                </main>
+              }
+            />
+          </Routes>
+        </div>
+      </div>
+      <Footer />
+      <LookDialog look={selected} onClose={() => setSelected(null)} />
+    </>
+  );
 }
