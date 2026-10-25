@@ -1,1 +1,40 @@
-{ "photos": {} }
+{
+  "photos": {
+    "portrait": {
+      "width": 1400,
+      "height": 2100
+    },
+    "cap-portrait": {
+      "width": 1400,
+      "height": 2100
+    },
+    "agbada-burgundy": {
+      "width": 1400,
+      "height": 1750
+    },
+    "agbada-blue": {
+      "width": 1400,
+      "height": 2100
+    },
+    "sewing": {
+      "width": 1400,
+      "height": 788
+    },
+    "fabric-stack": {
+      "width": 1400,
+      "height": 933
+    },
+    "kaftan-sand": {
+      "width": 1400,
+      "height": 1750
+    },
+    "kaftan-earth": {
+      "width": 1400,
+      "height": 2100
+    },
+    "fabric-bronze": {
+      "width": 1400,
+      "height": 2100
+    }
+  }
+}

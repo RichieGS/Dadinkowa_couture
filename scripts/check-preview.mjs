@@ -48,14 +48,14 @@ assert.match(doc.querySelector('h1').textContent, /Considered style/);
 assert.match(doc.querySelector('.brand img').src, /^data:image\/png;base64,/);
 const checkPhotography = (selector) => {
   const photo = doc.querySelector(`${selector} img`);
-  if (photo) assert.match(photo.src, /^data:image\/webp;base64,/);
-  else
-    assert.ok(
-      doc.querySelector(`${selector} .photo-slot`),
-      'Expected an explicit pending photography slot',
-    );
+  assert.ok(photo, `Expected installed photography at ${selector}`);
+  assert.match(photo.src, /^data:image\/webp;base64,/);
+  assert.match(photo.srcset, /data:image\/webp;base64,/);
+  assert.equal(doc.querySelector(`${selector} .photo-slot`), null);
 };
 checkPhotography('.hero-slide');
+assert.equal(doc.querySelectorAll('.hero-slide img').length, 3);
+assert.equal(doc.querySelectorAll('.photo-slot').length, 0);
 doc.querySelector('.hero-bottom a').click();
 assert.equal(doc.activeElement.id, 'collections');
 assert.match(doc.querySelector('h1').textContent, /Considered style/);
@@ -105,6 +105,6 @@ await until(() => doc.activeElement?.id === 'atelier', 'Atelier should receive f
 assert.equal(doc.activeElement.id, 'atelier');
 assert.deepEqual(errors, []);
 console.log(
-  'PASS: offline production bundle: 3 HashRouter routes, section/skip/Atelier navigation, filtering, modal close/focus restoration, embedded logo and explicit pending-photo slots. No simulated runtime errors.',
+  'PASS: offline production bundle: 3 HashRouter routes, section/skip/Atelier navigation, filtering, modal close/focus restoration, embedded logo and installed WebP photography. No simulated runtime errors.',
 );
 dom.window.close();

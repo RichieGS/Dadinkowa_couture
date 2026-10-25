@@ -5,6 +5,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import './setup';
 import { Hero } from '../src/components/Hero';
+import { media } from '../src/data';
 const mount = () =>
   render(
     <MemoryRouter>
@@ -21,8 +22,14 @@ describe('hero motion scheduling in DOM simulation', () => {
     vi.useFakeTimers();
     mount();
     expect(selected(1)).toBe('true');
+    expect(document.querySelector('.hero-slide.is-active img')?.getAttribute('src')).toBe(
+      media.hero[0].src,
+    );
     act(() => vi.advanceTimersByTime(6500));
     expect(selected(2)).toBe('true');
+    expect(document.querySelector('.hero-slide.is-active img')?.getAttribute('src')).toBe(
+      media.hero[1].src,
+    );
     fireEvent.click(screen.getByRole('button', { name: 'Show hero photograph 3' }));
     act(() => vi.advanceTimersByTime(20000));
     expect(selected(3)).toBe('true');

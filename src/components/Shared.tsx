@@ -30,6 +30,9 @@ export function Photography({
   width = 1000,
   height = 1400,
   position = '50% 35%',
+  mobilePosition = position,
+  fit = 'cover',
+  background,
   available = true,
   slot,
   className = '',
@@ -76,7 +79,15 @@ export function Photography({
       width={width}
       height={height}
       className={className}
-      style={{ objectPosition: position } as CSSProperties}
+      style={
+        {
+          '--photo-position': position,
+          '--photo-mobile-position': mobilePosition,
+          objectFit: fit,
+          padding: fit === 'contain' ? '12px' : undefined,
+          backgroundColor: background,
+        } as CSSProperties
+      }
       loading={eager ? 'eager' : 'lazy'}
       fetchPriority={eager ? 'high' : undefined}
       onError={() => setFailed(true)}

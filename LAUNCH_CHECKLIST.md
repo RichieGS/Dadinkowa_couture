@@ -1,12 +1,14 @@
 # Remaining requirements — draft, not deployed
 
-## Immediate photography handoff (INCOMPLETE)
+## Temporary stock photography (integrated; browser QA pending)
 
-- [ ] User downloads/uploads the nine exact originals in `PHOTOGRAPHY_REQUEST.md`. No further blocked-download retries are planned.
-- [ ] Inspect actual images for composition, quality, suitability, watermarks and source consistency. Page metadata is not visual inspection.
-- [ ] Optimise to 700/1400px WebP using `scripts/prepare-photos.py`, update inventory/asset manifest and integrate the real images. Current preview shows explicit pending slots, not the old clothing illustrations.
-- [ ] Review hero and mobile focal positions/crops after integration. Confirm all disclosures, alt text and captions are accurate.
-- [ ] Regenerate standalone preview with installed photos and repeat browser QA.
+- [x] User downloads/uploads the nine exact originals in `PHOTOGRAPHY_REQUEST.md`. No further blocked-download retries are planned.
+- [x] Inspect actual images for composition, quality, suitability, watermarks and source consistency. Page metadata is not visual inspection.
+- [x] Optimise to 700/1400px WebP using `scripts/prepare-photos.py`, update inventory/asset manifest and integrate the real images. All nine supplied photos are installed; originals and working review sheets are excluded from Git.
+- [x] Set contained human-subject framing and mobile hero separation; inspect originals and correct alt text/content discrepancies.
+- [ ] Verify those framing choices in actual desktop/mobile browser renders. All stock disclosures remain visible.
+- [x] Regenerate standalone preview with installed photos.
+- [ ] Repeat real-browser QA for crops and animations.
 
 ## Design and functional review
 

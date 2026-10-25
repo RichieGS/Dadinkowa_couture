@@ -41,6 +41,9 @@ export type Photo = {
   width?: number;
   height?: number;
   position?: string;
+  mobilePosition?: string;
+  fit?: 'cover' | 'contain';
+  background?: string;
   available?: boolean;
   slot?: string;
 };
@@ -71,13 +74,19 @@ export const photos = {
     'portrait',
     'Reference portrait of a Nigerian man wearing patterned traditional attire',
   ),
-  cap: photo('cap-portrait', 'Reference side portrait of a man wearing a striped traditional cap'),
+  cap: photo(
+    'cap-portrait',
+    'Reference rear three-quarter portrait of a man in a striped cap and patterned tunic',
+  ),
   burgundy: photo(
     'agbada-burgundy',
-    'Reference portrait of a man wearing burgundy Agbada and a traditional cap',
+    'Reference portrait of a man in a burgundy tunic, sunglasses and baseball cap',
   ),
   blue: photo('agbada-blue', 'Reference portrait of a Nigerian man in blue Agbada'),
-  kaftan: photo('kaftan-sand', 'Reference portrait of a man wearing a sand-toned kaftan'),
+  kaftan: photo(
+    'kaftan-sand',
+    'Reference portrait of a man in a sand-toned kaftan with a visible clothing tag',
+  ),
   everyday: photo(
     'kaftan-earth',
     'Reference portrait of a man wearing earth-toned Nigerian attire',
@@ -90,6 +99,45 @@ export const photos = {
   },
   texture: photo('fabric-bronze', 'Reference close-up of brown cloth folds'),
 };
+Object.assign(photos.portrait, {
+  fit: 'contain',
+  position: '50% 50%',
+  mobilePosition: '50% 50%',
+  background: '#d9d1c5',
+});
+Object.assign(photos.cap, {
+  fit: 'contain',
+  position: '50% 50%',
+  mobilePosition: '50% 50%',
+  background: '#d3c3b3',
+});
+Object.assign(photos.burgundy, {
+  fit: 'contain',
+  position: '50% 50%',
+  mobilePosition: '50% 50%',
+  background: '#aaa0d2',
+});
+Object.assign(photos.blue, {
+  fit: 'contain',
+  position: '50% 50%',
+  mobilePosition: '50% 50%',
+  background: '#e2e5df',
+});
+Object.assign(photos.kaftan, {
+  fit: 'contain',
+  position: '50% 50%',
+  mobilePosition: '50% 50%',
+  background: '#c19970',
+});
+Object.assign(photos.everyday, {
+  fit: 'contain',
+  position: '50% 50%',
+  mobilePosition: '50% 50%',
+  background: '#b1a58f',
+});
+Object.assign(photos.sewing, { fit: 'cover', position: '57% 58%', mobilePosition: '57% 58%' });
+Object.assign(photos.fabrics, { fit: 'cover', position: '35% 50%', mobilePosition: '35% 50%' });
+Object.assign(photos.texture, { fit: 'cover', position: '50% 50%', mobilePosition: '50% 50%' });
 export const looks: Look[] = [
   {
     id: '01',
@@ -164,7 +212,7 @@ export const media = {
     source: 'User-supplied recreated-logo-draft.png',
     approvalStatus: 'Provisional reconstruction; owner review required',
   },
-  hero: [photos.burgundy, photos.portrait, photos.kaftan],
+  hero: [photos.portrait, photos.blue, photos.kaftan],
   approvalStatus: 'Temporary licensed reference photography; not brand products',
 };
 export const socialPosts = [

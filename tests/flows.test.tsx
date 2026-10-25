@@ -32,7 +32,7 @@ describe('working enquiry and browsing journeys', () => {
     expect(screen.getAllByRole('button', { name: /^View look:/ })).toHaveLength(1);
     expect(screen.getByRole('status').textContent).toContain('1 look · Fabrics');
   });
-  it('keeps pending-media controls disabled and restores focus after animated closing', async () => {
+  it('enables installed-photo zoom and restores focus after animated closing', async () => {
     mount('/lookbook');
     const trigger = screen.getByRole('button', { name: `View look: ${looks[0].title}` });
     await userEvent.click(trigger);
@@ -41,13 +41,10 @@ describe('working enquiry and browsing journeys', () => {
     expect(
       (within(dialog).getByRole('button', { name: 'Next image' }) as HTMLButtonElement).disabled,
     ).toBe(true);
+    await userEvent.click(within(dialog).getByRole('button', { name: '+ Zoom in' }));
     expect(
-      (
-        within(dialog).getByRole('button', {
-          name: 'Zoom available after upload',
-        }) as HTMLButtonElement
-      ).disabled,
-    ).toBe(true);
+      within(dialog).getByRole('button', { name: '− Zoom out' }).getAttribute('aria-pressed'),
+    ).toBe('true');
     fireEvent(dialog, new Event('cancel', { bubbles: false, cancelable: true }));
     expect(dialog.className).toContain('modal-closing');
     expect(dialog.hasAttribute('open')).toBe(true);

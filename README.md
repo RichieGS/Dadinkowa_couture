@@ -1,6 +1,8 @@
 # Dadinkowa Couture — editorial MVP (draft)
 
-**Photography is incomplete.** The user will manually upload nine licensed originals listed in [PHOTOGRAPHY_REQUEST.md](PHOTOGRAPHY_REQUEST.md). The cloud proxy blocks image downloads with HTTP 403; at the user's direction there are no repeated attempts. Source-page metadata and licence terms were inspected, but the photographs themselves have not yet been visually reviewed, optimised or integrated. The old clothing illustrations are removed. Explicit pending-photo slots preserve the new compositions without masquerading as fashion photography.
+Nine user-supplied stock-reference photographs are now integrated in the hero, collections, lookbook and Atelier. All files matched the requested source IDs without ambiguity. The images were inspected locally and optimised to 700px/1400px WebP variants; no originals are committed. The burgundy tunic/baseball-cap photo's inaccurate Agbada description was corrected, and the visible tag in the sand-kaftan reference is documented.
+
+Portrait placements preserve full photo frames. The mobile hero separates image and text to keep faces and garments visible; the Atelier uses the sewing image's landscape ratio. These are implemented framing choices, **not a claim of real-browser visual QA**. Browser tooling remains unavailable.
 
 ## Run and inspect
 
@@ -40,20 +42,20 @@ All motion is disabled/minimised through `prefers-reduced-motion`; parallax and 
 - `src/pages/`: Home, Lookbook and Contact compositions.
 - `src/hooks/`: reduced-motion/reveal/parallax behaviour and native dialog lifecycle.
 - `src/styles.css`: formatted tokens, layouts, motion rules and responsive breakpoints.
-- `src/photo-inventory.json`: installed image dimensions, currently empty. It is independent of ownership/approval status.
+- `src/photo-inventory.json`: installed image dimensions, populated with all nine installed photos. It is independent of ownership/approval status.
 
 Source and tests are formatted with Prettier; `npm run format` updates formatting. The uploaded handoff documents remain local and excluded from Git. Verified facts were taken from that dated source; owner approval of design proposals is not implied. Phone, address, Maps and social URLs remain unchanged.
 
-## Integrate the requested photos after upload
+## Replace or reprocess the photographs
 
-1. Inspect the actual originals for composition, quality, watermarks and suitability. The current selections are provisional; revise captions/focal points if the photographs differ from source metadata.
+1. Inspect the actual originals for composition, quality, watermarks and suitability. The supplied originals have been inspected; future replacements must also be reviewed rather than relying on source metadata.
 2. Put the named originals in a local ignored working folder. Install Pillow in your Python environment if needed.
 3. Run `python3 scripts/prepare-photos.py /absolute/path/to/originals`.
 4. The command preserves the full composition, emits 700/1400px WebP variants to `public/media/`, removes metadata on re-encoding and updates the inventory. It does not download, crop, upscale, manufacture detail views or claim brand approval.
 5. Review focal positions/alt text and update the asset register. Real-device review is required before calling integration complete.
 6. Rebuild and regenerate the standalone preview.
 
-Photo sources, photographers, licence URLs, intended slots and replacement requirements are in [ASSET_MANIFEST.md](ASSET_MANIFEST.md). All proposed photos remain stock-reference and are not Dadinkowa inventory or workmanship evidence. Owner-approved brand media needs truthful per-image alt/caption/source as well as its `approved-brand` status. The logo is still a provisional supplied reconstruction.
+Photo sources, photographers, licence URLs, intended slots and replacement requirements are in [ASSET_MANIFEST.md](ASSET_MANIFEST.md). All supplied photos remain stock-reference and are not Dadinkowa inventory or workmanship evidence. Owner-approved brand media needs truthful per-image alt/caption/source as well as its `approved-brand` status. The logo is still a provisional supplied reconstruction.
 
 ## Standalone offline preview
 
@@ -63,7 +65,7 @@ python3 scripts/pack-preview.py work/Dadinkowa-Preview.html
 node scripts/check-preview.mjs work/Dadinkowa-Preview.html
 ```
 
-Download/open the generated HTML in a modern browser. The file uses HashRouter and embeds all installed local images, CSS and JavaScript; pending-photo slots remain pending. It supports the same animations and disables automatic/spatial motion for reduced motion. Section and skip links scroll directly without replacing HashRouter's route fragment. An initial browser may restrict local-file module scripts; use the dev server if so. Contact actions require external network access, but nothing loads from social sites merely by visiting the page.
+Download/open the generated HTML in a modern browser. The file uses HashRouter and embeds all installed local images, CSS and JavaScript; all nine supplied photographs and both responsive sizes are embedded. It supports the same animations and disables automatic/spatial motion for reduced motion. Section and skip links scroll directly without replacing HashRouter's route fragment. An initial browser may restrict local-file module scripts; use the dev server if so. Contact actions require external network access, but nothing loads from social sites merely by visiting the page.
 
 The preview was regenerated and its production bundle checked in jsdom. Generated output is kept out of Git; reproduce it with these commands. No attachment delivery or external port-forwarding tool is exposed in this session.
 

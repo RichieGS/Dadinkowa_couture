@@ -1,0 +1,195 @@
+{
+  "upload": "DDK_img.zip",
+  "classification": "stock-reference",
+  "matches": [
+    {
+      "slot": "portrait",
+      "uploadedFilename": "chidera-faustina-okeke-DdNa5AdiRdo-unsplash.jpg",
+      "sourceId": "DdNa5AdiRdo",
+      "sha256": "ae74d686ae8069fa29e671a67518cd035ce1984007e0e1854ae7572441ba7ce7"
+    },
+    {
+      "slot": "cap-portrait",
+      "uploadedFilename": "chidera-faustina-okeke-xZpVJsIcaiM-unsplash.jpg",
+      "sourceId": "xZpVJsIcaiM",
+      "sha256": "34ed7691905de3958d6f2ba5ef211be4bf3d71887a76d32fe93add4e72a3be55"
+    },
+    {
+      "slot": "agbada-burgundy",
+      "uploadedFilename": "pexels-mk_photoz-2149411980-37766536.jpg",
+      "sourceId": "37766536",
+      "sha256": "61e3ed98b91d2ef3821c294fe0b6bbbed3e9ea1410fefd601bc803ff2003b1ac"
+    },
+    {
+      "slot": "agbada-blue",
+      "uploadedFilename": "pexels-taiyesalawu-37320670.jpg",
+      "sourceId": "37320670",
+      "sha256": "147b8b30e19e357810a4651cb7d79297707decb51955b083c65eb46ac6053017"
+    },
+    {
+      "slot": "sewing",
+      "uploadedFilename": "pexels-cmrcn-17710255.jpg",
+      "sourceId": "17710255",
+      "sha256": "1adc6ccb96dca2e80db33dcc4b94bd495c150d808213a6900c0280faa6a358b2"
+    },
+    {
+      "slot": "fabric-stack",
+      "uploadedFilename": "pexels-tima-miroshnichenko-6766360.jpg",
+      "sourceId": "6766360",
+      "sha256": "8097bbb1c29644a56692645cb248a5cb086053670c4b91dec869465fafb86eaa"
+    },
+    {
+      "slot": "kaftan-sand",
+      "uploadedFilename": "pexels-skylight-views-2151863365-34362606.jpg",
+      "sourceId": "34362606",
+      "sha256": "bf05fe396be04d8f2a6147e6abd1300c8dbc4473386359fcbb410b369e04aae5"
+    },
+    {
+      "slot": "kaftan-earth",
+      "uploadedFilename": "pexels-taiyesalawu-38188493.jpg",
+      "sourceId": "38188493",
+      "sha256": "b7260622326eafdf781f042ef9fc61a21e50e2f0fe550898e57b40b4450b7293"
+    },
+    {
+      "slot": "fabric-bronze",
+      "uploadedFilename": "pexels-karola-g-4938322.jpg",
+      "sourceId": "4938322",
+      "sha256": "6a06f40d966e806d0fb9e6ab027444d0edaa8f2e2f4a74dfe37d4e0b18cb5d39"
+    }
+  ],
+  "optimised": [
+    {
+      "path": "public/media/agbada-blue-1400.webp",
+      "width": 1400,
+      "height": 2100,
+      "bytes": 213284,
+      "sha256": "3d061a309d760a3c1aa68a83951f1bb3c77cf50ef4c3437f9a0f17b88a04640a"
+    },
+    {
+      "path": "public/media/agbada-blue-700.webp",
+      "width": 700,
+      "height": 1050,
+      "bytes": 51286,
+      "sha256": "e11589920e580a7ba859ae7a47d01a712a14c94ce788e84a40cc38bb5a81d951"
+    },
+    {
+      "path": "public/media/agbada-burgundy-1400.webp",
+      "width": 1400,
+      "height": 1750,
+      "bytes": 112224,
+      "sha256": "1f5a297998c17433e3cd9300fcafee7b06a81472f304d0e66f446a98ccef6302"
+    },
+    {
+      "path": "public/media/agbada-burgundy-700.webp",
+      "width": 700,
+      "height": 875,
+      "bytes": 32536,
+      "sha256": "774d2458a7836482ed064ee7d7a4f68cd615f829e8a90f12ed775ad03ab243c7"
+    },
+    {
+      "path": "public/media/cap-portrait-1400.webp",
+      "width": 1400,
+      "height": 2100,
+      "bytes": 328212,
+      "sha256": "8666be3edad5aaf0671dd664542414c7830a15574b92561ba71f3e3a68640af9"
+    },
+    {
+      "path": "public/media/cap-portrait-700.webp",
+      "width": 700,
+      "height": 1050,
+      "bytes": 115446,
+      "sha256": "0bd4ef136bf11acf3f19b2efdb37fc7e9c678a62f898052eaa87e90796224150"
+    },
+    {
+      "path": "public/media/fabric-bronze-1400.webp",
+      "width": 1400,
+      "height": 2100,
+      "bytes": 286544,
+      "sha256": "21188f5f1f26ca50c022b7e4c98f44161d47b44e892f22c31b81ebde50cbc502"
+    },
+    {
+      "path": "public/media/fabric-bronze-700.webp",
+      "width": 700,
+      "height": 1050,
+      "bytes": 71454,
+      "sha256": "9cbaf608df1a39dcfe2b0b776275143023ecdff67e136e6ecf174f3d0b54418a"
+    },
+    {
+      "path": "public/media/fabric-stack-1400.webp",
+      "width": 1400,
+      "height": 933,
+      "bytes": 63014,
+      "sha256": "ffa348aac033a02aed2a0db5763e61d9bc1f7ca8aebe2e3c7f4ec999081f297d"
+    },
+    {
+      "path": "public/media/fabric-stack-700.webp",
+      "width": 700,
+      "height": 467,
+      "bytes": 23112,
+      "sha256": "3895ed2549d3d3496a2059c52f3a43d4a5daaaaca1d77681a581b5ca1576cef1"
+    },
+    {
+      "path": "public/media/kaftan-earth-1400.webp",
+      "width": 1400,
+      "height": 2100,
+      "bytes": 202722,
+      "sha256": "50eafa3f1558e2a772ece7344e4bfd7bb75a62c2e58d8f51d0e74d76217b59de"
+    },
+    {
+      "path": "public/media/kaftan-earth-700.webp",
+      "width": 700,
+      "height": 1050,
+      "bytes": 73890,
+      "sha256": "63251dcdd382f1e8d188c6d1033b59fcd28099d17f903d7768352767a746db5d"
+    },
+    {
+      "path": "public/media/kaftan-sand-1400.webp",
+      "width": 1400,
+      "height": 1750,
+      "bytes": 33682,
+      "sha256": "4cb7f8092e68c5293d23ed74fd6564df04fb58fc73aee130ec5c171c25b178d0"
+    },
+    {
+      "path": "public/media/kaftan-sand-700.webp",
+      "width": 700,
+      "height": 875,
+      "bytes": 13234,
+      "sha256": "47ab76590713d9e01cbe4a97da9a12605a4788a5f6c8c32e87e887d0f4edcd23"
+    },
+    {
+      "path": "public/media/portrait-1400.webp",
+      "width": 1400,
+      "height": 2100,
+      "bytes": 357476,
+      "sha256": "ea79594af58ce980fd4e7c4e7ff493b37e70736a0748a839bf540a79faa1b5dd"
+    },
+    {
+      "path": "public/media/portrait-700.webp",
+      "width": 700,
+      "height": 1050,
+      "bytes": 114866,
+      "sha256": "b394203bf01acac4f368db073d72dd2d8807c6235826a6823ec802f65a5aee25"
+    },
+    {
+      "path": "public/media/sewing-1400.webp",
+      "width": 1400,
+      "height": 788,
+      "bytes": 38090,
+      "sha256": "d893e094f70debb3cfce2fab288d980c07ff17c1ed3753dbe4f621fe512b730f"
+    },
+    {
+      "path": "public/media/sewing-700.webp",
+      "width": 700,
+      "height": 394,
+      "bytes": 16078,
+      "sha256": "e7fb3e4db393f9dd1ae1ba45a7647b20e1d239728036411f9baa3b2edffa1ed8"
+    }
+  ],
+  "matching": "Exact source IDs; no ambiguous filename matches.",
+  "inspectionNotes": [
+    "37766536 is a burgundy tunic and baseball cap, not Agbada; prior source metadata wording corrected.",
+    "34362606 has a visible clothing tag; retained unaltered as reference photography.",
+    "xZpVJsIcaiM is a rear three-quarter cap portrait; alt text corrected.",
+    "All nine inspected locally; no visible watermarks observed."
+  ]
+}

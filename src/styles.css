@@ -1881,3 +1881,104 @@ dialog.modal-closing[open] {
     scale: 1;
   }
 }
+
+/* Installed photography: full portrait frames keep heads and garments in view.
+   Fabric and sewing references retain intentional focal crops. */
+img {
+  object-position: var(--photo-position, 50% 50%);
+}
+.hero-art {
+  width: 58%;
+  background: #29251f;
+}
+.hero-slide {
+  inset: 110px 0 125px;
+}
+.hero-slide img {
+  padding: 16px;
+  transform: scale(1.025);
+}
+.hero-copy {
+  width: 55%;
+}
+.hero h1 {
+  font-size: clamp(64px, 6.4vw, 100px);
+}
+.hero-shade {
+  width: 44%;
+  background: #111111ba;
+}
+.collection-photo > img {
+  transform: translateY(var(--parallax, 0px));
+}
+.collection-panel:hover .collection-photo > img {
+  scale: 1.01;
+}
+.atelier-image > img {
+  aspect-ratio: 780 / 439;
+}
+@media (max-width: 1000px) and (min-width: 701px) {
+  .hero-copy {
+    width: 55%;
+  }
+  .hero h1 {
+    font-size: clamp(56px, 7.4vw, 74px);
+  }
+}
+@media (max-width: 700px) {
+  img {
+    object-position: var(--photo-mobile-position, var(--photo-position, 50% 50%));
+  }
+  .hero {
+    display: block;
+    padding: 80px var(--gutter) 155px;
+    min-height: 100svh;
+  }
+  .hero-art {
+    position: relative;
+    width: calc(100% + 2 * var(--gutter));
+    margin-left: calc(-1 * var(--gutter));
+    height: clamp(340px, 48svh, 520px);
+  }
+  .hero-slide {
+    inset: 0;
+  }
+  .hero-slide img {
+    height: 100%;
+    margin-top: 0;
+    padding: 16px;
+    object-position: var(--photo-mobile-position, 50% 50%) !important;
+  }
+  .hero-shade {
+    display: none;
+  }
+  .hero-copy {
+    width: 100%;
+    margin-top: 30px;
+  }
+  .hero h1 {
+    font-size: clamp(46px, 11vw, 70px);
+  }
+  .hero-links {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-bottom {
+    bottom: 55px;
+  }
+  .atelier-image > img {
+    aspect-ratio: 780 / 439;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide img,
+  .collection-photo > img {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .collection-panel:hover .collection-photo > img {
+    scale: 1;
+  }
+}
