@@ -51,8 +51,6 @@ describe.each(['browser', 'hash'])('%s routing', (mode) => {
     );
     await waitFor(() => expect(document.activeElement?.id).toBe('atelier'));
     expect(screen.getByTestId('location').textContent).toBe('/#atelier');
-    expect(screen.getByRole('heading', { level: 1 }).textContent).toContain(
-      'Cloth. Form. Identity.',
-    );
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toContain('DADINKOWA COUTURE');
   });
 });

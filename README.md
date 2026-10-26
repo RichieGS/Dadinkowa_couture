@@ -1,6 +1,6 @@
 # Dadinkowa Couture — Living Atelier MVP
 
-Local-only React + TypeScript + Vite website. The approved Concept A reference guides the composition: charcoal/burgundy layered hero, real “Cloth. Form. Identity.” headline, ivory embroidery editorial and three asymmetric garment studies. The existing supplied DK logo is unchanged. Nothing is merged or deployed.
+Local-only React + TypeScript + Vite website. The approved Concept A reference guides the composition: charcoal/burgundy layered hero, real “DADINKOWA COUTURE” headline and smaller “Cloth. Form. Identity.” tagline, ivory embroidery editorial and three asymmetric garment studies. The existing supplied DK logo is unchanged. Nothing is merged or deployed.
 
 ## Run
 
@@ -44,3 +44,9 @@ Checkpoint: tag `checkpoint/pre-living-atelier-20261025`, commit `7ed70e2`. The 
 Browser-control tooling remains unavailable. Local compositing inspection and DOM checks do not verify live layout, computed styles, device crops, animation quality or native browser focus. Desktop/mobile screenshots and recording remain pending. See [TEST_RESULTS.md](TEST_RESULTS.md), [MANUAL_QA.md](MANUAL_QA.md) and [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md).
 
 A future host must serve SPA routes through `/index.html`, preserve genuine asset 404s and configure HTTPS/canonical URLs. Keep preview noindex until owner approval. No payments, inventory, checkout, accounts, CMS, analytics or scheduling are included.
+
+## Brand signature refinement
+
+The header pairs an exact CSS crop of the original DK/shirt symbol with a real two-line DADINKOWA COUTURE wordmark. Black pixels blend into the charcoal header; the original raster remains unchanged. No faithful transparent source was supplied. An image-editor derivative was inspected and rejected because it added a halo, so no approximate/reconstructed replacement is shipped. A production transparent symbol master is still needed; CSS blending is the current presentation fallback. The crop excludes the tiny source lettering.
+
+The hero has one H1: DADINKOWA above spaced COUTURE, then the smaller italic tagline. Heading lines use the existing 1100ms/200ms reveal; tagline starts at 400ms, description at 500ms, all settled within 1.8s. Header/actions remain immediate. Mobile preserves DADINKOWA as an unbroken word, with explicit 320px header/typographic rules. “The Dadinkowa Edit”, “Inside Dadinkowa Couture” and a prominent live footer wordmark reinforce identity. Actual desktop/tablet/375×667/320px legibility, edge detail and overflow review remains pending because browser tooling is unavailable.

@@ -11,12 +11,14 @@ export function Hero() {
       </div>
       <div className="living-light" aria-hidden="true" />
       <TextReveal className="living-copy" hero>
-        <p className="eyebrow">DADINKOWA COUTURE · OFFA, NIGERIA</p>
-        <RevealHeading as="h1">
-          Cloth. <br className="desktop-break" />
-          Form. <br className="desktop-break" />
-          <i>Identity.</i>
+        <p className="eyebrow hero-location">Offa, Nigeria</p>
+        <RevealHeading as="h1" className="hero-brand-heading">
+          <span className="hero-brand-name">DADINKOWA</span>{' '}
+          <span className="hero-brand-couture">COUTURE</span>
         </RevealHeading>
+        <p className="hero-brand-tagline">
+          <i>Cloth. Form. Identity.</i>
+        </p>
         <p className="living-description">
           Tailoring, fabrics and personal expression. Offa, Nigeria.
         </p>

@@ -20,3 +20,7 @@ Three garment PNGs are RGBA, 1024×1536, alpha extrema 0–254; fabric folds are
 Generation provider/model/prompt and licence terms were not supplied. Owner rights/brand review remains a launch requirement; no third-party licence has been inferred from the files. No purchases/downloads were made.
 
 The existing `logo-draft.png` is preserved byte-for-byte. It is still the provisional user-supplied DK/T-shirt reconstruction, requiring a production master before launch. The social-placeholder and favicon remain provisional. Historic stock source records in `photo-provenance.json` and earlier Git history are archival; those files are no longer displayed or shipped. `PHOTOGRAPHY_REQUEST.md` now explains the superseded stock-image request.
+
+## Header symbol presentation, 26 October 2026
+
+Only the black-backed reconstructed logo is available. The original file and hash are unchanged. A generated background-removal attempt was inspected, showed a strong halo and was rejected; it is not shipped. The header therefore uses the exact original raster through a fixed CSS crop and screen blend on charcoal, excluding tiny source lettering while retaining DK/shirt/needle geometry. This is a presentation fallback, not a new approved logo master or standalone transparent derivative. Supply a faithful transparent production symbol (preferably vector) for launch. Fine-detail legibility at compact header size still needs actual browser review.

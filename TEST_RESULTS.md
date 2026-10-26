@@ -5,9 +5,9 @@
 ## Passed
 
 - Prettier format check, TypeScript build/type check, ESLint.
-- **48 Vitest tests across 7 files:** browsing/enquiries/dialogs (10), router-safe navigation in BrowserRouter/HashRouter (6), concept composition and qualified drafts (5), all four media statuses (13), persistent/visible-fallback entrance initialization/reduced-motion bypass (4), concept delivery integrity (1), single-copy text reveal lifecycle (9).
-- Production Vite build: 59 modules; JS 291.96 kB / gzip 92.67 kB; CSS 53.16 kB / gzip 11.43 kB.
-- Regenerated standalone `/workspace/work/Dadinkowa-Preview.html`: 2,692,485 bytes. Actual embedded production bundle executed in jsdom: all three HashRouter routes, collection/skip/cross-route Atelier anchors, All/Tailoring filtering, three concept records, native-dialog lifecycle shim and focus restoration, embedded logo and concept WebPs. No simulated runtime errors.
+- **51 Vitest tests across 8 files:** browsing/enquiries/dialogs (10), router-safe navigation in BrowserRouter/HashRouter (6), concept composition and qualified drafts (5), all four media statuses (13), persistent/visible-fallback entrance initialization/reduced-motion bypass (4), concept delivery integrity (1), single-copy text reveal lifecycle (9), brand identity/accessibility (3).
+- Production Vite build: 59 modules; JS 292.34 kB / gzip 92.72 kB; CSS 55.68 kB / gzip 12.00 kB.
+- Regenerated standalone `/workspace/work/Dadinkowa-Preview.html`: 2,695,400 bytes. Actual embedded production bundle executed in jsdom: all three HashRouter routes, collection/skip/cross-route Atelier anchors, All/Tailoring filtering, three concept records, native-dialog lifecycle shim and focus restoration, embedded logo and concept WebPs. No simulated runtime errors.
 - Pillow decoded all ten responsive WebPs; dimensions match concept-provenance.json; no EXIF. All six garment outputs retain alpha with transparent pixels and opaque garment interior. Total WebP bytes: **1,204,352**.
 - Source PNG transparency inspected by local charcoal/ivory composites: no conspicuous halo at reviewed scale. Full silhouettes retained; no destructive edge removal. This is image inspection, not website/browser QA.
 - Preserved logo SHA-256 matches checkpoint: `afd052d45ce3f99f246d8587a8ddd6c4d3b8e00887e542cf0d1271ccea9973e4`.
@@ -32,3 +32,9 @@ Single-copy heading words retain native whitespace and italic markup. Measured v
 Nine lifecycle tests check heading-level observation at 83%, semantic spaces/italics/single-copy text, shared line delays, persistent completion, no restart on unchanged resize/font readiness, finalization on changed wrapping/width, fast scrolling/passed headings, dynamic reduced motion and visible fallback without a working observer. Existing route/menu/filter/dialog/enquiry tests still pass. These tests do not establish line clipping, actual responsive geometry or perceived pacing.
 
 No new desktop/mobile recording was attached to this request. The workspace contains only the earlier pre-Living-Atelier recording, which is not evidence about this text refinement. Browser-tool discovery again found no browser-control capability. Actual slow/fast/back scroll, font/resize visual behavior, live reduced motion, 375×667 framing/readability/masks and a demonstration recording remain explicitly pending.
+
+## Brand-led identity
+
+Three regressions verify the single live DADINKOWA COUTURE H1, intact name, separate tagline, one home-link name with decorative signature hidden from repeat announcement, edit/atelier/footer identity and preserved actions. The original DK raster/garment assets are unchanged. Source transparency attempt was rejected due to a halo; the shipped exact-raster crop/screen-blend fallback has no new invented symbol. A faithful transparent master remains outstanding.
+
+Browser discovery again returned no browser-control tool. Actual desktop/tablet/375×667/320px rendering, shirt/needle/crop-edge fidelity at small size, wordmark wrapping/overflow, contrast and brand-entrance pacing remain pending. No screenshots or recording captured. Automated text assertions do not establish visual legibility. No merge or deployment.

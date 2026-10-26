@@ -18,7 +18,7 @@ const mount = () => {
 describe('Living Atelier concept composition', () => {
   it('keeps spaced accessible headline and both actions as real HTML', () => {
     mount();
-    expect(screen.getByRole('heading', { level: 1 }).textContent).toBe('Cloth. Form. Identity.');
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toBe('DADINKOWA COUTURE');
     expect(
       screen.getByText('Tailoring, fabrics and personal expression. Offa, Nigeria.'),
     ).toBeTruthy();

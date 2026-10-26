@@ -31,12 +31,13 @@ export function Header() {
         className={`site-header ${location.pathname === '/' && !scrolled ? 'over-hero' : 'solid'}`}
       >
         <Link to="/" className="brand" aria-label="Dadinkowa Couture home">
-          <img
-            src={media.logo.src}
-            width="100"
-            height="100"
-            alt="Dadinkowa Couture DK and T-shirt draft logo"
-          />
+          <span className="brand-symbol" aria-hidden="true">
+            <img src={media.logo.src} width="100" height="100" alt="" />
+          </span>
+          <span className="brand-wordmark" aria-hidden="true">
+            <span>DADINKOWA</span>
+            <span>COUTURE</span>
+          </span>
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
           {nav}
@@ -90,6 +91,9 @@ export function Header() {
 export function Footer() {
   return (
     <footer>
+      <p className="footer-wordmark">
+        DADINKOWA <span>COUTURE</span>
+      </p>
       <div className="footer-main">
         <div>
           <p className="eyebrow">DADINKOWA COUTURE / OFFA</p>

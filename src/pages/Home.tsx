@@ -32,8 +32,8 @@ export function Home({ onOpen }: { onOpen: (look: Look) => void }) {
         <TextReveal className="living-collection-heading">
           <p className="eyebrow">02 / FORM & EXPRESSION</p>
           <RevealHeading as="h2">
-            Three studies.
-            <br /> <i>Your point of view.</i>
+            The Dadinkowa
+            <br /> <i>Edit</i>
           </RevealHeading>
           <p>
             Explore silhouette, colour and proportion. Discuss what might be possible with the team.
@@ -78,8 +78,8 @@ export function Home({ onOpen }: { onOpen: (look: Look) => void }) {
         <p className="eyebrow">03 / THE ATELIER · OFFA</p>
         <TextReveal className="atelier-text-group">
           <RevealHeading as="h2">
-            Begin with
-            <br /> <i>a conversation.</i>
+            Inside Dadinkowa
+            <br /> <i>Couture</i>
           </RevealHeading>
           <div>
             <p>

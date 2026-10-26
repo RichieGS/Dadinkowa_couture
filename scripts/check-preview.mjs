@@ -41,10 +41,10 @@ const until = async (predicate, label) => {
   assert.ok(predicate(), label);
 };
 await until(
-  () => doc.querySelector('h1')?.textContent.includes('Cloth. Form.'),
+  () => doc.querySelector('h1')?.textContent.includes('DADINKOWA COUTURE'),
   'Home should render',
 );
-assert.match(doc.querySelector('h1').textContent, /Cloth. Form./);
+assert.match(doc.querySelector('h1').textContent, /DADINKOWA COUTURE/);
 assert.match(doc.querySelector('.brand img').src, /^data:image\/png;base64,/);
 const checkPhotography = (selector) => {
   const photo = doc.querySelector(`${selector} img`);

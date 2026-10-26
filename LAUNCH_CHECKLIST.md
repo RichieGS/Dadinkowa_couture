@@ -23,6 +23,7 @@
 ## Owner and release requirements
 
 - [ ] Approve concept asset rights (generation provider/licence not supplied), disclosure/copy and final visual QA.
+- [ ] Replace the faithful CSS-cropped/blended black-backed symbol fallback with an approved transparent production master; inspect compact shirt/needle detail and 320px header spacing.
 - [ ] Approve final DK logo fidelity and provide production master/favicon/social image.
 - [ ] Confirm current service options, availability/prices, fitting/production timing, deposits/policies, delivery and visiting arrangements directly with owner. No such claims are invented.
 - [ ] Recheck primary contacts/socials; unconfirmed secondary number/hours/email remain excluded.
