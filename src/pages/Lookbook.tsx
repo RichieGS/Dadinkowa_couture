@@ -20,7 +20,8 @@ export function Lookbook({ onOpen }: { onOpen: (look: Look) => void }) {
         </RevealHeading>
         <p>
           Explore a direction. Make it personal.
-          <br /> Three generated concepts. Discuss whether something similar is possible.
+          <br /> 35 generated concepts across five categories. Discuss whether something similar is
+          possible.
         </p>
       </TextReveal>
       {filtered.some((look) => look.mediaStatus === 'ai-concept') && (
@@ -37,7 +38,7 @@ export function Lookbook({ onOpen }: { onOpen: (look: Look) => void }) {
                 setParams(cat === 'All' ? {} : { category: cat }, { preventScrollReset: true })
               }
             >
-              {cat}
+              {cat} ({filterLooks(cat).length})
             </button>
           ))}
       </div>

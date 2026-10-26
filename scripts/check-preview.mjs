@@ -55,7 +55,7 @@ const checkPhotography = (selector) => {
 };
 checkPhotography('.living-garment');
 assert.equal(doc.querySelectorAll('.living-garment img').length, 1);
-assert.equal(doc.querySelectorAll('.living-look').length, 3);
+assert.equal(doc.querySelectorAll('.living-look').length, 5);
 assert.equal(doc.querySelectorAll('.photo-slot').length, 0);
 doc.querySelector('.living-actions a').click();
 assert.equal(doc.activeElement.id, 'collections');
@@ -68,16 +68,27 @@ assert.equal(collections.getAttribute('href'), '#/lookbook');
 collections.click();
 await until(() => !!doc.querySelector('.lookbook-page'), 'Lookbook should render');
 assert.match(doc.querySelector('h1').textContent, /Cloth. Form/);
-assert.equal(doc.querySelectorAll('.look-card').length, 3);
+assert.equal(doc.querySelectorAll('.look-card').length, 35);
 [...doc.querySelectorAll('.filters button')]
-  .find((button) => button.textContent === 'Tailoring')
+  .find((button) => button.textContent === 'Agbada (7)')
   .click();
 await until(
-  () => doc.querySelector('.filters button[aria-pressed="true"]')?.textContent === 'Tailoring',
-  'Tailoring filter should render three concepts',
+  () => doc.querySelector('.filters button[aria-pressed="true"]')?.textContent === 'Agbada (7)',
+  'Agbada filter should render seven concepts',
 );
-assert.equal(doc.querySelectorAll('.look-card').length, 3);
+assert.equal(doc.querySelectorAll('.look-card').length, 7);
 checkPhotography('.look-card');
+// Each category remains shareable and functional under the offline HashRouter.
+for (const category of ['Ready-to-wear', 'Fabrics', 'Caps', 'Wristwatches']) {
+  dom.window.location.hash = `/lookbook?category=${encodeURIComponent(category)}`;
+  await until(
+    () =>
+      doc.querySelector('.filters button[aria-pressed="true"]')?.textContent === `${category} (7)`,
+    `${category} direct hash URL`,
+  );
+  assert.equal(doc.querySelectorAll('.look-card').length, 7);
+  checkPhotography('.look-card');
+}
 const before = dom.window.location.href;
 doc.querySelector('.skip-link').click();
 assert.equal(dom.window.location.href, before);
@@ -102,6 +113,6 @@ await until(() => doc.activeElement?.id === 'atelier', 'Atelier should receive f
 assert.equal(doc.activeElement.id, 'atelier');
 assert.deepEqual(errors, []);
 console.log(
-  'PASS: offline production bundle: 3 HashRouter routes, section/skip/Atelier navigation, filtering, three concept records, modal close/focus restoration, embedded logo and AI concept WebP imagery. No simulated runtime errors.',
+  'PASS: offline production bundle: 3 HashRouter routes, section/skip/Atelier navigation, filtering, 35 concepts/five curated previews, modal close/focus restoration, embedded logo and AI concept WebP imagery. No simulated runtime errors.',
 );
 dom.window.close();

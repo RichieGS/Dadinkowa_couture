@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { Look } from '../data';
+import { enquiryLabel, type Look } from '../data';
 import { mediaCopy } from '../media';
 import { useDialog } from '../hooks/useDialog';
 import { Arrow, MediaLabel, Photography } from './Shared';
@@ -85,7 +85,7 @@ export function LookDialog({ look, onClose }: { look: Look | null; onClose: () =
             to={`/contact?look=${encodeURIComponent(displayed.slug)}`}
             onClick={dismissForNavigation}
           >
-            Discuss this style <Arrow />
+            {enquiryLabel(displayed.category)} <Arrow />
           </Link>
           <small>{mediaCopy(displayed.mediaStatus).short} · no order is placed here.</small>
         </div>

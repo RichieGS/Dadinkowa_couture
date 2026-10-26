@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
 import './setup';
 import { Home } from '../src/pages/Home';
-import { concepts, looks, whatsappUrl } from '../src/data';
+import { concepts, looks, categoryPreviews, isGarment, whatsappUrl } from '../src/data';
 const mount = () => {
   const onOpen = vi.fn();
   const view = render(
@@ -39,8 +39,8 @@ describe('Living Atelier concept composition', () => {
       concepts.embroidery.src,
     );
     expect(container.querySelector('.hero-controls, .gallery-stage')).toBeNull();
-    expect(container.querySelectorAll('.living-look')).toHaveLength(3);
-    expect(new Set(looks.map((l) => l.images[0].src)).size).toBe(3);
+    expect(container.querySelectorAll('.living-look')).toHaveLength(5);
+    expect(new Set(looks.map((l) => l.images[0].src)).size).toBe(35);
   });
   it('has no automatic garment replacement or repeating presentation timers', () => {
     vi.useFakeTimers();
@@ -51,27 +51,39 @@ describe('Living Atelier concept composition', () => {
   });
   it('opens the corresponding concept and carries it to a nearby enquiry', () => {
     const { onOpen } = mount();
-    for (const look of looks) {
-      fireEvent.click(screen.getByRole('button', { name: `View look: ${look.title}` }));
+    for (const look of categoryPreviews) {
+      fireEvent.click(screen.getByRole('button', { name: `View concept: ${look.title}` }));
       expect(onOpen).toHaveBeenLastCalledWith(look);
     }
-    const links = screen.getAllByRole('link', { name: /Discuss this style/ });
+    const links = screen.getAllByRole('link', {
+      name: /^Explore (Agbada|Ready-to-wear|Fabrics|Caps|Wristwatches)/,
+    });
     links.forEach((link, i) =>
-      expect(link.getAttribute('href')).toBe(`/contact?look=${looks[i].slug}`),
+      expect(link.getAttribute('href')).toBe(
+        `/lookbook?category=${encodeURIComponent(categoryPreviews[i].category)}`,
+      ),
     );
   });
   it('discloses AI origin and asks about feasibility without implying stock or reproduction', () => {
     mount();
     expect(
       screen.getAllByText('AI-generated style concept—not an actual Dadinkowa product.'),
-    ).toHaveLength(5);
+    ).toHaveLength(7);
     for (const look of looks) {
       const text = new URL(
-        whatsappUrl({ reference: look.title, mediaStatus: look.mediaStatus }),
+        whatsappUrl({
+          interest: look.category,
+          reference: look.title,
+          mediaStatus: look.mediaStatus,
+        }),
       ).searchParams.get('text')!;
       expect(text).toContain(look.title);
-      expect(text).toContain('Could your team create something similar?');
-      expect(text).toContain('exact reproduction are not implied');
+      expect(text).toContain(
+        isGarment(look.category)
+          ? 'Could your team create something similar?'
+          : 'Could you advise on similar available options?',
+      );
+      expect(text).toContain('exact reproduction');
       expect(text).not.toContain('Please share current availability');
     }
   });

@@ -39,6 +39,10 @@ describe('brand-led identity without duplicate announcements', () => {
     expect(screen.getByRole('heading', { name: 'Inside Dadinkowa Couture' })).toBeTruthy();
     expect(container.querySelector('.footer-wordmark')?.textContent).toBe('DADINKOWA COUTURE');
     expect(screen.getByRole('link', { name: /Explore the collection/ })).toBeTruthy();
-    expect(screen.getAllByRole('link', { name: /Discuss this style/ })).toHaveLength(3);
+    expect(
+      screen.getAllByRole('link', {
+        name: /^Explore (Agbada|Ready-to-wear|Fabrics|Caps|Wristwatches)/,
+      }),
+    ).toHaveLength(5);
   });
 });

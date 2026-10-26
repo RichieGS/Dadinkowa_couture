@@ -1,3 +1,4 @@
+import catalogue from './catalogue.json';
 import { mediaCopy, type MediaStatus } from './media';
 declare global {
   interface Window {
@@ -26,10 +27,11 @@ export const site = {
 };
 export const categories = [
   'All',
-  'Tailoring',
-  'Ready-to-Wear',
+  'Agbada',
+  'Ready-to-wear',
   'Fabrics',
-  'Caps & Accessories',
+  'Caps',
+  'Wristwatches',
 ] as const;
 export type Category = (typeof categories)[number];
 export type Photo = {
@@ -82,40 +84,38 @@ export const concepts = {
     false,
   ),
 };
-export const looks: Look[] = [
-  {
-    id: '01',
-    slug: 'burgundy-concept',
-    title: 'Burgundy / Form',
-    category: 'Tailoring',
-    description:
-      'Broad folds and a tonal geometric centre create a sculptural burgundy silhouette.',
-    images: [concepts.burgundy],
-    mediaStatus: 'ai-concept',
-    source: 'User-supplied AI concept / New_designs.zip',
-  },
-  {
-    id: '02',
-    slug: 'ivory-concept',
-    title: 'Ivory / Line',
-    category: 'Tailoring',
-    description:
-      'A pale palette, a straight tunic and a quiet vertical line. An ivory Senator-style concept.',
-    images: [concepts.ivory],
-    mediaStatus: 'ai-concept',
-    source: 'User-supplied AI concept / New_designs.zip',
-  },
-  {
-    id: '03',
-    slug: 'midnight-concept',
-    title: 'Midnight / Volume',
-    category: 'Tailoring',
-    description: 'Midnight blue, broad sleeves and sweeping folds explore volume and shadow.',
-    images: [concepts.midnight],
-    mediaStatus: 'ai-concept',
-    source: 'User-supplied AI concept / New_designs.zip',
-  },
-];
+export const looks: Look[] = catalogue.map((entry) => ({
+  id: entry.id,
+  slug: entry.slug,
+  title: entry.title,
+  category: entry.category as Look['category'],
+  description: entry.description,
+  mediaStatus: 'ai-concept',
+  source: entry.legacy
+    ? 'User-supplied AI concept / New_designs.zip'
+    : 'Generated in this session using image_gen; see generation-provenance.json',
+  images: [
+    entry.legacy
+      ? concepts[entry.legacy as 'burgundy' | 'midnight' | 'ivory']
+      : {
+          src: asset(`/media/catalogue-${entry.slug}-1000.webp`),
+          srcSet: `${asset(`/media/catalogue-${entry.slug}-500.webp`)} 500w, ${asset(`/media/catalogue-${entry.slug}-1000.webp`)} 1000w`,
+          alt: entry.alt || `AI-generated concept: ${entry.title}`,
+          width: entry.width,
+          height: entry.height,
+          fit: entry.category === 'Fabrics' ? 'cover' : 'contain',
+          position: '50% 50%',
+          caption: 'AI-generated style concept—not an actual Dadinkowa product.',
+        },
+  ],
+}));
+export const isGarment = (category: string) =>
+  category === 'Agbada' || category === 'Ready-to-wear';
+export const enquiryLabel = (category: string) =>
+  isGarment(category) ? 'Discuss this style' : 'Enquire about similar options';
+export const categoryPreviews = categories
+  .filter((category) => category !== 'All')
+  .map((category) => looks.find((look) => look.category === category)!);
 export const media = {
   logo: {
     src: asset('/media/logo-draft.png'),
@@ -154,7 +154,9 @@ export function whatsappUrl({
     reference && `Look reference: ${reference} (${mediaCopy(mediaStatus).reference}).`,
     message.trim(),
     mediaStatus === 'ai-concept' && reference
-      ? 'Could your team create something similar? Please advise what is feasible, possible fabrics, timing and an estimate. I understand this is a concept; availability and exact reproduction are not implied.'
+      ? isGarment(interest)
+        ? 'Could your team create something similar? Please advise what is feasible, possible fabrics, timing and an estimate. I understand this is a concept; availability and exact reproduction are not implied.'
+        : 'Could you advise on similar available options? This AI concept is inspiration only, not confirmed stock or a promise of exact reproduction.'
       : 'Please share current availability and pricing.',
   ];
   return `${business.whatsapp}?text=${encodeURIComponent(parts.filter(Boolean).join('\n'))}`;

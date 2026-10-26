@@ -1,7 +1,5 @@
-# Photography status
+# Current media status
 
-The previous stock-photo requests and proposed mannequin/hanger replacements are superseded by the approved Living Atelier direction. Do not retry blocked photo-host downloads. The five supplied generated assets are integrated as `ai-concept`; see ASSET_MANIFEST.md and concept-provenance.json.
+The earlier stock-photo requests are superseded. The collection uses 35 distinct AI concepts across five categories, with 32 newly generated individual assets and three reused original garment concepts. Two original cloth/detail assets remain editorial-only. All are clearly disclosed as concepts, not inventory. No user downloads or uploads are required for the expanded collection.
 
-Three garment concepts support three displayed looks. No suitable generated caps/accessories, fabric products or ready-to-wear inventory were supplied; these remain verified service information in text. No new images are needed to complete this concept composition.
-
-Before launch, approve rights and truthful disclosures for these generated assets, or provide owner-approved actual brand photography with source/rights records. Actual brand imagery must be labelled truthfully per asset; do not silently reclassify concepts as products. A production DK logo master and final sharing assets also remain outstanding.
+See generation-provenance.json, COLLECTION_GENERATION.md and TEST_RESULTS.md for exact delivered counts, processing and checks. No blocked external photo downloads are retried. Owner asset-rights/brand review, a faithful transparent DK master and real-browser visual acceptance remain launch requirements.

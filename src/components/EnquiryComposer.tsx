@@ -10,7 +10,7 @@ export function EnquiryComposer() {
     initial?.category ||
       (categories.includes(params.get('interest') as Category)
         ? params.get('interest')!
-        : 'Tailoring'),
+        : 'Agbada'),
   );
   const [reference, setReference] = useState(initial?.slug || '');
   const [message, setMessage] = useState('');
@@ -30,8 +30,8 @@ export function EnquiryComposer() {
         setError('');
         window.open(
           whatsappUrl({
-            interest,
-            reference: chosen?.title,
+            interest: chosen?.category ?? interest,
+            reference: chosen ? `${chosen.id} · ${chosen.title}` : undefined,
             mediaStatus: chosen?.mediaStatus,
             message,
           }),
@@ -60,7 +60,15 @@ export function EnquiryComposer() {
       <label htmlFor="reference">
         Lookbook reference <span>(optional)</span>
       </label>
-      <select id="reference" value={reference} onChange={(e) => setReference(e.target.value)}>
+      <select
+        id="reference"
+        value={reference}
+        onChange={(e) => {
+          setReference(e.target.value);
+          const selected = looks.find((look) => look.slug === e.target.value);
+          if (selected) setInterest(selected.category);
+        }}
+      >
         <option value="">An idea of my own</option>
         {looks.map((l) => (
           <option key={l.slug} value={l.slug}>
@@ -102,8 +110,8 @@ export function EnquiryComposer() {
       {ready && (
         <External
           href={whatsappUrl({
-            interest,
-            reference: chosen?.title,
+            interest: chosen?.category ?? interest,
+            reference: chosen ? `${chosen.id} · ${chosen.title}` : undefined,
             mediaStatus: chosen?.mediaStatus,
             message,
           })}

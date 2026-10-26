@@ -1,3 +1,13 @@
+# Current collection assets
+
+The Living Atelier catalogue now contains 35 concepts: seven each in Agbada, Ready-to-wear, Fabrics, Caps and Wristwatches. Five category previews link to the full filtered catalogue. The two existing Agbada and ivory outfit are reused; 32 individual assets were generated with image_gen.imagegen. The original fabric background and embroidery are retained editorial imagery, not extra catalogue entries.
+
+See `generation-provenance.json` for exact prompts, actual returned paths, source/output hashes, dimensions and transparency. Model and licence were not supplied by the tool. No guesses or third-party licensing claims are made. No external image hotlinks, CSS substitute illustrations or contact-sheet product assets are shipped. The original PNGs remain local; responsive variants are separate sizes of one asset and do not inflate concept counts.
+
+Every concept carries **AI-generated style concept—not an actual Dadinkowa product.** Watch descriptions describe appearance, not technical/material specifications. No prices, stock or promises of exact reproduction are invented. Owner rights/brand review and actual browser QA remain release requirements. Generation/review method is in COLLECTION_GENERATION.md.
+
+The following original-supplied-asset register is retained for source history; later catalogue generation supersedes its former three-look limit.
+
 # Living Atelier asset register
 
 Source: user-supplied `New_designs.zip`, 25 October 2026. The user identifies these as generated concepts and approves Concept A as the visual direction. Package filenames are asset identifiers, not instructions or evidence of brand products. The board's unverified heritage/workmanship claims were not adopted.

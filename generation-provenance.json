@@ -1,0 +1,998 @@
+{
+  "tool": "image_gen.imagegen",
+  "note": "Individual images generated in this session. Model identifier and licence were not supplied by the tool; neither is inferred. Prompt and output paths are recorded from actual calls. Three reused concepts retain their separate user-upload provenance.",
+  "assets": [
+    {
+      "id": "ag04",
+      "category": "Agbada",
+      "title": "Charcoal / Channels",
+      "tool": "image_gen.imagegen",
+      "prompt": "Create ONE individual photorealistic dimensional editorial product asset for a Nigerian menswear concept collection. Cohesive warm soft directional studio light, refined burgundy/ivory/midnight/charcoal palette. Full object entirely visible with generous safe margins, no clipping. No people, no human body, no face, no hands, no text, letters, numbers, manufacturer logos, watermarks, borders, contact sheets or website interface. High quality realistic materials and fine detail. Charcoal Agbada with stepped shoulder volume, narrow vertical silver-grey embroidered channels on chest and a straight hem. One complete headless garment on an invisible mannequin, front three-quarter view, natural realistic embroidery and folds. Genuine transparent alpha background, no floor or backdrop.",
+      "toolOutputPath": "/workspace/generated_images/exec-10b62852-f3f5-41cd-82de-bf7740c209d9.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "1f45e0545155479e5360bd9c0d75e29b880c34a85e6117db144c42ca4b57582a",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-ag04-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 39512,
+          "sha256": "e7c563e072ae40640f9b8f351a061b81ed599be3fdffae71731af67f29d38519"
+        },
+        {
+          "path": "public/media/catalogue-ag04-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 178470,
+          "sha256": "831da8c8f7798c245214fce234c3eb1886687bc5db781e5fdfb540e816feefc3"
+        }
+      ]
+    },
+    {
+      "id": "ag05",
+      "category": "Agbada",
+      "title": "Sage / Arches",
+      "tool": "image_gen.imagegen",
+      "prompt": "Create ONE individual photorealistic dimensional editorial product asset for a Nigerian menswear concept collection. Cohesive warm soft directional studio light, refined burgundy/ivory/midnight/charcoal palette. Full object entirely visible with generous safe margins, no clipping. No people, no human body, no face, no hands, no text, letters, numbers, manufacturer logos, watermarks, borders, contact sheets or website interface. High quality realistic materials and fine detail. Muted sage-green Agbada with rounded broad sleeves, long fluid skirt and delicate ivory arched embroidery around a deep placket. One complete headless garment on an invisible mannequin, front three-quarter view, natural realistic embroidery and folds. Genuine transparent alpha background, no floor or backdrop.",
+      "toolOutputPath": "/workspace/generated_images/exec-ab49d21f-d33b-40d2-8fcd-4d5a8c4763c8.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "b98456ebd2d0ef76db8f074e9025a578254fb7f63c4535f5527e193eedf11b57",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-ag05-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 43790,
+          "sha256": "9adeaf2eef113d516ed9d6e828ed6689475cda74bd2101c54fb0c3e913217e0a"
+        },
+        {
+          "path": "public/media/catalogue-ag05-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 196534,
+          "sha256": "272e684591c8f20e84786426303a10a02e27713eec76be3bb8425d7bb18cd1a0"
+        }
+      ]
+    },
+    {
+      "id": "ag06",
+      "category": "Agbada",
+      "title": "Sand / Geometry",
+      "tool": "image_gen.imagegen",
+      "prompt": "Create ONE individual photorealistic dimensional editorial product asset for a Nigerian menswear concept collection. Cohesive warm soft directional studio light, refined burgundy/ivory/midnight/charcoal palette. Full object entirely visible with generous safe margins, no clipping. No people, no human body, no face, no hands, no text, letters, numbers, manufacturer logos, watermarks, borders, contact sheets or website interface. High quality realistic materials and fine detail. Warm sand Agbada with crisp angular shoulders, box pleats and asymmetric terracotta geometric chest embroidery. One complete headless garment on an invisible mannequin, front three-quarter view, natural realistic embroidery and folds. Genuine transparent alpha background, no floor or backdrop.",
+      "toolOutputPath": "/workspace/generated_images/exec-ff78dcca-e9fa-478a-869f-d5ec011a2df2.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "40f3113cce9998e4619fb3a0427a2d05c11562e9b583b20b23ae0f3372025c05",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-ag06-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 48970,
+          "sha256": "c80ceaaf10d39993f34d6ba7e19e43cc471adfb78fb717a0ce2b5e93e5808527"
+        },
+        {
+          "path": "public/media/catalogue-ag06-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 220638,
+          "sha256": "b5c2f09b5a1ed5a8ef0e195be45f753f0680d29c41f1f2d36a2c7f4af8b5e19f"
+        }
+      ]
+    },
+    {
+      "id": "ag07",
+      "category": "Agbada",
+      "title": "Plum / Lattice",
+      "tool": "image_gen.imagegen",
+      "prompt": "Create ONE individual photorealistic dimensional editorial product asset for a Nigerian menswear concept collection. Cohesive warm soft directional studio light, refined burgundy/ivory/midnight/charcoal palette. Full object entirely visible with generous safe margins, no clipping. No people, no human body, no face, no hands, no text, letters, numbers, manufacturer logos, watermarks, borders, contact sheets or website interface. High quality realistic materials and fine detail. Deep aubergine Agbada with cape-like sleeves, a tapered draped body and dense tonal latticework across a squared bib. One complete headless garment on an invisible mannequin, front three-quarter view, natural realistic embroidery and folds. Genuine transparent alpha background, no floor or backdrop.",
+      "toolOutputPath": "/workspace/generated_images/exec-3c448dc8-fb84-4abc-a0eb-0ed5fdd3dadf.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "f3b1626a9f4f77702d5e53a7f021f439b5a52752d296a3d4b16902309b3a1a6e",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-ag07-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 43212,
+          "sha256": "0d09d8335da5aa942b17652a3c3fc160c7260401fc255f5125c03e438a95f829"
+        },
+        {
+          "path": "public/media/catalogue-ag07-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 190138,
+          "sha256": "f74cce3a53917bbe171469adeded3c5c25c32defbcbe0ed13dfd5353d3d2ce27"
+        }
+      ]
+    },
+    {
+      "id": "ag08",
+      "category": "Agbada",
+      "title": "Ivory / Wings",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Ivory Agbada, wing sleeves, layered folds, narrow midnight chevron embroidery. One headless complete Nigerian outfit on an invisible mannequin, no visible supports, full front three-quarter presentation, true transparent alpha background.",
+      "toolOutputPath": "/workspace/generated_images/exec-a27127d2-85cc-4421-893d-67e4b6873837.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "65604df173a8081b974b767cc19458232164e842928d00acb9efe69cf7bad0e3",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-ag08-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 50134,
+          "sha256": "267394509c8b62fc185f9200a880f21cb20ae22dda14deb112bf66b9d4506cd0"
+        },
+        {
+          "path": "public/media/catalogue-ag08-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 177130,
+          "sha256": "ebf82033926e025df4835a38fb23db88db7130fc9bac1bc41627787f33c9eec3"
+        }
+      ]
+    },
+    {
+      "id": "ca01",
+      "category": "Caps",
+      "title": "Burgundy / Fold",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Burgundy Nigerian fila cap with folded side peak and concentric tonal woven bands. One complete object, elegant three-quarter product presentation, true transparent alpha background. Realistic fine embroidery, intact crown and folded structure.",
+      "toolOutputPath": "/workspace/generated_images/exec-cbcb7457-052c-424e-841d-24cfd3018c31.png",
+      "sourceWidth": 1312,
+      "sourceHeight": 1199,
+      "sourceMode": "RGBA",
+      "sourceSha256": "49a924e2239b7d4360da90dc6e18c3b7b228cd595fe5d3c3def0ec005c8134bf",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-ca01-500.webp",
+          "width": 500,
+          "height": 457,
+          "alpha": true,
+          "bytes": 50030,
+          "sha256": "0607647c32f159ee4ff2df35b702788b6c9adc4f6508d3349748f447f6aa7a64"
+        },
+        {
+          "path": "public/media/catalogue-ca01-1000.webp",
+          "width": 1000,
+          "height": 914,
+          "alpha": true,
+          "bytes": 212160,
+          "sha256": "340ba6cccf5b9dd68f466c9a1044de75329df0f3c0d0c71beeac13c2ecf09216"
+        }
+      ]
+    },
+    {
+      "id": "ca02",
+      "category": "Caps",
+      "title": "Ivory / Column",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Ivory cylindrical Nigerian cap, flat crown, fine midnight vertical dash embroidery. One complete object, elegant three-quarter product presentation, true transparent alpha background. Realistic fine embroidery, intact crown and folded structure.",
+      "toolOutputPath": "/workspace/generated_images/exec-c340a159-ac8d-42ac-bb5b-729c72d783de.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "sourceMode": "RGBA",
+      "sourceSha256": "c2c4ecf25d2904b9d3ab8ccd9a589805e92fd476fe77fd780636cf9db8a7a6ca",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-ca02-500.webp",
+          "width": 500,
+          "height": 333,
+          "alpha": true,
+          "bytes": 32998,
+          "sha256": "d0d7df6589d7dcabe2c98db705f6103ad8069d00ef6be3d369fedae456a1b9e8"
+        },
+        {
+          "path": "public/media/catalogue-ca02-1000.webp",
+          "width": 1000,
+          "height": 667,
+          "alpha": true,
+          "bytes": 129554,
+          "sha256": "64aeb63c052d4620fc21c4500251b7197f598662784be3fb90b939f62eed030a"
+        }
+      ]
+    },
+    {
+      "id": "ca03",
+      "category": "Caps",
+      "title": "Midnight / Chevron",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Midnight Nigerian fila cap, slanted crown, diagonal ivory chevron woven panels. One complete object, elegant three-quarter product presentation, true transparent alpha background. Realistic fine embroidery, intact crown and folded structure.",
+      "toolOutputPath": "/workspace/generated_images/exec-82f439db-43d6-47a9-86f8-99b244525b75.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "sourceMode": "RGBA",
+      "sourceSha256": "d7b0eb61b3b4ea62ba8633a452155facd9dc4fa2cd2219f27c4feb2b39b558da",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-ca03-500.webp",
+          "width": 500,
+          "height": 333,
+          "alpha": true,
+          "bytes": 33050,
+          "sha256": "8222b5de18d48d3d025ff428400af2b3c1fe50a7e432ed24446fff5e12347376"
+        },
+        {
+          "path": "public/media/catalogue-ca03-1000.webp",
+          "width": 1000,
+          "height": 667,
+          "alpha": true,
+          "bytes": 157688,
+          "sha256": "2fb603bff092bb755d724850c90d9dc545c7f918ab75f0c5a0ac4992191782d6"
+        }
+      ]
+    },
+    {
+      "id": "ca04",
+      "category": "Caps",
+      "title": "Charcoal / Ridge",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Charcoal low cylindrical brimless cap, ridged tonal geometric embroidery, softly rounded flat crown. One complete object, elegant three-quarter product presentation, true transparent alpha background. Realistic fine embroidery, intact crown and folded structure.",
+      "toolOutputPath": "/workspace/generated_images/exec-e62fa2f0-1caf-4fca-ab9f-81e25c650215.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "sourceMode": "RGBA",
+      "sourceSha256": "5a29ae11f885f8e90cd1cdc70f873781e964e40109451a1fb7efd6b8cc9dc68e",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-ca04-500.webp",
+          "width": 500,
+          "height": 333,
+          "alpha": true,
+          "bytes": 29488,
+          "sha256": "ce9fcb01040f235476a1058006d5d49058a320d7a59f9339defa2b7750bb4a99"
+        },
+        {
+          "path": "public/media/catalogue-ca04-1000.webp",
+          "width": 1000,
+          "height": 667,
+          "alpha": true,
+          "bytes": 131276,
+          "sha256": "c5a99ad9a96bcc7a84078f2b329f382dadae4cb828eee1ed2da52421973d796a"
+        }
+      ]
+    },
+    {
+      "id": "ca05",
+      "category": "Caps",
+      "title": "Sage / Spiral",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Sage Nigerian fila with one folded overhang and burgundy spiral stitched bands. One complete object, elegant three-quarter product presentation, true transparent alpha background. Realistic fine embroidery, intact crown and folded structure.",
+      "toolOutputPath": "/workspace/generated_images/exec-9eed0003-923f-44e9-8893-526e6c1cd6e4.png",
+      "sourceWidth": 1374,
+      "sourceHeight": 1145,
+      "sourceMode": "RGBA",
+      "sourceSha256": "25807076de221b4988804372b24d4e8f4d5e66b42a5fe40dbf64e5f2cd304edf",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-ca05-500.webp",
+          "width": 500,
+          "height": 417,
+          "alpha": true,
+          "bytes": 40016,
+          "sha256": "2a30960f093aa290c022bd0f4563ab2a59761c2fa7db85c8b6bc5c226a21bb6a"
+        },
+        {
+          "path": "public/media/catalogue-ca05-1000.webp",
+          "width": 1000,
+          "height": 833,
+          "alpha": true,
+          "bytes": 185348,
+          "sha256": "b75cefc5e8e158072ba9083d3572c6396637d33d25a0ca96ded896b5de6f7267"
+        }
+      ]
+    },
+    {
+      "id": "ca06",
+      "category": "Caps",
+      "title": "Sand / Mosaic",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Sand tall brimless Nigerian cap, flat top, rust and dark brown angular mosaic woven panels. One complete object, elegant three-quarter product presentation, true transparent alpha background. Realistic fine embroidery, intact crown and folded structure.",
+      "toolOutputPath": "/workspace/generated_images/exec-13429ea1-d67c-401d-9abe-84060ba7dbc0.png",
+      "sourceWidth": 1225,
+      "sourceHeight": 1284,
+      "sourceMode": "RGBA",
+      "sourceSha256": "eb0af558cd9e4250797148cbf21883abf653137d88c9949235161e3c0a49ef94",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-ca06-500.webp",
+          "width": 500,
+          "height": 524,
+          "alpha": true,
+          "bytes": 68606,
+          "sha256": "5d72933de41ca1f4888aa40ae4c2a05f889c879f877fa2b3ef079c16b8ae1a65"
+        },
+        {
+          "path": "public/media/catalogue-ca06-1000.webp",
+          "width": 1000,
+          "height": 1048,
+          "alpha": true,
+          "bytes": 289714,
+          "sha256": "d40a2057323f15b3ea57cc31123dade6382b3f14c566b9c15e9eb82ae968a8c7"
+        }
+      ]
+    },
+    {
+      "id": "ca07",
+      "category": "Caps",
+      "title": "Plum / Crown",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Aubergine low rounded fila with short side fold and ivory dotted embroidery at base. One complete object, elegant three-quarter product presentation, true transparent alpha background. Realistic fine embroidery, intact crown and folded structure.",
+      "toolOutputPath": "/workspace/generated_images/exec-6935b124-aa3a-43f1-baf1-c736a68b5712.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "sourceMode": "RGBA",
+      "sourceSha256": "d32c9f043c3c61ea314f50fc56e5c7b80608904d3751745442f3a42c6f0c7dbb",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-ca07-500.webp",
+          "width": 500,
+          "height": 333,
+          "alpha": true,
+          "bytes": 27406,
+          "sha256": "5143d2f1b1b0c2778121e57ea6c8049658daacfb75ceb5992242fdce9adb1521"
+        },
+        {
+          "path": "public/media/catalogue-ca07-1000.webp",
+          "width": 1000,
+          "height": 667,
+          "alpha": true,
+          "bytes": 126768,
+          "sha256": "321609eafb680a4727d68d4497ae1faab876fbd8432e50565b83363ef64cf201"
+        }
+      ]
+    },
+    {
+      "id": "fa01",
+      "category": "Fabrics",
+      "title": "Burgundy / Jacquard",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Burgundy jacquard cloth with raised interlocking diamonds, heavy soft folds. A single cloth composition, macro-realistic weave and drape, subtle warm ivory studio background, wide landscape composition.",
+      "toolOutputPath": "/workspace/generated_images/exec-4e92c7ad-eb0e-42e6-92ba-38a579bee7a0.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "sourceMode": "RGB",
+      "sourceSha256": "6b13727068e4666d9106c1bd10b7e2433182a6c68f208fa512859d846fa2e9a3",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-fa01-500.webp",
+          "width": 500,
+          "height": 333,
+          "alpha": false,
+          "bytes": 31294,
+          "sha256": "ab7d4016d632be62128c455c35485a216b993a39f5b2ce317b9b9008f390ee1a"
+        },
+        {
+          "path": "public/media/catalogue-fa01-1000.webp",
+          "width": 1000,
+          "height": 667,
+          "alpha": false,
+          "bytes": 136162,
+          "sha256": "0cbb34ac57b80eae20b12724f9bacb903266e18c0bdb2577fbb37762e77f52c8"
+        }
+      ]
+    },
+    {
+      "id": "fa02",
+      "category": "Fabrics",
+      "title": "Ivory / Slub",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Ivory slub cloth with irregular woven threads, loose rolled edge, light cascading drape. A single cloth composition, macro-realistic weave and drape, subtle warm ivory studio background, wide landscape composition.",
+      "toolOutputPath": "/workspace/generated_images/exec-b5199ed8-a0c5-40e7-bd2f-ead17af116cb.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "sourceMode": "RGB",
+      "sourceSha256": "73cebc02def192f5343087a8c7a2dbe90c56e6dae0ec7afd0d958e28de607083",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-fa02-500.webp",
+          "width": 500,
+          "height": 333,
+          "alpha": false,
+          "bytes": 19182,
+          "sha256": "1497c48279f4d05bfc088acfdb7f54926d435f3caab51eb3d253497eeab13510"
+        },
+        {
+          "path": "public/media/catalogue-fa02-1000.webp",
+          "width": 1000,
+          "height": 667,
+          "alpha": false,
+          "bytes": 95572,
+          "sha256": "4c37e6325c806f3d3ffb22c985eb4bd57e053cfe4f84f89092c8258b1b8b085f"
+        }
+      ]
+    },
+    {
+      "id": "fa03",
+      "category": "Fabrics",
+      "title": "Midnight / Stripe",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Midnight and silver narrow-striped woven cloth, accordion pleats and diagonal flowing tail. A single cloth composition, macro-realistic weave and drape, subtle warm ivory studio background, wide landscape composition.",
+      "toolOutputPath": "/workspace/generated_images/exec-464461da-8511-42f7-9f4e-a8a424ad49c1.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "sourceMode": "RGB",
+      "sourceSha256": "709ed795a67c568957a459327e8401592e552739046299a10926eb27945d4663",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-fa03-500.webp",
+          "width": 500,
+          "height": 333,
+          "alpha": false,
+          "bytes": 22044,
+          "sha256": "77795c9a5b9e3d6fa7f0d3aeab867b1c02e846c645dbffb1a30d32420953bb71"
+        },
+        {
+          "path": "public/media/catalogue-fa03-1000.webp",
+          "width": 1000,
+          "height": 667,
+          "alpha": false,
+          "bytes": 70914,
+          "sha256": "229f569ea1537f31525ee9cc2e22ae5ec65a394856bc6352b32588d3bace9303"
+        }
+      ]
+    },
+    {
+      "id": "fa04",
+      "category": "Fabrics",
+      "title": "Charcoal / Herringbone",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Charcoal herringbone cloth, stacked broad folds, curled corner showing reverse weave. A single cloth composition, macro-realistic weave and drape, subtle warm ivory studio background, wide landscape composition.",
+      "toolOutputPath": "/workspace/generated_images/exec-3b258d92-9c48-4406-b05e-75d9f784da86.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "sourceMode": "RGB",
+      "sourceSha256": "9dc1f1b09dd68e01f2a80ab5aa6f4dcf3e09f74650d085d2561426ea44342154",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-fa04-500.webp",
+          "width": 500,
+          "height": 333,
+          "alpha": false,
+          "bytes": 26552,
+          "sha256": "a16c534346e3e9fdd14ebfe4cd3f83294d25c9a40d116a362b44047ab833bc2d"
+        },
+        {
+          "path": "public/media/catalogue-fa04-1000.webp",
+          "width": 1000,
+          "height": 667,
+          "alpha": false,
+          "bytes": 100760,
+          "sha256": "863f976ab9a5b33066f74b19225e5d4244025471d6a6d6c56d813a5d0528935e"
+        }
+      ]
+    },
+    {
+      "id": "fa05",
+      "category": "Fabrics",
+      "title": "Sage / Basketweave",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Sage basketweave cloth with tactile interlaced texture, wave drape and visible selvage. A single cloth composition, macro-realistic weave and drape, subtle warm ivory studio background, wide landscape composition.",
+      "toolOutputPath": "/workspace/generated_images/exec-c7676117-77be-4c38-973f-5569e2666227.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "sourceMode": "RGB",
+      "sourceSha256": "d0c1f538013e958c4a2e315a9cd88771807bc4e0f24e0bb3f01b965740b800af",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-fa05-500.webp",
+          "width": 500,
+          "height": 333,
+          "alpha": false,
+          "bytes": 48096,
+          "sha256": "a0aa6106cbdaa0f71206e85f445c4d11d9fe200d0d588339bdd0ad13290f314d"
+        },
+        {
+          "path": "public/media/catalogue-fa05-1000.webp",
+          "width": 1000,
+          "height": 667,
+          "alpha": false,
+          "bytes": 176798,
+          "sha256": "ff2273345777328c90e30fa0464ba2ae9bd1129cb1ee8304c6baa4c284c34f56"
+        }
+      ]
+    },
+    {
+      "id": "fa06",
+      "category": "Fabrics",
+      "title": "Ochre / Rhythm",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Ochre ivory burgundy geometric woven cloth with small stepped motifs, folded with flowing foreground. A single cloth composition, macro-realistic weave and drape, subtle warm ivory studio background, wide landscape composition.",
+      "toolOutputPath": "/workspace/generated_images/exec-0e331c16-88b5-4a1c-80f2-d504417c1eea.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "sourceMode": "RGB",
+      "sourceSha256": "1ceefaa1948e8804929eb1d3d0f39ae18b3057c4f47f2caaa02cbe1287aa12d4",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-fa06-500.webp",
+          "width": 500,
+          "height": 333,
+          "alpha": false,
+          "bytes": 43160,
+          "sha256": "472cea8d5e2a64fc5128f1b555c56bdeb13d5866bd48a3db6a135be29d36af33"
+        },
+        {
+          "path": "public/media/catalogue-fa06-1000.webp",
+          "width": 1000,
+          "height": 667,
+          "alpha": false,
+          "bytes": 186448,
+          "sha256": "afa40f5300a73714bd1e9e2312b3f670bcb613eaab3a773dfc1642a4eb670c70"
+        }
+      ]
+    },
+    {
+      "id": "fa07",
+      "category": "Fabrics",
+      "title": "Plum / Lustre",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Plum satin-like fabric with tonal floral woven pattern, fluid sculptural pooled folds. A single cloth composition, macro-realistic weave and drape, subtle warm ivory studio background, wide landscape composition.",
+      "toolOutputPath": "/workspace/generated_images/exec-204f08c8-60de-4f34-bade-20925edfe600.png",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "sourceMode": "RGB",
+      "sourceSha256": "f862eec9abeee55edfa33e4a4fec2d0f312ff75ff1f51ffe1cac94f71cc910a4",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-fa07-500.webp",
+          "width": 500,
+          "height": 333,
+          "alpha": false,
+          "bytes": 19800,
+          "sha256": "15ec8098ba7a28ed53ffe3a3bc4f84faa43902592217f36d2b8eea8a46851577"
+        },
+        {
+          "path": "public/media/catalogue-fa07-1000.webp",
+          "width": 1000,
+          "height": 667,
+          "alpha": false,
+          "bytes": 62112,
+          "sha256": "68b8598ce3b056a75ba18db1ff8baba6b787bf3ba0a0babd84e8bda23b763e62"
+        }
+      ]
+    },
+    {
+      "id": "rt02",
+      "category": "Ready-to-wear",
+      "title": "Burgundy / Placket",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Burgundy Senator-style tunic and trousers, standing collar, asymmetric concealed placket, welt pocket. One headless complete Nigerian outfit on an invisible mannequin, no visible supports, full front three-quarter presentation, true transparent alpha background.",
+      "toolOutputPath": "/workspace/generated_images/exec-98844a8c-acbd-436b-9ef8-82e57272e18a.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "35eb879b4f5021e9a1a960dfe834831de58388d415e5dfec66a0183f00da5e3c",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-rt02-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 24836,
+          "sha256": "7900784ca0cfd832760d5f00565abf6e649d8413a92b5653bdb6e6e9b683b98d"
+        },
+        {
+          "path": "public/media/catalogue-rt02-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 80232,
+          "sha256": "732a30260b3a828da7f7a2242ae9257c05d372a95f16a477d42fae02b5c3c3e7"
+        }
+      ]
+    },
+    {
+      "id": "rt03",
+      "category": "Ready-to-wear",
+      "title": "Midnight / Panel",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Midnight short-sleeve native tunic and trousers, ivory inset chest panel. One headless complete Nigerian outfit on an invisible mannequin, no visible supports, full front three-quarter presentation, true transparent alpha background.",
+      "toolOutputPath": "/workspace/generated_images/exec-93ec2767-63c4-4321-b96e-8f1a16f7220f.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "7aebbe878ef6696cb87980d7385fb34aac4279aa604f37e9c93c32792a20f111",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-rt03-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 21858,
+          "sha256": "c94812e538af0cd7f1584ea6efaa5f9750295d6d5b1257c24ec76925e3c5cfab"
+        },
+        {
+          "path": "public/media/catalogue-rt03-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 65220,
+          "sha256": "b5e0f35975676b7d5bf67e0e265d38c0ed9d5bf9a9b50c20a30d5890de181f0b"
+        }
+      ]
+    },
+    {
+      "id": "rt04",
+      "category": "Ready-to-wear",
+      "title": "Charcoal / Pleat",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Charcoal collarless long tunic and slim trousers, three front pleats, split hem. One headless complete Nigerian outfit on an invisible mannequin, no visible supports, full front three-quarter presentation, true transparent alpha background.",
+      "toolOutputPath": "/workspace/generated_images/exec-35010ab9-481a-4915-a1b7-1b523c2d23a6.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "5444131c78363125e3374e50d1dee473252aca7f39441976b24fd24998828114",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-rt04-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 23458,
+          "sha256": "e40711c99d63b2849415ca345f36985783f02ae763fbad6bb7b73e24a08a8e44"
+        },
+        {
+          "path": "public/media/catalogue-rt04-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 86190,
+          "sha256": "145051dc15e15b0f0c4ebebb5815a191e55c96ec4ed1fc64257371475140b208"
+        }
+      ]
+    },
+    {
+      "id": "rt05",
+      "category": "Ready-to-wear",
+      "title": "Sage / Contrast",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Sage short-sleeve native tunic and relaxed trousers, rounded neckline and burgundy piping. One headless complete Nigerian outfit on an invisible mannequin, no visible supports, full front three-quarter presentation, true transparent alpha background.",
+      "toolOutputPath": "/workspace/generated_images/exec-a627b16d-6965-4a11-ace2-e4bf15b73521.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "cc8514f077fdd09ae37065f11e1d6c99e4ad01122e8ba8cdfc712ec0d895416b",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-rt05-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 26102,
+          "sha256": "c4ab2ab3bd1ccdee74dc3d01b2f5a8e6236d6b820b35143494887063fe4a6437"
+        },
+        {
+          "path": "public/media/catalogue-rt05-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 85500,
+          "sha256": "8678ce2852d4acdf94cea08a442bc8e5d77944309beb9dc1311a4a8ab57d85c1"
+        }
+      ]
+    },
+    {
+      "id": "rt06",
+      "category": "Ready-to-wear",
+      "title": "Sand / Overlap",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Sand Senator-style long-sleeve overlap-front tunic and trousers, mandarin collar, dark buttons. One headless complete Nigerian outfit on an invisible mannequin, no visible supports, full front three-quarter presentation, true transparent alpha background.",
+      "toolOutputPath": "/workspace/generated_images/exec-be4dfe37-be43-466c-ae87-bf2d8b50ee35.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "84c721c0123f384186d1eba2b500e746c5244dae28f3e55bb53e36be3e4dd885",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-rt06-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 32708,
+          "sha256": "27d933ec631332e7954e722c3de45329438e33f8f5dc993c2de69816d5c48379"
+        },
+        {
+          "path": "public/media/catalogue-rt06-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 102900,
+          "sha256": "7b71c29c55aa58a363a9ba7e02ef0757cd54df5cea38bd71511cb5cc7fa4b514"
+        }
+      ]
+    },
+    {
+      "id": "rt07",
+      "category": "Ready-to-wear",
+      "title": "Rust / Contour",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Clay-rust long-sleeve kaftan and trousers, rounded hem, contour seams, small midnight geometric chest embroidery. One headless complete Nigerian outfit on an invisible mannequin, no visible supports, full front three-quarter presentation, true transparent alpha background.",
+      "toolOutputPath": "/workspace/generated_images/exec-3ecd96b4-9b12-41ce-98cb-5206f389a306.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "81e9132c6d8e77af66a1030cbfffed323470c804f6536bcaf6d740317411da99",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-rt07-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 30712,
+          "sha256": "8948a7c906760b05e4359b924697ce2a6f2a7c7c50f0dc3d246c0adf89d1abbe"
+        },
+        {
+          "path": "public/media/catalogue-rt07-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 105620,
+          "sha256": "91c2b79e1ec6a724a854efe1c985693c3b24c0c68419a3120646c845b378a4fd"
+        }
+      ]
+    },
+    {
+      "id": "wa01",
+      "category": "Wristwatches",
+      "title": "Burgundy / Round",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Original unbranded watch, round brushed silver case, burgundy sunray dial, baton markers, two hands, black leather strap. One complete object, elegant three-quarter product presentation, true transparent alpha background. Original design with absolutely no manufacturer logo, no dial text or numbers, no subdials/date; anatomically coherent case, crown, lugs and strap, believable hands.",
+      "toolOutputPath": "/workspace/generated_images/exec-ad4e3a29-6f63-42ae-b077-cb45b38cad78.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "8b84b5d16cc569062466814bbf3b82ecc2b0564a8054c73d031ec416d9a1f06b",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-wa01-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 45864,
+          "sha256": "bd74e946fc1efefd63d398bc851fcc74819067f8dc3914e0a327fc2a7bf37f3f"
+        },
+        {
+          "path": "public/media/catalogue-wa01-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 162882,
+          "sha256": "92ccff2a7d3e77ba7f1248d8ae845ab668e8d32166cf3fa138d80468cdaa3eab"
+        }
+      ]
+    },
+    {
+      "id": "wa02",
+      "category": "Wristwatches",
+      "title": "Ivory / Rectangle",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Original unbranded watch, soft rectangular brass-coloured case, ivory dial, four baton markers, two hands, brown leather strap. One complete object, elegant three-quarter product presentation, true transparent alpha background. Original design with absolutely no manufacturer logo, no dial text or numbers, no subdials/date; anatomically coherent case, crown, lugs and strap, believable hands.",
+      "toolOutputPath": "/workspace/generated_images/exec-1803b338-87c4-43ec-bada-71b49fad545b.png",
+      "sourceWidth": 1142,
+      "sourceHeight": 1377,
+      "sourceMode": "RGBA",
+      "sourceSha256": "ea9d4316a919b4060e31b312fd778034c84c7a05233a3a4addcf54d9efa39548",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-wa02-500.webp",
+          "width": 500,
+          "height": 603,
+          "alpha": true,
+          "bytes": 38378,
+          "sha256": "bff8541c3d5c26e7ee0dd694b3339e013030e6fb28653035820a5de7d20d7867"
+        },
+        {
+          "path": "public/media/catalogue-wa02-1000.webp",
+          "width": 1000,
+          "height": 1206,
+          "alpha": true,
+          "bytes": 140264,
+          "sha256": "6c164cbbf30209243bc5e679a86e657e7ba3a857363d318fecbcc508e36fa139"
+        }
+      ]
+    },
+    {
+      "id": "wa03",
+      "category": "Wristwatches",
+      "title": "Midnight / Cushion",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Original unbranded watch, cushion-shaped matte silver case, midnight dial, dot markers, two hands, charcoal woven strap. One complete object, elegant three-quarter product presentation, true transparent alpha background. Original design with absolutely no manufacturer logo, no dial text or numbers, no subdials/date; anatomically coherent case, crown, lugs and strap, believable hands.",
+      "toolOutputPath": "/workspace/generated_images/exec-ccd06a8e-7ce0-4dd1-ac36-1ed822cf8d41.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "b88bd865dc6ba324048841036d4457968a509ccf6d7fc39d28cd366e3c8b7c81",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-wa03-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 59854,
+          "sha256": "8011e69f2061233a18a06ce60b0635c541082b538f3974d164766835384a86aa"
+        },
+        {
+          "path": "public/media/catalogue-wa03-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 190980,
+          "sha256": "de7d5ef5fb42dbb98cc8367c219e73243e7d6cb368acce9375b0740c6fd3d2b4"
+        }
+      ]
+    },
+    {
+      "id": "wa04",
+      "category": "Wristwatches",
+      "title": "Charcoal / Mesh",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Original unbranded watch, slim round dark case, charcoal dial, twelve ivory baton markers, two hands, silver mesh bracelet. One complete object, elegant three-quarter product presentation, true transparent alpha background. Original design with absolutely no manufacturer logo, no dial text or numbers, no subdials/date; anatomically coherent case, crown, lugs and strap, believable hands.",
+      "toolOutputPath": "/workspace/generated_images/exec-410990cc-4463-4117-83c3-b80b52af9359.png",
+      "sourceWidth": 1145,
+      "sourceHeight": 1374,
+      "sourceMode": "RGBA",
+      "sourceSha256": "7da4bdc6176b7fd513215586e5187bcd94f73bd15c8331c6222c3df9c7ab3de3",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-wa04-500.webp",
+          "width": 500,
+          "height": 600,
+          "alpha": true,
+          "bytes": 54844,
+          "sha256": "4230a718bfdf78dbbe38c461dae3f1d799f73ce2aa70608001277681eff8b038"
+        },
+        {
+          "path": "public/media/catalogue-wa04-1000.webp",
+          "width": 1000,
+          "height": 1200,
+          "alpha": true,
+          "bytes": 168370,
+          "sha256": "aff07d2516d4c4cf0e176e32370b08e4aca187c7461e8816ab47ae1dc8f97d13"
+        }
+      ]
+    },
+    {
+      "id": "wa05",
+      "category": "Wristwatches",
+      "title": "Sage / Octagon",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Original unbranded watch, octagonal brushed silver case, sage dial, eight bar markers, two hands, dark green leather strap. One complete object, elegant three-quarter product presentation, true transparent alpha background. Original design with absolutely no manufacturer logo, no dial text or numbers, no subdials/date; anatomically coherent case, crown, lugs and strap, believable hands.",
+      "toolOutputPath": "/workspace/generated_images/exec-ebce9de0-69af-400b-973a-5f8a89e1f20b.png",
+      "sourceWidth": 1145,
+      "sourceHeight": 1374,
+      "sourceMode": "RGBA",
+      "sourceSha256": "70d21d33c143ebad10c5300f82fbd42c2ad01dd87b6f76f4b54c557b76d9172f",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-wa05-500.webp",
+          "width": 500,
+          "height": 600,
+          "alpha": true,
+          "bytes": 33650,
+          "sha256": "d8d7ff2b3e90c58e4281b3dbaf71773a236123400d4a3ee785355e911a55e35b"
+        },
+        {
+          "path": "public/media/catalogue-wa05-1000.webp",
+          "width": 1000,
+          "height": 1200,
+          "alpha": true,
+          "bytes": 120854,
+          "sha256": "e2c1d17581fe3515feff932540a1a791211e797ff06a1245bd82c4543f103bd1"
+        }
+      ]
+    },
+    {
+      "id": "wa06",
+      "category": "Wristwatches",
+      "title": "Sand / Tonneau",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Original unbranded watch, tonneau bronze-coloured case, sand dial, baton markers, two hands, burgundy leather strap. One complete object, elegant three-quarter product presentation, true transparent alpha background. Original design with absolutely no manufacturer logo, no dial text or numbers, no subdials/date; anatomically coherent case, crown, lugs and strap, believable hands.",
+      "toolOutputPath": "/workspace/generated_images/exec-d3d2d76f-03b5-4c19-8087-99a44a3d2e2c.png",
+      "sourceWidth": 1145,
+      "sourceHeight": 1374,
+      "sourceMode": "RGBA",
+      "sourceSha256": "76fcded290b896a77533304d1e34ff97b82886eabba478fa79be3784451c686a",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-wa06-500.webp",
+          "width": 500,
+          "height": 600,
+          "alpha": true,
+          "bytes": 40678,
+          "sha256": "ff18d17b2ac206c544c76b29b23f3fd875c121907f6d5158ead8ebe208b9e524"
+        },
+        {
+          "path": "public/media/catalogue-wa06-1000.webp",
+          "width": 1000,
+          "height": 1200,
+          "alpha": true,
+          "bytes": 159828,
+          "sha256": "71f732b7e972846a601a68007a73460d5ec5d55badd969109eb9beebc84e26b2"
+        }
+      ]
+    },
+    {
+      "id": "wa07",
+      "category": "Wristwatches",
+      "title": "Plum / Oval",
+      "tool": "image_gen.imagegen",
+      "prompt": "ONE individual photorealistic dimensional editorial product asset. Cohesive refined warm soft directional studio lighting, realistic texture and construction. No text, numbers, letters, watermarks, logos, brands, people, faces, hands, human body, contact sheet, multiple products or website UI. Full object with generous safe margins, no clipping. Original unbranded watch, elongated oval silver case, plum dial, four bar markers, two hands, midnight leather strap. One complete object, elegant three-quarter product presentation, true transparent alpha background. Original design with absolutely no manufacturer logo, no dial text or numbers, no subdials/date; anatomically coherent case, crown, lugs and strap, believable hands.",
+      "toolOutputPath": "/workspace/generated_images/exec-3b7f8faa-d5f9-46c1-8ddf-1d96941774c7.png",
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "sourceMode": "RGBA",
+      "sourceSha256": "6c684f3ca92d7c0d207ff0e56274acf7044c886eca35a6e9995349ec8e59eeae",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "path": "public/media/catalogue-wa07-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 43968,
+          "sha256": "ae43e1394c74d4d0548c24f85df7132c97cfc35d1f5042494c02e2e32be27ac3"
+        },
+        {
+          "path": "public/media/catalogue-wa07-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 146404,
+          "sha256": "aecf2f60174b1c0e03a2150ec51fa6ca52e6612ed69eae1becc80a4924344eaf"
+        }
+      ]
+    }
+  ]
+}

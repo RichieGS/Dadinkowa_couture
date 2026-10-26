@@ -1,40 +1,36 @@
-# Test results — Living Atelier
+# Test results — expanded Dadinkowa collection
 
-26 October 2026. Source branch: `feat/dadinkowa-website-mvp`. Baseline checkpoint: `7ed70e2` / `checkpoint/pre-living-atelier-20261025`. Same draft PR #1; nothing merged or deployed.
+26 October 2026. Branch `feat/dadinkowa-website-mvp`, same draft PR #1. Nothing merged, deployed or purchased.
+
+## Actual generation and integration
+
+| Category | Newly generated | Reused | Integrated distinct concepts |
+| --- | ---: | ---: | ---: |
+| Agbada | 5 | 2 | 7 |
+| Ready-to-wear | 6 | 1 | 7 |
+| Fabrics | 7 | 0 | 7 |
+| Caps | 7 | 0 | 7 |
+| Wristwatches | 7 | 0 | 7 |
+| Total | 32 | 3 | 35 |
+
+All 32 new assets were generated in individual image_gen.imagegen calls. All are inspected, locally optimised and integrated; none is a contact-sheet crop or simple recolour counted as an extra concept. No outputs required regeneration after local inspection. The original fabric background and embroidery detail remain editorial-only, outside the 35 catalogue entries. Source PNGs remain local; generated responsive sizes are not extra concepts.
+
+Actual output review covered garment silhouettes/necklines/sleeves, fabric texture/pattern/drape, cap crowns/folds, and watch cases/dials/hands/straps. Charcoal/ivory garment and ivory cap/watch compositing showed no conspicuous unwanted backdrop or malformed/clipped object at the inspected scale. No visible manufacturer logos, text, watermarks, people or interface elements were found. Watch descriptions were adjusted to visual appearance rather than asserting requested marker counts or technical specifications. Small-size/browser-scale visual acceptance remains pending.
 
 ## Passed
 
-- Prettier format check, TypeScript build/type check, ESLint.
-- **51 Vitest tests across 8 files:** browsing/enquiries/dialogs (10), router-safe navigation in BrowserRouter/HashRouter (6), concept composition and qualified drafts (5), all four media statuses (13), persistent/visible-fallback entrance initialization/reduced-motion bypass (4), concept delivery integrity (1), single-copy text reveal lifecycle (9), brand identity/accessibility (3).
-- Production Vite build: 59 modules; JS 292.34 kB / gzip 92.72 kB; CSS 55.68 kB / gzip 12.00 kB.
-- Regenerated standalone `/workspace/work/Dadinkowa-Preview.html`: 2,695,400 bytes. Actual embedded production bundle executed in jsdom: all three HashRouter routes, collection/skip/cross-route Atelier anchors, All/Tailoring filtering, three concept records, native-dialog lifecycle shim and focus restoration, embedded logo and concept WebPs. No simulated runtime errors.
-- Pillow decoded all ten responsive WebPs; dimensions match concept-provenance.json; no EXIF. All six garment outputs retain alpha with transparent pixels and opaque garment interior. Total WebP bytes: **1,204,352**.
-- Source PNG transparency inspected by local charcoal/ivory composites: no conspicuous halo at reviewed scale. Full silhouettes retained; no destructive edge removal. This is image inspection, not website/browser QA.
-- Preserved logo SHA-256 matches checkpoint: `afd052d45ce3f99f246d8587a8ddd6c4d3b8e00887e542cf0d1271ccea9973e4`.
-- Old stock WebPs removed from shipped directory; exactly three unique garment concepts and two conceptual cloth/details in ten responsive files. Mockup is not embedded. Diff whitespace check passed.
+- **59 Vitest tests across 9 files:** journeys/enquiries/dialogs (10), collection integrity/filters/direct URLs/category-qualified enquiries (7), BrowserRouter/HashRouter anchors (6), brand identity/accessibility (3), Living Atelier composition (5), media status (13), text reveal lifecycle (9), entrance initialization/reduced-motion bypass (4), original/generated delivery integrity (2).
+- Unique 35 IDs/slugs/source images; seven per category. New source hashes are unique across all 32 generated files. All entries are ai-concept with descriptive alt text and responsive media.
+- Formatting, TypeScript, ESLint and production build. 60 modules; JS 305.62 kB / gzip 95.21 kB; CSS 56.42 kB / gzip 12.12 kB.
+- Standalone regenerated: **10,491,665 bytes**. Actual embedded production bundle executed in jsdom with no simulated runtime errors. Checked three HashRouter routes, five homepage category previews, 35 catalogue records, counted filtering, all five direct category hash URLs, modal close/focus restoration and embedded local media.
+- All **64 new responsive WebPs** decoded with recorded dimensions, SHA-256 hashes and no EXIF. Alpha preserved. Combined shipped imagery: **74 WebPs / 7,038,030 bytes**, including **56 alpha-bearing variants**. New variants total 5,833,678 bytes.
+- The DK raster and five approved original concept assets remain unchanged. No external hotlinks, dependencies or CSS illustrations substitute for missing imagery.
+- Source ZIP integrity/exclusions and embedded standalone identity checked during packaging. Dependencies, secrets, raw generated PNGs, uploads and recursive deliverables are excluded.
 
-The replaced slideshow/rotating gallery no longer exists, so their 18 obsolete state tests were replaced with five current-composition tests. Stock-delivery checks now verify current concept assets. Navigation/enquiry/dialog regression coverage remains. Test counts are not a claim of equivalent visual coverage.
+Provenance records exact submitted prompts, actual tool-returned local paths, source/output hashes, dimensions/mode and processing. The tool supplied no model identifier or licence terms; neither is inferred. Original user-upload provenance remains in concept-provenance.json.
 
-During standalone validation, the first checker treated the shared Home/Lookbook heading as proof of route completion; another attempt selected a trigger before the filter rerender finished. The checker now waits for the route container and pressed filter state, then checks the connected trigger. Final run passes. These were checker synchronization errors, not live browser evidence.
+## Pending / limitations
 
-## Not performed / pending
+Browser-tool discovery found no browser-control capability. No actual desktop/tablet/mobile (including 375×667 and 320px) rendering, computed-style/overflow measurement, live reveal pacing, native dialog focus trapping, device WhatsApp handoff or browser-scale image framing/alpha review was performed. No new website screenshots or recording could be captured. Automated DOM tests and local image review do not establish visual pacing or responsive layout acceptance; MANUAL_QA.md contains the pending steps.
 
-Tool discovery found no browser-control or Node browser REPL capability. No actual desktop/mobile rendering, computed-style inspection, horizontal-overflow measurement, motion smoothness, native dialog focus trapping, device WhatsApp handoff, live reduced-motion appearance, browser-scale alpha review, Lighthouse or performance measurement was performed. **375×667 visual QA is pending**, alongside desktop/tablet/390px review. No updated-site screenshots or short recording could be captured.
-
-No server was started for browser QA because the managed environment has no browser-control tool. No external preview forwarding or file-attachment upload capability is available. The standalone preview and a clean source ZIP are available in `deliverables/` for GitHub download and can be reproduced with README commands. No hosted preview/deployment link is claimed.
-
-Use MANUAL_QA.md for the exact pending steps and LAUNCH_CHECKLIST.md for release requirements.
-
-## Text-entrance refinement
-
-Single-copy heading words retain native whitespace and italic markup. Measured visual lines share 1100ms mask/rise/fade timing at 200ms increments, capped at 1800ms including the last line. Padding around word masks protects italic overhangs and descenders. Paragraphs animate as blocks (16px / 1000ms / 240ms overlap), with no per-word body animation. Hero garment begins 320ms later and settles; controls, notices and contact/form details stay immediately usable. Fabric intensity is reduced and AI notice contrast strengthened. Explicit spaces around responsive line breaks fix “enquiry. Speak”.
-
-Nine lifecycle tests check heading-level observation at 83%, semantic spaces/italics/single-copy text, shared line delays, persistent completion, no restart on unchanged resize/font readiness, finalization on changed wrapping/width, fast scrolling/passed headings, dynamic reduced motion and visible fallback without a working observer. Existing route/menu/filter/dialog/enquiry tests still pass. These tests do not establish line clipping, actual responsive geometry or perceived pacing.
-
-No new desktop/mobile recording was attached to this request. The workspace contains only the earlier pre-Living-Atelier recording, which is not evidence about this text refinement. Browser-tool discovery again found no browser-control capability. Actual slow/fast/back scroll, font/resize visual behavior, live reduced motion, 375×667 framing/readability/masks and a demonstration recording remain explicitly pending.
-
-## Brand-led identity
-
-Three regressions verify the single live DADINKOWA COUTURE H1, intact name, separate tagline, one home-link name with decorative signature hidden from repeat announcement, edit/atelier/footer identity and preserved actions. The original DK raster/garment assets are unchanged. Source transparency attempt was rejected due to a halo; the shipped exact-raster crop/screen-blend fallback has no new invented symbol. A faithful transparent master remains outstanding.
-
-Browser discovery again returned no browser-control tool. Actual desktop/tablet/375×667/320px rendering, shirt/needle/crop-edge fidelity at small size, wordmark wrapping/overflow, contrast and brand-entrance pacing remain pending. No screenshots or recording captured. Automated text assertions do not establish visual legibility. No merge or deployment.
+No hosted preview was started or deployed. Runnable source and standalone downloads are in deliverables/. The original DK source remains provisional and black-backed, shown through the existing exact-raster CSS crop/blend; a faithful transparent production master remains a separate launch requirement. Owner asset-rights/brand approval remains outstanding. There is no incomplete generation or missing category asset in this task.

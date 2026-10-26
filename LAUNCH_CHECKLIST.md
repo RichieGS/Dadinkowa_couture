@@ -3,9 +3,9 @@
 ## Implemented
 
 - [x] Checkpoint current source at `checkpoint/pre-living-atelier-20261025` / `7ed70e2`.
-- [x] Separate fabric/lighting/alpha-garment hero, real headline/actions; ivory detail editorial; three asymmetric concepts.
+- [x] Separate fabric/lighting/alpha-garment hero, real headline/actions; ivory detail editorial; five category previews / 35 distinct collection concepts.
 - [x] Preserve DK logo, verified contact facts and routes; accessible dialogs, filters and router-safe anchors.
-- [x] Integrate five supplied images, preserve alpha, optimise responsive WebP and remove shipped stock imagery.
+- [x] Integrate five supplied images and 32 new individual generated assets, preserve alpha, optimise responsive WebP and remove shipped stock imagery.
 - [x] Disclose AI concepts consistently and qualify selected-style WhatsApp drafts.
 - [x] Provide independent mobile composition, restrained settling motion, persistent entrances and reduced-motion rules.
 - [x] Add line-coordinated text masks/paragraph entrances, persistent scroll state, font/width remeasurement, reduced-motion changes and spacing/contrast polish.

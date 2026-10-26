@@ -1,6 +1,6 @@
 import { TextReveal, RevealHeading } from '../components/TextReveal';
 import { Link } from 'react-router-dom';
-import { concepts, looks, type Look } from '../data';
+import { concepts, categoryPreviews, type Look } from '../data';
 import { Hero } from '../components/Hero';
 import { Arrow, MediaLabel, Photography } from '../components/Shared';
 
@@ -40,29 +40,40 @@ export function Home({ onOpen }: { onOpen: (look: Look) => void }) {
           </p>
         </TextReveal>
         <div className="living-looks">
-          {looks.map((look, index) => (
-            <article className={`living-look living-look-${index}`} key={look.id} data-sequence>
-              <button
+          {categoryPreviews.map((look, index) => (
+            <article
+              className={`living-look living-look-${index} category-${look.category.toLowerCase().replaceAll(/[^a-z]/g, '')}`}
+              key={look.id}
+              data-sequence
+            >
+              <Link
                 className="living-look-image"
-                onClick={() => onOpen(look)}
-                aria-label={`View look: ${look.title}`}
+                to={`/lookbook?category=${encodeURIComponent(look.category)}`}
+                aria-label={`Browse ${look.category} concepts`}
                 data-sequence-part="image"
               >
                 <span className="concept-light" aria-hidden="true" />
                 <Photography {...look.images[0]} />
-              </button>
+              </Link>
               <TextReveal className="living-look-copy">
                 <p className="eyebrow">CONCEPT / {look.id}</p>
-                <RevealHeading as="h3">{look.title}</RevealHeading>
+                <RevealHeading as="h3">{look.category}</RevealHeading>
                 <div>
                   <p>{look.description}</p>
                   <MediaLabel status={look.mediaStatus} />
                   <div className="living-look-actions">
-                    <button className="text-link" onClick={() => onOpen(look)}>
+                    <button
+                      className="text-link"
+                      onClick={() => onOpen(look)}
+                      aria-label={`View concept: ${look.title}`}
+                    >
                       View concept <Arrow />
                     </button>
-                    <Link className="text-link" to={`/contact?look=${look.slug}`}>
-                      Discuss this style <Arrow />
+                    <Link
+                      className="text-link"
+                      to={`/lookbook?category=${encodeURIComponent(look.category)}`}
+                    >
+                      Explore {look.category} <Arrow />
                     </Link>
                   </div>
                 </div>

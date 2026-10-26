@@ -27,9 +27,9 @@ describe('working enquiry and browsing journeys', () => {
   it('filters the rendered lookbook and announces results', async () => {
     mount('/lookbook');
     expect(screen.getAllByRole('button', { name: /^View look:/ })).toHaveLength(looks.length);
-    await userEvent.click(screen.getByRole('button', { name: 'Tailoring', exact: true }));
-    expect(screen.getAllByRole('button', { name: /^View look:/ })).toHaveLength(3);
-    expect(screen.getByRole('status').textContent).toContain('3 looks · Tailoring');
+    await userEvent.click(screen.getByRole('button', { name: 'Agbada (7)', exact: true }));
+    expect(screen.getAllByRole('button', { name: /^View look:/ })).toHaveLength(7);
+    expect(screen.getByRole('status').textContent).toContain('7 looks · Agbada');
   });
   it('enables installed-photo zoom and restores focus after animated closing', async () => {
     mount('/lookbook');

@@ -831,3 +831,49 @@ footer {
     gap: 6px;
   }
 }
+
+/* Five curated category entries; the full collection stays on its filtered route. */
+.category-fabrics .look-image {
+  height: 360px !important;
+}
+.category-fabrics .look-image img {
+  object-fit: cover !important;
+  padding: 0 !important;
+}
+.category-caps .look-image {
+  height: 380px !important;
+}
+.category-caps .look-image img {
+  padding: 35px !important;
+}
+.category-wristwatches .look-image img {
+  padding: 35px !important;
+}
+.lookbook-grid .look-card:last-child {
+  max-width: none;
+}
+@media (max-width: 600px) {
+  .category-fabrics .look-image {
+    height: 250px !important;
+  }
+  .category-caps .look-image {
+    height: 290px !important;
+  }
+  .category-wristwatches .look-image {
+    height: 370px !important;
+  }
+}
+.category-fabrics .living-look-image {
+  height: 360px;
+}
+.category-caps .living-look-image {
+  height: 380px;
+}
+@media (max-width: 600px) {
+  .category-fabrics .living-look-image {
+    height: 250px;
+  }
+  .category-caps .living-look-image {
+    height: 300px;
+  }
+}
