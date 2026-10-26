@@ -1,3 +1,4 @@
+import { TextReveal, RevealHeading } from './TextReveal';
 import { Link } from 'react-router-dom';
 import { concepts } from '../data';
 import { Arrow, MediaLabel, Photography, SectionLink } from './Shared';
@@ -9,13 +10,13 @@ export function Hero() {
         <Photography {...concepts.folds} eager alt="" />
       </div>
       <div className="living-light" aria-hidden="true" />
-      <div className="living-copy">
+      <TextReveal className="living-copy" hero>
         <p className="eyebrow">DADINKOWA COUTURE · OFFA, NIGERIA</p>
-        <h1>
+        <RevealHeading as="h1">
           Cloth. <br className="desktop-break" />
           Form. <br className="desktop-break" />
           <i>Identity.</i>
-        </h1>
+        </RevealHeading>
         <p className="living-description">
           Tailoring, fabrics and personal expression. Offa, Nigeria.
         </p>
@@ -27,7 +28,7 @@ export function Hero() {
             Discuss your look <Arrow />
           </Link>
         </div>
-      </div>
+      </TextReveal>
       <div className="living-garment">
         <Photography {...concepts.burgundy} eager />
       </div>

@@ -107,6 +107,9 @@ describe('working enquiry and browsing journeys', () => {
   });
   it('rejects whitespace messages and never opens WhatsApp', async () => {
     mount('/contact');
+    expect(screen.getByText(/A fabric question, a look in mind/).textContent).toContain(
+      'enquiry. Speak',
+    );
     const open = vi.spyOn(window, 'open').mockImplementation(() => null);
     await userEvent.type(screen.getByLabelText('Your message'), '   ');
     fireEvent.submit(screen.getByRole('button', { name: /Continue on WhatsApp/ }).closest('form')!);

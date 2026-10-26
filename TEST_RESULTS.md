@@ -1,13 +1,13 @@
 # Test results — Living Atelier
 
-25 October 2026. Source branch: `feat/dadinkowa-website-mvp`. Baseline checkpoint: `7ed70e2` / `checkpoint/pre-living-atelier-20261025`. Same draft PR #1; nothing merged or deployed.
+26 October 2026. Source branch: `feat/dadinkowa-website-mvp`. Baseline checkpoint: `7ed70e2` / `checkpoint/pre-living-atelier-20261025`. Same draft PR #1; nothing merged or deployed.
 
 ## Passed
 
 - Prettier format check, TypeScript build/type check, ESLint.
-- **39 Vitest tests across 6 files:** browsing/enquiries/dialogs (10), router-safe navigation in BrowserRouter/HashRouter (6), concept composition and qualified drafts (5), all four media statuses (13), persistent/visible-fallback entrance initialization/reduced-motion bypass (4), concept delivery integrity (1).
-- Production Vite build: 58 modules; JS 289.45 kB / gzip 91.80 kB; CSS 50.89 kB / gzip 11.01 kB.
-- Regenerated standalone `/workspace/work/Dadinkowa-Preview.html`: 2,687,715 bytes. Actual embedded production bundle executed in jsdom: all three HashRouter routes, collection/skip/cross-route Atelier anchors, All/Tailoring filtering, three concept records, native-dialog lifecycle shim and focus restoration, embedded logo and concept WebPs. No simulated runtime errors.
+- **48 Vitest tests across 7 files:** browsing/enquiries/dialogs (10), router-safe navigation in BrowserRouter/HashRouter (6), concept composition and qualified drafts (5), all four media statuses (13), persistent/visible-fallback entrance initialization/reduced-motion bypass (4), concept delivery integrity (1), single-copy text reveal lifecycle (9).
+- Production Vite build: 59 modules; JS 291.96 kB / gzip 92.67 kB; CSS 53.16 kB / gzip 11.43 kB.
+- Regenerated standalone `/workspace/work/Dadinkowa-Preview.html`: 2,692,485 bytes. Actual embedded production bundle executed in jsdom: all three HashRouter routes, collection/skip/cross-route Atelier anchors, All/Tailoring filtering, three concept records, native-dialog lifecycle shim and focus restoration, embedded logo and concept WebPs. No simulated runtime errors.
 - Pillow decoded all ten responsive WebPs; dimensions match concept-provenance.json; no EXIF. All six garment outputs retain alpha with transparent pixels and opaque garment interior. Total WebP bytes: **1,204,352**.
 - Source PNG transparency inspected by local charcoal/ivory composites: no conspicuous halo at reviewed scale. Full silhouettes retained; no destructive edge removal. This is image inspection, not website/browser QA.
 - Preserved logo SHA-256 matches checkpoint: `afd052d45ce3f99f246d8587a8ddd6c4d3b8e00887e542cf0d1271ccea9973e4`.
@@ -24,3 +24,11 @@ Tool discovery found no browser-control or Node browser REPL capability. No actu
 No server was started for browser QA because the managed environment has no browser-control tool. No external preview forwarding or file-attachment upload capability is available. The standalone preview and a clean source ZIP are available in `deliverables/` for GitHub download and can be reproduced with README commands. No hosted preview/deployment link is claimed.
 
 Use MANUAL_QA.md for the exact pending steps and LAUNCH_CHECKLIST.md for release requirements.
+
+## Text-entrance refinement
+
+Single-copy heading words retain native whitespace and italic markup. Measured visual lines share 1100ms mask/rise/fade timing at 200ms increments, capped at 1800ms including the last line. Padding around word masks protects italic overhangs and descenders. Paragraphs animate as blocks (16px / 1000ms / 240ms overlap), with no per-word body animation. Hero garment begins 320ms later and settles; controls, notices and contact/form details stay immediately usable. Fabric intensity is reduced and AI notice contrast strengthened. Explicit spaces around responsive line breaks fix “enquiry. Speak”.
+
+Nine lifecycle tests check heading-level observation at 83%, semantic spaces/italics/single-copy text, shared line delays, persistent completion, no restart on unchanged resize/font readiness, finalization on changed wrapping/width, fast scrolling/passed headings, dynamic reduced motion and visible fallback without a working observer. Existing route/menu/filter/dialog/enquiry tests still pass. These tests do not establish line clipping, actual responsive geometry or perceived pacing.
+
+No new desktop/mobile recording was attached to this request. The workspace contains only the earlier pre-Living-Atelier recording, which is not evidence about this text refinement. Browser-tool discovery again found no browser-control capability. Actual slow/fast/back scroll, font/resize visual behavior, live reduced motion, 375×667 framing/readability/masks and a demonstration recording remain explicitly pending.

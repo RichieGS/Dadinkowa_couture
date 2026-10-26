@@ -533,3 +533,124 @@ footer {
 .living-atelier > div {
   min-width: 0;
 }
+
+/* Text is single-copy semantic HTML. Native wrapping determines shared line timing. */
+.text-mask {
+  display: inline-block;
+  vertical-align: bottom;
+  overflow: clip;
+  padding: 0.2em 0.22em 0.23em;
+  margin: -0.2em -0.22em -0.23em;
+}
+.text-rise {
+  display: inline-block;
+}
+.text-reveal[data-text-state='pending'] .text-rise,
+.text-reveal[data-text-state='pending'] p:not(.eyebrow):not(.media-label):not(.small-note) {
+  opacity: 0;
+}
+.text-reveal[data-text-state='entering'] .text-rise {
+  animation: atelier-text-line 1100ms cubic-bezier(0.2, 0.65, 0.25, 1) both;
+  animation-delay: var(--line-delay, 0ms);
+}
+.text-reveal[data-text-state='entering'] p:not(.eyebrow):not(.media-label):not(.small-note) {
+  animation: atelier-text-block 1000ms cubic-bezier(0.2, 0.65, 0.25, 1) 240ms both;
+}
+@keyframes atelier-text-line {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes atelier-text-block {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.atelier-text-group {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7vw;
+}
+.living-garment {
+  animation-delay: 320ms;
+  animation-duration: 1400ms;
+}
+.living-fabric img {
+  opacity: 0.48;
+}
+.living-detail-copy .media-label,
+.living-look .media-label,
+.look-card .media-label,
+.page-disclosure {
+  color: #55413b;
+}
+.living-disclosure,
+.living-disclosure .media-label {
+  color: #f0ded1;
+}
+.text-link {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0 1px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 180ms ease;
+}
+.text-link:hover,
+.text-link:focus-visible {
+  background-size: 100% 1px;
+}
+.text-link > span[aria-hidden],
+.button > span[aria-hidden] {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+.text-link:hover > span[aria-hidden],
+.text-link:focus-visible > span[aria-hidden],
+.button:hover > span[aria-hidden],
+.button:focus-visible > span[aria-hidden] {
+  transform: translate(3px, -2px);
+}
+@media (max-width: 600px) {
+  .atelier-text-group {
+    display: block;
+  }
+  .living-fabric img {
+    opacity: 0.4;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .text-reveal .text-rise,
+  .text-reveal p {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .text-link,
+  .text-link > span[aria-hidden],
+  .button > span[aria-hidden] {
+    transition: none;
+  }
+  .text-link:hover > span[aria-hidden],
+  .text-link:focus-visible > span[aria-hidden],
+  .button:hover > span[aria-hidden],
+  .button:focus-visible > span[aria-hidden] {
+    transform: none;
+  }
+}
+
+/* Replace the inherited static underline without moving layout on interaction. */
+.text-link {
+  border-bottom-color: transparent;
+}

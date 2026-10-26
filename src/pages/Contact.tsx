@@ -1,3 +1,4 @@
+import { TextReveal, RevealHeading } from '../components/TextReveal';
 import { useState } from 'react';
 import { business } from '../data';
 import { External, Arrow } from '../components/Shared';
@@ -6,19 +7,17 @@ export function Contact() {
   const [copied, setCopied] = useState('');
   return (
     <main className="page contact-page">
-      <div className="page-heading contact-heading">
+      <TextReveal className="page-heading contact-heading">
         <p className="eyebrow">OFFA, KWARA / LET’S TALK</p>
-        <h1>
+        <RevealHeading as="h1">
           Good style starts
-          <br />
-          <i>with a hello.</i>
-        </h1>
+          <br /> <i>with a hello.</i>
+        </RevealHeading>
         <p>
           A fabric question, a look in mind, or a fitting enquiry.
-          <br />
-          Speak directly with Dadinkowa Couture.
+          <br /> Speak directly with Dadinkowa Couture.
         </p>
-      </div>
+      </TextReveal>
       <div className="contact-layout">
         <section className="contact-details" aria-label="Business contact details">
           <div>

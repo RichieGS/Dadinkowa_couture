@@ -8,6 +8,7 @@
 - [x] Integrate five supplied images, preserve alpha, optimise responsive WebP and remove shipped stock imagery.
 - [x] Disclose AI concepts consistently and qualify selected-style WhatsApp drafts.
 - [x] Provide independent mobile composition, restrained settling motion, persistent entrances and reduced-motion rules.
+- [x] Add line-coordinated text masks/paragraph entrances, persistent scroll state, font/width remeasurement, reduced-motion changes and spacing/contrast polish.
 - [x] Run automated checks and regenerate standalone preview. No merge/deployment.
 
 ## Required before visual sign-off

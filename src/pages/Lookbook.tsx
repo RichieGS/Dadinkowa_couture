@@ -1,3 +1,4 @@
+import { TextReveal, RevealHeading } from '../components/TextReveal';
 import { Link, useSearchParams } from 'react-router-dom';
 import { categories, filterLooks, type Category, type Look } from '../data';
 import { Arrow, MediaLabel } from '../components/Shared';
@@ -11,19 +12,17 @@ export function Lookbook({ onOpen }: { onOpen: (look: Look) => void }) {
   const filtered = filterLooks(category);
   return (
     <main className="page lookbook-page">
-      <div className="page-heading">
+      <TextReveal className="page-heading">
         <p className="eyebrow">THE LIVING ATELIER / AI CONCEPTS</p>
-        <h1>
+        <RevealHeading as="h1">
           Cloth. Form.
-          <br />
-          <i>Identity.</i>
-        </h1>
+          <br /> <i>Identity.</i>
+        </RevealHeading>
         <p>
           Explore a direction. Make it personal.
-          <br />
-          Three generated concepts. Discuss whether something similar is possible.
+          <br /> Three generated concepts. Discuss whether something similar is possible.
         </p>
-      </div>
+      </TextReveal>
       {filtered.some((look) => look.mediaStatus === 'ai-concept') && (
         <MediaLabel status="ai-concept" className="page-disclosure" />
       )}
