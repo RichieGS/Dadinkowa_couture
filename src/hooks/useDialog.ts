@@ -20,12 +20,16 @@ export function useDialog(
   const [phase, setPhase] = useState('closed');
   const trigger = useRef<HTMLElement | null>(null);
   const overflow = useRef<string | null>(null);
-  const finish = () => {
+  const position = useRef<{ x: number; y: number } | null>(null);
+  const finish = (restoreScroll = true) => {
     ref.current?.close();
     if (overflow.current !== null) document.body.style.overflow = overflow.current;
     overflow.current = null;
     if (trigger.current?.isConnected) trigger.current.focus({ preventScroll: true });
     trigger.current = null;
+    if (position.current && restoreScroll)
+      window.scrollTo({ left: position.current.x, top: position.current.y, behavior: 'instant' });
+    position.current = null;
   };
   const finishRef = useRef(finish);
   finishRef.current = finish;
@@ -36,6 +40,7 @@ export function useDialog(
     if (open) {
       if (!element.open) {
         trigger.current = document.activeElement as HTMLElement;
+        position.current = { x: window.scrollX, y: window.scrollY };
         overflow.current = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
         element.showModal();
@@ -59,7 +64,7 @@ export function useDialog(
   return {
     phase,
     dismissForNavigation: () => {
-      finishRef.current();
+      finishRef.current(false);
       setPhase('closed');
       onClose();
     },

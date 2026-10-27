@@ -49,7 +49,10 @@ export function App() {
       </SectionLink>
       <Header />
       <div id="main" ref={mainRef} tabIndex={-1}>
-        <div className="route-content" key={location.pathname}>
+        <div
+          className={`route-content ${location.pathname === '/lookbook' ? 'collection-route' : ''}`}
+          key={location.pathname}
+        >
           <Routes>
             <Route
               path="/"

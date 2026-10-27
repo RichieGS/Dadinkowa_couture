@@ -67,7 +67,7 @@ const collections = [...doc.querySelectorAll('.desktop-nav a')].find(
 assert.equal(collections.getAttribute('href'), '#/lookbook');
 collections.click();
 await until(() => !!doc.querySelector('.lookbook-page'), 'Lookbook should render');
-assert.match(doc.querySelector('h1').textContent, /Cloth. Form/);
+assert.match(doc.querySelector('h1').textContent, /The Dadinkowa Edit/);
 assert.equal(doc.querySelectorAll('.look-card').length, 35);
 [...doc.querySelectorAll('.filters button')]
   .find((button) => button.textContent === 'Agbada (7)')
@@ -89,6 +89,14 @@ for (const category of ['Ready-to-wear', 'Fabrics', 'Caps', 'Wristwatches']) {
   assert.equal(doc.querySelectorAll('.look-card').length, 7);
   checkPhotography('.look-card');
 }
+const selector = doc.querySelector('#collection-category');
+selector.value = 'Caps';
+selector.dispatchEvent(new dom.window.Event('change', { bubbles: true }));
+await until(
+  () => doc.querySelector('.filters button[aria-pressed="true"]')?.textContent === 'Caps (7)',
+  'Mobile selector should update the offline category URL',
+);
+assert.match(dom.window.location.hash, /category=Caps/);
 const before = dom.window.location.href;
 doc.querySelector('.skip-link').click();
 assert.equal(dom.window.location.href, before);
@@ -97,6 +105,11 @@ trigger.focus();
 trigger.click();
 await until(() => !!doc.querySelector('.look-dialog[open]'), 'Look dialog should open');
 assert.ok(doc.querySelector('.look-dialog[open]'));
+assert.ok(doc.querySelector('.look-dialog .dialog-header .dialog-close'));
+assert.ok(doc.querySelector('.look-dialog .dialog-footer a'));
+assert.equal(doc.querySelectorAll('.look-dialog .media-label').length, 1);
+assert.equal(doc.querySelector('.look-dialog .image-controls'), null);
+assert.equal(doc.querySelector('.look-dialog .image-caption'), null);
 doc.querySelector('.dialog-close').click();
 await until(() => !doc.querySelector('.look-dialog[open]'), 'Look dialog should close');
 assert.equal(doc.querySelector('.look-dialog[open]'), null);

@@ -11,6 +11,8 @@
 - [x] Add line-coordinated text masks/paragraph entrances, persistent scroll state, font/width remeasurement, reduced-motion changes and spacing/contrast polish.
 - [x] Run automated checks and regenerate standalone preview. No merge/deployment.
 
+- [x] Add persistent dialog header/footer, deduplicated single-image details, compact collection framing and sticky category controls; preserve URL/history/close position.
+
 ## Required before visual sign-off
 
 - [ ] Run MANUAL_QA.md in an actual browser at desktop, tablet, 390×844 and **375×667**, with 100%/125% zoom.

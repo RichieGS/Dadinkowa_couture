@@ -37,9 +37,7 @@ describe('working enquiry and browsing journeys', () => {
     await userEvent.click(trigger);
     const dialog = screen.getByRole('dialog');
     expect(dialog.hasAttribute('open')).toBe(true);
-    expect(
-      (within(dialog).getByRole('button', { name: 'Next image' }) as HTMLButtonElement).disabled,
-    ).toBe(true);
+    expect(within(dialog).queryByRole('button', { name: 'Next image' })).toBeNull();
     await userEvent.click(within(dialog).getByRole('button', { name: '+ Zoom in' }));
     expect(
       within(dialog).getByRole('button', { name: '− Zoom out' }).getAttribute('aria-pressed'),
@@ -121,7 +119,7 @@ describe('working enquiry and browsing journeys', () => {
     await userEvent.click(screen.getByRole('button', { name: /Menu/ }));
     const dialog = screen.getByRole('dialog');
     await userEvent.click(within(dialog).getByRole('link', { name: 'Collections' }));
-    expect(screen.getByRole('heading', { level: 1 }).textContent).toContain('Cloth. Form.');
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toContain('The Dadinkowa Edit');
     expect(dialog.hasAttribute('open')).toBe(false);
     expect(document.body.style.overflow).toBe('');
   });

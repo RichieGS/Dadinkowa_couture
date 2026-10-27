@@ -877,3 +877,265 @@ footer {
     height: 300px;
   }
 }
+
+/* Browsing is prompt and stable; homepage editorial proportions are untouched. */
+.lookbook-page {
+  --category-bar-height: 76px;
+}
+.collection-category-bar {
+  position: sticky;
+  top: 100px;
+  z-index: 15;
+  background: #f3eee4;
+  border-bottom: 1px solid #c5beb1;
+  padding: 10px 0;
+}
+.collection-category-bar .filters {
+  margin: 0;
+  padding: 0;
+  gap: 4px;
+  border: 0;
+  flex-wrap: nowrap;
+}
+.collection-category-bar .filters button {
+  font-size: 13px;
+  padding: 10px;
+}
+.mobile-category-control {
+  display: none;
+}
+.results-heading {
+  font-size: 30px;
+  margin: 30px 0 8px;
+  scroll-margin-top: calc(100px + var(--category-bar-height) + 16px);
+}
+.results-count {
+  margin: 0 0 24px;
+}
+.lookbook-page .lookbook-grid {
+  gap: 40px 5vw;
+  align-items: start;
+}
+.lookbook-page .lookbook-grid .look-card {
+  width: 100%;
+  max-width: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 0;
+  animation: collection-card-in 320ms ease-out both;
+  animation-delay: var(--card-delay, 0ms);
+}
+.lookbook-page .look-image {
+  height: 440px !important;
+  max-height: none;
+  min-height: 0;
+}
+.lookbook-page .category-caps .look-image {
+  height: 240px !important;
+}
+.lookbook-page .category-wristwatches .look-image {
+  height: 350px !important;
+}
+.lookbook-page .category-fabrics .look-image {
+  height: 280px !important;
+}
+.lookbook-page .look-card h3 {
+  font-size: 30px;
+  margin: 10px 0;
+}
+.lookbook-page .look-meta {
+  margin-top: 12px;
+}
+.lookbook-page .look-card .media-label {
+  margin-bottom: 0;
+}
+@keyframes collection-card-in {
+  from {
+    opacity: 0.85;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.look-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  height: min(800px, 94dvh);
+  max-height: 94dvh;
+  padding: 0;
+  overflow: hidden;
+}
+.dialog-header {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px;
+  background: #f3eee4;
+  border-bottom: 1px solid #c5beb1;
+}
+.dialog-header > span {
+  font-size: 13px;
+  line-height: 1.4;
+}
+.dialog-header .dialog-close {
+  position: static;
+  padding: 10px 12px;
+  flex-shrink: 0;
+}
+.dialog-scroll-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.dialog-layout .dialog-visual {
+  min-height: 0;
+  height: 520px;
+}
+.dialog-layout .dialog-visual img {
+  height: 100%;
+  max-height: none;
+}
+.dialog-layout .dialog-copy {
+  padding: 28px;
+}
+.look-dialog .dialog-footer {
+  flex-shrink: 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  margin: 0;
+  background: #f3eee4;
+  color: #231d1c;
+  border-top: 1px solid #c5beb1;
+}
+.dialog-footer .button {
+  min-height: 46px;
+  padding: 12px 18px;
+  font-size: 14px;
+}
+.dialog-footer > span {
+  font-size: 12px;
+}
+@media (max-width: 900px) and (min-width: 701px) {
+  .collection-category-bar .filters button {
+    font-size: 11px;
+    padding: 8px 6px;
+  }
+}
+@media (max-width: 700px) {
+  .lookbook-page {
+    --category-bar-height: 86px;
+  }
+  .collection-category-bar {
+    top: 80px;
+    padding: 8px 0;
+  }
+  .collection-category-bar .filters {
+    display: none;
+  }
+  .mobile-category-control {
+    display: grid;
+    gap: 4px;
+  }
+  .mobile-category-control label {
+    font-size: 12px;
+  }
+  .mobile-category-control select {
+    width: 100%;
+    min-height: 44px;
+    font-size: 16px;
+    padding: 8px;
+    background: #f3eee4;
+    color: #231d1c;
+    border: 1px solid #9c8b7b;
+  }
+  .results-heading {
+    scroll-margin-top: calc(80px + var(--category-bar-height) + 12px);
+  }
+  .lookbook-page .lookbook-grid .look-card {
+    margin-bottom: 32px !important;
+  }
+  .lookbook-page .look-image {
+    height: 360px !important;
+  }
+  .lookbook-page .category-caps .look-image {
+    height: 210px !important;
+  }
+  .lookbook-page .category-wristwatches .look-image {
+    height: 300px !important;
+  }
+  .lookbook-page .category-fabrics .look-image {
+    height: 220px !important;
+  }
+  .dialog-layout {
+    display: block;
+  }
+  .dialog-layout .dialog-visual {
+    height: 330px;
+    max-height: 52dvh;
+  }
+  .dialog-layout .dialog-copy {
+    padding: 22px;
+  }
+  .dialog-header {
+    padding: 6px 10px;
+  }
+  .look-dialog .dialog-footer {
+    padding: 8px 10px;
+  }
+  .dialog-footer .button {
+    width: 100%;
+    font-size: 13px;
+    gap: 10px;
+  }
+  .dialog-footer > span {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lookbook-page .lookbook-grid .look-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+.route-content.collection-route {
+  animation: none;
+}
+.look-dialog.category-caps .dialog-visual,
+.look-dialog.category-fabrics .dialog-visual {
+  height: 360px;
+}
+@media (max-width: 700px) {
+  .lookbook-page {
+    --category-bar-height: 64px;
+  }
+  .mobile-category-control {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+  }
+  .mobile-category-control label {
+    max-width: 60px;
+    line-height: 1.3;
+  }
+  .look-dialog.category-caps .dialog-visual,
+  .look-dialog.category-fabrics .dialog-visual {
+    height: 230px;
+  }
+}
+/* Fabric studies retain their full original landscape composition. */
+.lookbook-page .category-fabrics .look-image {
+  height: auto !important;
+  aspect-ratio: 3 / 2 !important;
+}
+.lookbook-page .category-fabrics .look-image img {
+  object-fit: contain !important;
+}

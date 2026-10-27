@@ -15,8 +15,7 @@ export function LookCard({
   return (
     <article
       className={`look-card category-${look.category.toLowerCase().replaceAll(/[^a-z]/g, '')} look-${index % 5}`}
-      style={{ '--stagger': `${Math.min(index, 4) * 70}ms` } as CSSProperties}
-      data-reveal
+      style={{ '--card-delay': `${Math.min(index, 4) * 20}ms` } as CSSProperties}
     >
       <button
         className="look-image"
