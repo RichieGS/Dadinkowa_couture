@@ -1,0 +1,23 @@
+node_modules/
+dist/
+work/
+coverage/
+.env
+.env.*
+!.env.example
+*.local
+*.log
+*.tsbuildinfo
+*.zip
+.DS_Store
+
+# Uploaded handoff documents remain local and are not published.
+/reference/
+
+# Python image preparation caches and local environments.
+__pycache__/
+*.py[cod]
+.venv/
+
+# Explicit review download requested by the user.
+!deliverables/Dadinkowa-Couture-MVP.zip

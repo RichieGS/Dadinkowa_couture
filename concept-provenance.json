@@ -1,0 +1,115 @@
+{
+  "source": "User-supplied New_designs.zip; generated concepts. Model, prompt and generation licence not supplied. Owner rights review required. Mockup reference only, not rendered.",
+  "assets": [
+    {
+      "name": "concept-burgundy",
+      "source": "Sculptural oxblood agbada with tonal embroidery-1.png",
+      "sha256": "9d7b9d75b23b265aaed362baacf1849391d14df601460f05da500619477f42b0",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "file": "public/media/concept-burgundy-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 46296
+        },
+        {
+          "file": "public/media/concept-burgundy-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 250910
+        }
+      ]
+    },
+    {
+      "name": "concept-ivory",
+      "source": "Ivory Nigerian Senator-Style Ensemble-2.png",
+      "sha256": "14e49c698d3d0286622995cb9162add76e2fbe9420d2f43ea57d224419357bf2",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "file": "public/media/concept-ivory-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 33702
+        },
+        {
+          "file": "public/media/concept-ivory-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 110732
+        }
+      ]
+    },
+    {
+      "name": "concept-midnight",
+      "source": "Midnight navy sculptural agbada-3.png",
+      "sha256": "c888a6e48ffe1e725f1b970b25501db767986e3b7ce8d287bed9c08d878d3939",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "file": "public/media/concept-midnight-500.webp",
+          "width": 500,
+          "height": 750,
+          "alpha": true,
+          "bytes": 46496
+        },
+        {
+          "file": "public/media/concept-midnight-1000.webp",
+          "width": 1000,
+          "height": 1500,
+          "alpha": true,
+          "bytes": 215354
+        }
+      ]
+    },
+    {
+      "name": "concept-folds",
+      "source": "Oxblood fabric folds in warm light-4.png",
+      "sha256": "b0994e4fa627e90ec460f7b2c191da71bdb9c405b39cf8abc41c650ce1ce703f",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "file": "public/media/concept-folds-700.webp",
+          "width": 700,
+          "height": 263,
+          "alpha": false,
+          "bytes": 23012
+        },
+        {
+          "file": "public/media/concept-folds-1400.webp",
+          "width": 1400,
+          "height": 525,
+          "alpha": false,
+          "bytes": 100658
+        }
+      ]
+    },
+    {
+      "name": "concept-embroidery",
+      "source": "Oxblood geometric embroidery in relief-5.png",
+      "sha256": "e41ee5344cebb8c535c291484661e2c0ca5a63e0b4c749a3ced44939c8c826db",
+      "mediaStatus": "ai-concept",
+      "variants": [
+        {
+          "file": "public/media/concept-embroidery-700.webp",
+          "width": 700,
+          "height": 467,
+          "alpha": false,
+          "bytes": 92160
+        },
+        {
+          "file": "public/media/concept-embroidery-1400.webp",
+          "width": 1400,
+          "height": 933,
+          "alpha": false,
+          "bytes": 285032
+        }
+      ]
+    }
+  ]
+}

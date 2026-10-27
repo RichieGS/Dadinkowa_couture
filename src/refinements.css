@@ -1,0 +1,495 @@
+/* Recording-led corrections. No photograph opacity blending or frame chrome. */
+:root {
+  --header-height: 100px;
+}
+p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+.hero-reading .hero-enter {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+.hero-reading .hero-description,
+.collection-intro > p:last-child,
+.gallery-heading > p,
+.atelier-copy > p:not(.eyebrow),
+.social-note p,
+.page-heading > p:last-child,
+.contact-note span,
+.footer-contact p,
+.dialog-copy > p:not(.media-label):not(.image-caption) {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 55ch;
+}
+.desktop-nav a,
+.header-enquire {
+  font-size: 16px;
+}
+.hero {
+  min-height: 100svh;
+  padding-top: 140px;
+  padding-bottom: 180px;
+}
+.hero h1 {
+  font-size: clamp(54px, 5vw, 78px);
+  line-height: 1.04;
+  margin-bottom: 24px;
+}
+h2 {
+  font-size: clamp(40px, 4.1vw, 64px);
+}
+.hero-copy {
+  width: 47%;
+  padding-right: 28px;
+}
+.hero-reading {
+  max-width: 52ch;
+}
+.hero-reading > .eyebrow {
+  margin-bottom: 22px;
+}
+.hero-links {
+  margin-top: 24px;
+}
+.hero-art {
+  inset: 125px 0 150px auto;
+  width: 50%;
+}
+.hero-slide,
+.hero-slide.is-active {
+  inset: 0;
+  opacity: 1;
+  clip-path: none;
+  transition: none;
+}
+.hero-slide img,
+.hero-slide.is-active img {
+  transform: none;
+  opacity: 1;
+  transition: none;
+}
+.hero-curtain {
+  position: absolute;
+  inset: 0;
+  background: #171713;
+  transform: translateX(101%);
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 3;
+}
+.hero-art {
+  overflow: hidden;
+}
+.hero-art[data-phase='covering'] .hero-curtain {
+  visibility: visible;
+  animation: curtain-cover var(--motion-hero-cover, 220ms) cubic-bezier(0.4, 0, 0.7, 1) both;
+}
+.hero-art[data-phase='revealing'] .hero-curtain {
+  visibility: visible;
+  animation: curtain-open var(--motion-hero-unveil, 1180ms) var(--ease) both;
+}
+.hero-art[data-phase='revealing'] .hero-slide img {
+  animation: garment-arrival var(--motion-hero-unveil, 1180ms) var(--ease) both;
+}
+.hero-copy[data-phase='revealing'] h1 .hero-enter {
+  animation: coordinated-heading var(--motion-section-text, 650ms) var(--ease) 140ms both;
+}
+.hero-copy[data-phase='revealing'] .hero-description {
+  animation: coordinated-copy var(--motion-section-text, 650ms) var(--ease) 280ms both;
+}
+.hero-copy[data-phase='revealing'] .hero-reading > .eyebrow {
+  animation: coordinated-copy 500ms var(--ease) 100ms both;
+}
+@keyframes curtain-cover {
+  from {
+    transform: translateX(-101%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes curtain-open {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(101%);
+  }
+}
+@keyframes garment-arrival {
+  from {
+    transform: translateX(-14px) scale(1.015);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes coordinated-heading {
+  from {
+    opacity: 0.2;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes coordinated-copy {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes coordinated-image {
+  from {
+    clip-path: inset(0 100% 0 0);
+    transform: translateY(10px);
+  }
+  to {
+    clip-path: inset(0);
+    transform: none;
+  }
+}
+.is-entered [data-sequence-part='image'] {
+  animation: coordinated-image var(--motion-section-image, 900ms) var(--ease) both;
+}
+.is-entered [data-sequence-part='heading'] {
+  animation: coordinated-heading var(--motion-section-text, 650ms) var(--ease)
+    var(--motion-section-step, 140ms) both;
+}
+.is-entered [data-sequence-part='copy'] {
+  animation: coordinated-copy var(--motion-section-text, 650ms) var(--ease)
+    calc(2 * var(--motion-section-step, 140ms)) both;
+}
+.craft-description {
+  max-width: 38ch;
+  font-size: 18px;
+  margin: 22px 0 0;
+}
+
+/* A compact stage with a side reading rail: image and controls share a view. */
+.garment-gallery {
+  padding: 28px var(--gutter) 32px;
+  scroll-margin-top: var(--header-height);
+}
+.gallery-heading {
+  grid-template-columns: 1.1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.gallery-heading h2 {
+  margin: 8px 0 0;
+  font-size: clamp(30px, 3vw, 44px);
+}
+.gallery-heading .eyebrow {
+  margin-bottom: 4px;
+}
+.gallery-heading > p {
+  margin: 0;
+  max-width: 42ch;
+}
+.gallery-presentation {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(270px, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+.gallery-stage {
+  height: clamp(320px, calc(100svh - var(--header-height) - 170px), 600px);
+  margin: 0;
+  overflow: clip;
+  perspective: 1200px;
+  background: #e9e2d6;
+}
+.gallery-backdrop {
+  position: absolute;
+  width: 55%;
+  height: 75%;
+  top: 4%;
+  left: 23%;
+  border: 1px solid #c2b5a2;
+  border-radius: 48% 48% 0 0;
+  background: #e0d6c6;
+  transform: translateZ(-280px);
+  pointer-events: none;
+}
+.gallery-floor {
+  position: absolute;
+  width: 100%;
+  height: 28%;
+  bottom: -14%;
+  left: 0;
+  background: #d2c4ae;
+  border: 1px solid #baaa91;
+  border-radius: 50%;
+  transform: rotateX(65deg);
+  pointer-events: none;
+}
+.gallery-panel {
+  top: 4%;
+  width: 52%;
+  max-width: 400px;
+  height: 84%;
+  padding: 0;
+}
+.gallery-panel[data-position='current'] {
+  transform: translateX(-50%) translateZ(30px);
+  opacity: 1;
+  z-index: 4;
+}
+.gallery-panel[data-position='previous'] {
+  transform: translateX(-127%) translateY(-14px) translateZ(-260px) rotateY(6deg) scale(0.7);
+  opacity: 0.7;
+  z-index: 1;
+}
+.gallery-panel[data-position='next'] {
+  transform: translateX(27%) translateY(-14px) translateZ(-260px) rotateY(-6deg) scale(0.7);
+  opacity: 0.7;
+  z-index: 1;
+}
+.gallery-photo {
+  background: transparent;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+}
+.gallery-photo > img {
+  padding: 0 !important;
+  background-color: transparent !important;
+  filter: drop-shadow(0 16px 12px #33271933);
+}
+.gallery-plinth {
+  width: 78%;
+  left: 11%;
+  bottom: -20px;
+  height: 14px;
+  background: #30201455;
+  filter: blur(10px);
+}
+.gallery-caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 18px;
+  border: 0;
+  padding: 0;
+  transform: none;
+  opacity: 1;
+}
+.gallery-description {
+  max-width: 46ch;
+}
+.gallery-description h3 {
+  font-size: clamp(28px, 2.7vw, 40px);
+  margin-top: 8px;
+  line-height: 1.12;
+}
+.gallery-description .eyebrow {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.gallery-description .media-label {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.gallery-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+}
+.gallery-controls {
+  min-width: 0;
+  max-width: 220px;
+  width: 100%;
+}
+.gallery-controls button {
+  min-width: 44px;
+  width: 44px;
+  height: 44px;
+}
+.gallery-actions > .button {
+  width: 100%;
+  max-width: 300px;
+  font-size: 16px;
+}
+.gallery-cue {
+  margin: 0;
+  font-size: 14px;
+  gap: 12px;
+}
+.gallery-note {
+  margin: 0;
+  font-size: 14px;
+}
+@media (min-width: 1700px) {
+  .hero {
+    min-height: 100svh;
+  }
+}
+@media (max-width: 1000px) {
+  .hero {
+    display: block;
+    padding-top: var(--header-height);
+    padding-bottom: 225px;
+  }
+  .hero-art {
+    inset: auto;
+    width: calc(100% + 2 * var(--gutter));
+    height: clamp(300px, 45svh, 520px);
+  }
+  .hero-copy {
+    width: 100%;
+    padding: 28px 0 0;
+  }
+  .hero h1 {
+    font-size: clamp(48px, 7vw, 68px);
+  }
+  .hero-reading .hero-description {
+    font-size: 18px;
+  }
+  .gallery-presentation {
+    grid-template-columns: minmax(0, 1.25fr) minmax(240px, 1fr);
+    gap: 20px;
+  }
+  .gallery-heading > p {
+    font-size: 17px;
+  }
+  .gallery-stage {
+    height: clamp(320px, calc(100svh - var(--header-height) - 190px), 500px);
+  }
+  .gallery-caption {
+    gap: 14px;
+  }
+}
+@media (max-width: 700px) {
+  :root {
+    --header-height: 80px;
+  }
+  .hero h1 {
+    font-size: clamp(44px, 10.5vw, 60px);
+  }
+  .hero-art {
+    height: clamp(300px, 43svh, 430px);
+  }
+  .hero-copy {
+    padding-top: 24px;
+  }
+  .gallery-heading {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .gallery-heading h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  .gallery-heading > p {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .garment-gallery {
+    padding: 22px var(--gutter) 28px;
+  }
+  .gallery-presentation {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  .gallery-stage {
+    height: clamp(235px, calc(100svh - var(--header-height) - 400px), 340px);
+    min-height: 235px;
+  }
+  .gallery-panel {
+    width: 54%;
+    height: 84%;
+    top: 4%;
+  }
+  .gallery-caption {
+    gap: 12px;
+  }
+  .gallery-description h3 {
+    font-size: 28px;
+  }
+  .gallery-description .media-label {
+    font-size: 14px;
+    margin-top: 6px;
+  }
+  .gallery-actions {
+    display: grid;
+    grid-template-columns: minmax(125px, 1fr) minmax(0, 1.2fr);
+    gap: 12px;
+    align-items: center;
+  }
+  .gallery-controls {
+    gap: 8px;
+    width: 100%;
+  }
+  .gallery-actions > .button {
+    padding: 12px;
+    min-height: 48px;
+    font-size: 14px;
+    gap: 8px;
+    max-width: none;
+  }
+  .gallery-cue {
+    font-size: 14px;
+  }
+  .gallery-note {
+    display: none;
+  }
+  .craft-words h2 {
+    font-size: 50px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-curtain {
+    display: none;
+  }
+  .hero-slide,
+  .hero-slide img,
+  .hero-reading *,
+  .is-entered [data-sequence-part] {
+    animation: none !important;
+    transform: none;
+    clip-path: none;
+    opacity: 1;
+  }
+  .gallery-panel[data-position='current'] {
+    transform: translateX(-50%);
+  }
+}
+
+.gallery-stage {
+  transform-style: preserve-3d;
+}
+
+.hero-reading {
+  max-width: none;
+}
+.hero-reading p {
+  max-width: 50ch;
+}
+.hero h1 {
+  font-size: clamp(52px, 4.6vw, 72px);
+}
+/* Reserve a fixed two-line title area so selecting a shorter title cannot
+   recenter the reading rail or shift its controls during garment movement. */
+.gallery-description h3 {
+  min-height: 2.24em;
+}
+.gallery-note {
+  display: none;
+}
+@media (max-width: 700px) {
+  .gallery-stage {
+    max-height: 330px;
+  }
+}
